@@ -1,0 +1,41 @@
+= Quand WebSocket rencontre AsciiDoctor
+Maxime Greau <http://twitter.com[@mgreau]>
+v1.0.0, Feb 17, 2014
+:copyright: CC BY-SA 2.0
+:website: http://asciidoctor.org
+:twitter: @mgreau
+include::attributes.conf[]
+
+
+
+[.topic]
+== Who's doing AsciiDoc?
+
+[.scatter.incremental]
+* https://github.com/git/git/tree/master/Documentation[Git] [detail]#User guide, man pages#
+* https://github.com/neo4j/neo4j/tree/master/manual/src[Neo4j] [detail]#Manual, refcards#
+* https://github.com/cdi-spec/cdi/tree/master/spec[CDI] [detail]#Specification#
+* http://static.springsource.org/spring-xd/docs/1.0.0.M1/reference/html[Spring XD] [detail]#Manual#
+* http://www.nofluffjuststuff.com/home/magazine_subscribe[NFJS] [detail]#Magazine#
+* Authors [detail]#Books, articles#
+* Publishers [detail]#O'Reilly#
+* *GitHub!*
+
+== !
+
+[{caption-off}, crole="band"]
+.www.asciidoctor.org
+image::open.jpg[]
+
+== !
+
+[{caption-off}, crole="band"]
+.https://github.com/mgreau/
+image::github.jpg[]
+
+[.topic.ending, hrole="name"]
+== Thanks!
+
+[.footer]
+
+{author} {twitter} 

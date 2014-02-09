@@ -1,2 +1,2 @@
-= Slide repositories
-author: @mgreau
+= Slides repositories
+Maxime Gréau <http://mgreau.com>

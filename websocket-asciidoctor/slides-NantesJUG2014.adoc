@@ -89,6 +89,35 @@ AsciiDoc and Asciidoctor have full unicode support.
 The Unicode Standard is the universal character-encoding scheme for written characters and text.
 --
 
+[.topic.source]
+== Requête HTTP WebSocket Handshake !
+
+include::snippets/websocket_handshake_request.adoc[]
+
+[NOTE.speaker]
+--
+Expliquer le WebSocket key (SHA1)
+--
+
+[.topic.source]
+== Réponse HTTP WebSocket Handshake !
+
+include::snippets/websocket_handshake_response.adoc[]
+
+[NOTE.speaker]
+--
+Expliquer le WebSocket Accept (SHA1)
+--
+
+[.topic.source.lhs]
+== WebSocket Javascript API exemple
+
+[source, javascript]
+----
+include::snippets/websocket_javascript_example.js[]
+----
+
+
 [.topic.intro]
 == DEMO
 

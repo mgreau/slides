@@ -130,17 +130,32 @@ include::snippets/websocket_jsr356_server_endpoint.java[]
 
 == WebSocket Java API (JSR 356) - Annotations
 
+[source, asciidoctor]
+----
+include::snippets/websocket_jsr356_annotations.adoc[]
+----
 
-Les attributs de l'annotation +@ServerEndpoint+ sont les suivants :
+Attributs de l'annotation +@ServerEndpoint+  :
 
-value:: URI relative ou URI template (ex: "/echo", "/chat/{subscriver-level}")
-decoders:: liste de noms de classes utilisées pour décoder les messages entrants
-encoders:: liste de noms de classes utilisées pour encoder les messages sortants
-subprotocols:: liste de sous-protocoles autorisés (ex: http://wamp.ws)
+* value
+* decoders
+* encoders
+* subprotocols
+
+[NOTE.speaker]
+--
+* value:: URI relative ou URI template (ex: "/echo", "/chat/{subscriver-level}")
+* decoders:: liste de noms de classes utilisées pour décoder les messages entrants
+* encoders:: liste de noms de classes utilisées pour encoder les messages sortants
+* subprotocols:: liste de sous-protocoles autorisés (ex: http://wamp.ws)
+--
+
 
 
 [.topic.intro]
 == DEMO
+
+TODO : inclure screen
 
 == !
 [.statement]

@@ -1,0 +1,17 @@
+[cols="2", options="header"] 
+|===
+|Annotation
+|Rôle
+|@ServerEndpoint
+|Déclare un Server Endpoint
+|@ClientEndpoint
+|Déclare un Client Endpoint
+|@OnOpen
+|Défini la méthode appelée pour gérer l'évenement d'ouverture de la connexion
+|@OnMessage
+|Défini la méthode appelée pour gérer l'évenement de réception d'un message
+|@OnError
+|Défini la méthode appelée pour gérer l'évenement lors d'une erreur
+|@OnClose
+|Défini la méthode appelée pour gérer l'évenement de clôture de la connexion
+|===

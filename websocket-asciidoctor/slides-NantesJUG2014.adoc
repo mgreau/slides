@@ -6,6 +6,12 @@ v1.0, Feb 17, 2014
 :twitter: @mgreau
 :copyright: CC BY-SA 2.0
 :github-project: https://github.com/mgreau/when-websocket-met-asciidoctor
+:link-javaee7: http://jcp.org/en/jsr/detail?id=342
+:link-jsr356: http://jcp.org/en/jsr/detail?id=356
+:link-adoptjsr-jsr356: https://glassfish.java.net/adoptajsr/jsr356.html
+:link-w3c-api: http://w3.org/TR/websockets/
+:link-rfc6455: http://tools.ietf.org/html/rfc6455
+:link-rfc2616: http://tools.ietf.org/html/rfc2616
 :dzslides-aspect: 16-9
 :math:
 :icons: font
@@ -76,17 +82,16 @@ Protocole - Java API - JSR 356
 * Hacks for server push : 
 --
 
-== !
+== Nouveau protocole : WebSocket !
 
 "WebSocket is a _full-duplex_ _bi-directional_ protocol, over a _Single TCP Connection_."
 -- Arun Gupta (RedHat)
 
 [NOTE.speaker]
 --
-Don't let the "Ascii" in AsciiDoc fool you.
-AsciiDoc and Asciidoctor have full unicode support.
-
-The Unicode Standard is the universal character-encoding scheme for written characters and text.
+* full-duplex : 
+* bi-directional : 
+* 
 --
 
 [.topic.source]
@@ -151,11 +156,18 @@ Attributs de l'annotation +@ServerEndpoint+  :
 --
 
 
-
 [.topic.intro]
 == DEMO
 
-TODO : inclure screen
+TODO : inclure screen USOPEN
+
+== Ressources pour WebSocket
+
+[bibliography]
+- {link-rfc6455}[RFC 6455: The WebSocket Protocol] - 'Spécification IETF'
+- {link-w3c-api}[W3C: The WebSocket API] - 'Spécification W3C' (Candidate Recommandation)
+- {link-jsr356}[JSR 356: Java API for WebSocket Protocol] - 'Spécification Java'
+- {link-adoptjsr-jsr356}[Adopt a JSR - JSR 356]
 
 == !
 [.statement]

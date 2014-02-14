@@ -117,6 +117,27 @@ Expliquer le WebSocket Accept (SHA1)
 include::snippets/websocket_javascript_example.js[]
 ----
 
+[.topic.source.lhs]
+== WebSocket Java API (JSR 356) Server Endpoint
+
+[source, java]
+----
+include::snippets/websocket_jsr356_server_endpoint.java[]
+----
+<1> L'annotation @ServerEndpoint transforme le POJO en WebSocket Endpoint, l'attribut *value* est obligatoire afin de préciser l'URI d'accès à cet Endpoint
+<2> la méthode handleMessage sera évoquée lors de chaque message reçu
+
+
+== WebSocket Java API (JSR 356) - Annotations
+
+
+Les attributs de l'annotation +@ServerEndpoint+ sont les suivants :
+
+value:: URI relative ou URI template (ex: "/echo", "/chat/{subscriver-level}")
+decoders:: liste de noms de classes utilisées pour décoder les messages entrants
+encoders:: liste de noms de classes utilisées pour encoder les messages sortants
+subprotocols:: liste de sous-protocoles autorisés (ex: http://wamp.ws)
+
 
 [.topic.intro]
 == DEMO

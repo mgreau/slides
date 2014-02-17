@@ -1,5 +1,4 @@
 var wsUri = "ws://echo.websocket.org/"; 
-
 function testWebSocket() { 
 
 	websocket = new WebSocket(wsUri); 
@@ -8,7 +7,6 @@ function testWebSocket() {
 	websocket.onmessage = function(evt) { onMessage(evt) }; 
 	websocket.onerror = function(evt) { onError(evt) }; }  
 }
-
 function onOpen(evt) { 
 	writeToScreen("CONNECTED"); 
 	doSend("WebSocket rocks"); 
@@ -20,7 +18,6 @@ function onMessage(evt) {
 	writeToScreen('<span style="color: blue;">RESPONSE: ' + evt.data+'</span>'); 
 	websocket.close(); 
 }  
-
 function onError(evt) { 
 	writeToScreen('<span style="color: red;">ERROR:</span> ' + evt.data);
 }  

@@ -1,9 +1,10 @@
 [[websocket-asciidoctor]]
-= Quand _WebSocket_ rencontre _Asciidoctor_ +NantesJUG - 2014
-Maxime Gréau @mgreau 
+= Quand _WebSocket_ rencontre _Asciidoctor_
+Maxime GREAU <http://mgreau.com[@mgreau]>
 v1.0, Feb 17, 2014
 :hashtag:  #websocket #asciidoctor
-:twitter: @mgreau
+:date:
+:twitter: http://twitter.com/mgreau
 :copyright: CC BY-SA 2.0
 :github-project: https://github.com/mgreau/when-websocket-met-asciidoctor
 :link-javaee7: http://jcp.org/en/jsr/detail?id=342
@@ -21,65 +22,69 @@ include::attributes.conf[]
 
 * Java EE 7
 * WebSocket
-** Protocol
+** Protocole
 ** Javascript API / Java API (JSR 356)
 * Asciidoctor
-* Travail collaboratif en temps réel
+* Editeur collaboratif en temps réél pour Asciidoc 
 
 == !
 [.statement]
-*Java EE 7* +
-Juin 2013 - 4 nouvelles JSRs
+*Java EE 7*
+Sortie en Juin 2013 - 4 nouvelles JSRs
 
 [.corner]
 image::javaee7_intro.png[role="pull-right"]
 
-[.topic]
-== J2EE c'est l'histoire
-
-* schéma historique
 
 [.topic]
-== JEE n'existe pas
+== JEE n'existe pas ! *Java EE ou EE*
 
-* TODO : impression ecran
+[.middle.stretch-y]
+image::javaee_no_jee.png[]
 
-== !
+[.topic]
+== J2EE c'est l'histoire !
 
-//[.middle]
-//A [.light]_lightweight_, yet *powerful* text-based markup language and document generator.
+[.middle.stretch-y]
+image::javaee_history.png[]
 
-[.statement]
-*Java EE* +
-[.push2]#court *EE*#
-
+[.topic]
 == Java EE 7 - Spécifications
 
-* TODO : image des JSRs
+[.middle.stretch-y]
+image::javaee_overview.png[]
+
+[NOTE.speaker]
+--
+Java EE 7 propose toujours de simplifier le travail du développeur avec 3 objectifs :
+
+* s’interfacer avec HTML5 (WebSocket API, JSON-P API, JAX-RS)
+* avoir une meilleure productivité (nouvelles annotations, moins de code inutile, meilleure cohésion entre JSRs)
+* répondre aux besoins des entreprises (Batch API, JMS API 2.0)
+
+* 4 nouvelles spécifications : *+Java API for WebSocket 1.0+*, *+Java API for JSON Processing 1.0+* , *+Batch Applications 1.0+* et *+Concurrency Utilities for Java EE 1.0+*
+* 3 spécifications avec une mise à jour majeure : *+JMS 2.0+*, *+JAX-RS 2.0+* et *+EL 3.0+* 
+* ainsi que 7 spécifications mises à jour dans une version mineure : *+JPA 2.1+*, *+Servlet 3.1+*, *+EJB 3.2+*, *+CDI 1.1+*, *+JSF 2.2+* et *+Bean Validation 1.1+*
+--
 
 == !
 [.statement]
 *WebSocket* +
-Protocole - Java API - JSR 356
-
-[NOTE.speaker]
---
-* use case 
---
-
+Protocole - Javascript API - Java API (JSR 356)
+  
 [.topic]
-== HTTP !
+== HTTP
 
 * Half-duplex
 * Verbeux
-* Contournement pour faire "server push"
+* Hacks pour faire du "server push"
 
 [NOTE.speaker]
 --
 * créé il y a 20 ans
-* Half-duplex : requête / réponse pattern
+* Half-duplex : requête / réponse pattern, client attend la réponse du serveur
 * verbose : bcp de headers HTTP (navigateurs, serveurs app) même pour simple hello world
-* Hacks for server push : 
+* Hacks for server push : pooling, long pooling, streaming
 --
 
 == Nouveau protocole : WebSocket !
@@ -89,9 +94,26 @@ Protocole - Java API - JSR 356
 
 [NOTE.speaker]
 --
-* full-duplex : 
-* bi-directional : 
-* 
+* basé sur *+1 unique connexion TCP entre 2 peers+* (en HTTP chaque requête/réponse necessite une nouvelle connexion TCP)
+* *+bi-directionnel+* : le client peut envoyer un message au serveur et le serveur peut envoyer un message au client
+* *+full-duplex+* : le client peut envoyer plusieurs messages vers le serveur et le serveur vers le client sans attendre de réponse l'un de l'autre
+--
+
+== !
+[.statement]
+
+[.middle.stretch-y]
+image::websocket_protocol.svg[]
+
+[NOTE.speaker]
+--
+le *protocole WebSocket fonctionne en 2 phases* nommées :
+
+. *+handshake+*
+. *+data transfer+*
+
+1 *unique échange requête/réponse HTTP* entre l'initiateur de la connexion (peer client)  et le peer serveur. Cet échange HTTP est spécifique car il utilise la notion {link-rfc2616-upgrade}[*d'Upgrade, définie dans la spécification HTTP*.] + 
+Le principe est simple : *l'Upgrade HTTP* permet au client de communiquer avec le serveur pour lui demander de changer de protocole de communication et ainsi faire en sorte que le client et le serveur utilisent un protocole autre que HTTP pour discuter.
 --
 
 [.topic.source]
@@ -101,7 +123,9 @@ include::snippets/websocket_handshake_request.adoc[]
 
 [NOTE.speaker]
 --
-Expliquer le WebSocket key (SHA1)
+* Expliquer le WebSocket key (SHA1)
+* 
+* 
 --
 
 [.topic.source]
@@ -115,15 +139,53 @@ Expliquer le WebSocket Accept (SHA1)
 --
 
 [.topic.source.lhs]
-== WebSocket Javascript API exemple
+== WebSocket Javascript API
+
+[source, javascript]
+----
+include::snippets/websocket_javascript_api.adoc[]
+----
+[NOTE.speaker]
+--
+* un attribut pour l'URL de connexion au server Endpoint (+url+)
+* un attribut sur l'état de la connexion (+readyState+ : CONNECTING, OPEN, CLOSING, CLOSED)
+* des *Event-Handler (gestionnaire d'évènement)* pour s'adapter aux méthodes du cycle de vie des WebSocket, par exemple : 
+** l'Event-Handler +onopen+ est appelé lorsqu'une nouvelle connexion est initiée
+** l'Event-Handler +onerror+ est appelé lorsqu'une erreur est reçue pendant la communication
+** l'Event-Handler +onmessage+ est appelé lorsqu'un message est reçu
+* les méthodes (+send(DOMString data)+, +send(Blob data)+) avec lesquelles il est possible d'envoyer différents types de flux (texte, binaire) vers le serveur Endpoint
+--
+
+[.topic.source.lhs]
+== WebSocket Javascript exemple
 
 [source, javascript]
 ----
 include::snippets/websocket_javascript_example.js[]
 ----
 
+[.topic]
+== WebSocket Java API (JSR 356)
+
+* API pour *WebSocket Endpoint*
+* approche par *annotation Java* ou par programmation
+* gestion des sessions WebSocket
+* Java EE *Web Profile*
+
+[NOTE.speaker]
+--
+. *WebSocket Endpoint* (serveur ou client)
+. approche par *annotation Java* ou par programmation
+. *envoyer et de consommer des messages* de contrôles, textuels ou binaires via ce protocole
+.. de gérer le message en tant que message complet ou par une séquence de messages partiels
+.. envoyer ou recevoir les messages en tant qu'objets Java (notion d'*encoders/decoders*)
+.. envoyer les messages *en synchrone ou en asynchrone*
+. la configuration et la *gestion des sessions WebSocket*
+. Java EE *Web Profile*
+--
+
 [.topic.source.lhs]
-== WebSocket Java API (JSR 356) Server Endpoint
+== WebSocket Java API (JSR 356) : Server Endpoint
 
 [source, java]
 ----
@@ -135,20 +197,27 @@ include::snippets/websocket_jsr356_server_endpoint.java[]
 
 == WebSocket Java API (JSR 356) - Annotations
 
-[source, asciidoctor]
-----
-include::snippets/websocket_jsr356_annotations.adoc[]
-----
+[cols="2"] 
+|===
+|@ServerEndpoint
+|Déclare un Server Endpoint
+|@ClientEndpoint
+|Déclare un Client Endpoint
+|@OnOpen
+|Ouverture de la connexion
+|@OnMessage
+|Réception d'un message
+|@OnError
+|Evenement lors d'une erreur
+|@OnClose
+|Clôture de la connexion
+|===
 
-Attributs de l'annotation +@ServerEndpoint+  :
-
-* value
-* decoders
-* encoders
-* subprotocols
 
 [NOTE.speaker]
 --
+Attributs de l'annotation +@ServerEndpoint+  :
+
 * value:: URI relative ou URI template (ex: "/echo", "/chat/{subscriver-level}")
 * decoders:: liste de noms de classes utilisées pour décoder les messages entrants
 * encoders:: liste de noms de classes utilisées pour encoder les messages sortants
@@ -156,72 +225,31 @@ Attributs de l'annotation +@ServerEndpoint+  :
 --
 
 
-[.topic.intro]
-== DEMO
+== !
+[.statement]
 
-TODO : inclure screen USOPEN
+[.middle.stretch-y]
+image::websocket_demo_usopen.png[]
 
 == Ressources pour WebSocket
 
-[bibliography]
-- {link-rfc6455}[RFC 6455: The WebSocket Protocol] - 'Spécification IETF'
-- {link-w3c-api}[W3C: The WebSocket API] - 'Spécification W3C' (Candidate Recommandation)
-- {link-jsr356}[JSR 356: Java API for WebSocket Protocol] - 'Spécification Java'
-- {link-adoptjsr-jsr356}[Adopt a JSR - JSR 356]
+* {link-rfc6455}[RFC 6455: The WebSocket Protocol] - Spécification IETF
+* {link-w3c-api}[W3C: The WebSocket API] - Spécification W3C (Candidate Recommandation)
+* {link-jsr356}[JSR 356: Java API for WebSocket Protocol] - Spécification Java
 
 == !
 [.statement]
 *Asciidoctor* +
-A modern, open source implementation of AsciiDoc in [.ruby]#Ruby#
+Une implémentation moderne, open source, de AsciiDoc en [.ruby]#Ruby#
 
 [.corner]
 image::rubygems.png[Ruby gem,200,141]
 
-
-[.topic.intro]
-== The Documentation Chronicles
-
-//``Adapt or die.''
-//``Adapting to an adaptive world.''
-``The adaptive storm.''
-
-
-[.terminal]
-== !
-
-[subs=attributes]
-....
-include::snippets/asciidoc-asciitext.adoc[]
-....
-
-
-[.terminal]
-== !
-
-[.statement]
-Ascii Art?
-
-[indent=20]
-....
-include::snippets/asciiart-coffee.adoc[]
-....
-
-
-[.terminal]
-== !
-
-[indent=9]
-....
-include::snippets/asciiart-beer.adoc[]
-....
-
-
-[.terminal]
-== !
-
-....
-include::snippets/asciidoc-asciiart.adoc[]
-....
+[NOTE.speaker]
+--
+* asciidoc créé en 2002 pour convertir du texte, écrit en python
+* asciidoctor, nouvelle implémentation en 2013, écrit en Ruby
+--
 
 
 == !
@@ -237,82 +265,57 @@ lightweight *markup* +
 
 == !
 
-[.statement]
-[mild]*Mild* punctuation
-image:mild.png[role="pull-right"]
-
-
-[.topic.intro]
-== ``It's just _text_, mate''
-
-
-[.topic.intro]
-== Text, how _sublime_ ☕
-
-
-== Asciidoctor
-
-[.statement]
-*Asciidoctor* +
-A modern, open source implementation of AsciiDoc in [.ruby]#Ruby#
-
-[.corner]
-image::rubygems.png[Ruby gem,200,141]
-
-
-== !
-
 [.relax-y.elevate, {caption-off}]
 .AsciiDoc processor
 image::asciidoc-processor.png[]
 
 
 [.topic.source.lhs]
-== Let's compare AsciiDoc...
+== Comparons Asciidoc...
 
 [source, asciidoc]
 ----
-include::snippets/short-sample.adoc[]
+include::snippets/asciidoctor_sample_asciidoc.adoc[]
 ----
 
 
 [.topic.source]
-== ...to Markdown
+== ...avec Markdown
 
 [source, markdown]
 ----
-include::snippets/short-sample.md[]
+include::snippets/asciidoctor_sample_markdown.md[]
 ----
 
 
 [.topic.source]
-== ...to DocBook
+== ...avec DocBook
 
 [source, xml]
 ----
-include::snippets/short-sample.xml[lines=1..20]
+include::snippets/asciidoctor_sample_docbook.xml[lines=1..20]
         ...
 ----
 
 
 [.topic.source]
-== ...to DocBook (and going...)
+== ...avec DocBook (suite...)
 
 [source, xml]
 ----
                 ...
-include::snippets/short-sample.xml[lines=21..39]
+include::snippets/asciidoctor_sample_docbook.xml[lines=21..39]
                 ...
 ----
 
 
 [.topic.source]
-== ...to DocBook (at last!)
+== ...avec DocBook (fin)
 
 [source, xml]
 ----
             ...
-include::snippets/short-sample.xml[lines=40..-1]
+include::snippets/asciidoctor_sample_docbook.xml[lines=40..-1]
 ----
 
 
@@ -321,38 +324,10 @@ include::snippets/short-sample.xml[lines=40..-1]
 
 [source, asciidoc]
 ----
-include::snippets/short-sample.adoc[]
+include::snippets/asciidoctor_sample_asciidoc.adoc[]
 ----
 
-
-[.intro.topic]
-== see the *big picture*
-
-
-////
-== !
-
-[{no-title}]
-image::vim-voom-asciidoc-outline.png[]
-////
-
-
-== !
-
-[.center.relax-x, {no-title}]
-image::gedit-asciidoc-outline.png[]
-
-
-////
-== !
-
-[{caption-off}, crole=band]
-//.Editing AsciiDoc with live preview
-image::live-preview.png[]
-////
-
-
-== Output formats (i.e., backends)
+== Format de sortie (i.e., backends)
 
 image::export-icon.png[role=pull-left]
 
@@ -363,95 +338,7 @@ image::export-icon.png[role=pull-left]
 * eBook [detail]#ePub 2, mobi#
 * slides [detail]#deck.js, dzslides, reveal.js#
 * man pages
-* *custom*&ndash;you name it!
-
-[.topic.intro]
-== Extensions
-
-
-== !
-
-[{caption-off}]
-.Document AST
-image::ast.png[]
-
-
-== !
-
-[.middle.pull-left]
-AST extensions
-
-[.incremental.middle.pull-right]
-* Preprocessor
-* Treeprocessor
-* Postprocessor
-
-
-== !
-
-
-[.middle.pull-left]
-Syntax extensions
-
-[.incremental.middle.pull-right]
-* Block
-* Block Macro
-* Inline Macro
-
-
-[.topic.intro]
-== Polyglot!
-
-[.incremental.pull-right]
-* Ruby
-* &#160; &#160; JavaScript
-* Java
-* &#160; &#160; Groovy
-* and more!
-
-////
-[.topic.source]
-== Custom block macro
-
-[source,asciidoc]
-----
-.Contents of project
-tree:path/to/project[]
-----
-
-
-[.topic.source]
-== Register block macro
-
-[source,no-highlight]
-----
-Extensions.register do
-
-  block_macro :tree, TreeBlockMacro
-
-end
-----
-
-
-[.topic.source]
-== Block macro extension
-
-[source,no-highlight]
-----
-class TreeBlockMacro < BlockMacroProcessor
-
-  def process(parent, target, attributes)
-    tree = %x(tree #{target}).lines.entries[1..-1].join
-    Block.new(parent, :listing,
-        :content_model => :verbatim,
-        :source => tree,
-        :attributes => attributes)
-  end
-
-end
-----
-////
-
+* *custom*
 
 [.topic.intro]
 == Asciidoctor *Java*
@@ -471,21 +358,16 @@ The [.ruby]*Ruby* Programming Language on the JVM
 image::asciidoctor-java.png[AsciidoctorJ processor]
 
 
-== !
 
-[{caption-off}]
-.AsciidoctorJ build plugins
-image::asciidoctor-java-usage.png[AsciidoctorJ usage]
+[.topic]
+== Java Integration
 
-
-== !
-
-"Any application that can be written in _JavaScript_ [.underline]#will eventually# be written in _JavaScript_."
--- Atwood's law
-
-[.topic.intro]
-== Asciidoctor.**js**
-
+[.scatter.incremental]
+* https://github.com/asciidoctor/asciidoctor-maven-plugin[Maven Plugin]
+* https://github.com/asciidoctor/asciidoctor-gradle-plugin[Gradle Plugin]
+* https://github.com/asciidoctor/asciidoclet[Asciidoclet]
+* http://jbake.org/[jBake]
+* ...
 
 == Opal
 
@@ -513,94 +395,33 @@ image::asciidoctorjs-compile.png[]
 image::github-sample.png[]
 
 
-== !
-
-[{caption-off}, crole=band]
-.DocGist
-//image::docgist-writers-guide.png[]
-image::docgist-sample.png[]
-
-
-== !
-
-[{caption-off}, crole=band]
-.Asciidoctor.js Browser Extension
-//image::asciidoctorjs-chrome-extension.png[]
-image::chrome-sample.png[]
-
-== !
-
-[{caption-off}, crole=band]
-.Asciidoctor + WebSockets
-image::asciidoctor-websockets.png[]
-
-
-[.topic.intro]
-== *Unicode* compliant++
-
-[NOTE.speaker]
---
-Don't let the "Ascii" in AsciiDoc fool you.
-AsciiDoc and Asciidoctor have full unicode support.
-
-The Unicode Standard is the universal character-encoding scheme for written characters and text.
---
-
-[.topic]
-== Symbol party!
-
-[.incremental.scatter.big]
-* icon:twitter[]
-* [.gray]#&#x2708;#
-
-* [.black]#☃#?
-* math:[E = mc^2]
-
-
-== !
-
-[{caption-off}, crole=band]
-.Design Legibility & Aesthetics
-image::asciidoctor-styles.png[]
-
-
-[.terminal.raw]
-== !
-
-....
-
-....
-
-
-== Who's writing?
+== Qui utilise Asciidoctor ?
 
 [.scatter.incremental]
 * https://github.com/git/git/tree/master/Documentation[Git] [detail]#User guide, man pages#
-* https://github.com/neo4j/neo4j/tree/master/manual/src[Neo4j] [detail]#Manual, refcards#
 * http://docs.spring.io/spring/docs/4.0.0.BUILD-SNAPSHOT/spring-framework-reference/htmlsingle[Spring Framework] [detail]#Reference#
 * https://github.com/cdi-spec/cdi/tree/master/spec[CDI] [detail]#Specification#
-* Publishers [detail]#O'Reilly, Manning, http://www.nofluffjuststuff.com/home/magazine_subscribe[NFJS Magazine]#
 * Repositories [detail]#Bintray, *GitHub!*#
-* and more!
-
+* ...
 
 == !
-
 [.statement]
-Drop the [.sans]*</>* +
-not the *semantics*
 
-
-[.topic.intro]
-== ``It's just _text_, mate''
-
+[.middle.stretch-y]
+image::ad-editor-0.1.0-alpha2.png[]
 
 [.topic.ending, hrole=name]
-== WebSocket -- AsciiDoctor!
+== WebSocket met AsciiDoctor !
 
+
+[NOTE.speaker]
+--
+* Chrome : supprimer Browser Storage (IndexedDB + cache) => chrome://settings/cookies
+* Chrome : voir Browser Storage => Onglet Resources
+--
 
 [.footer]
-{github-project} {twitter}
+{github-project}[source github] - {twitter}[@mgreau]
 
 
 ////

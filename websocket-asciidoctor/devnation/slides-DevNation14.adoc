@@ -1,0 +1,64 @@
+[[when-websocket-met-asciidoctor]]
+= Real-time _collaborative_ editor for _AsciiDoc_
+@mgreau 
+v1.0, Apr 16, 2014
+:hashtag: #DevNation #asciidoctor #JavaEE7
+:copyright: CC BY-SA 2.0
+:website: http://asciidoctor.org
+:dzslides-aspect: 16-9
+:icons: font
+:dzslides-style: devnation
+:dzslides-fonts: family=Open+Sans:400,700,200,300
+:dzslides-transition: fade
+:dzslides-highlight: github
+:language: highlight
+:source-highlighter: highlightjs
+
+[.topic.intro]
+== .
+
+[NOTE.speaker]
+====
+. Introduce myself
+
+Hi, Thanks for coming, it's a honor for me to be here.
+My name is Maxime Gréau and I work for the French Ministry for Economy and Finances in France.
+As you can hear, I'm a French guy. 
+and I will do my best to be well understood despite my accent.
+
+. Overview
+
+So I'm here to speak about WebSocket Java EE 7 and Asciidoctor. 
+And I will show you how all this technology can fit together in order to do a Real-time Collaborative Editor
+====
+
+[.topic]
+== Asciidoctor
+
+
+[.topic]
+== Asciidoctor
+
+
+[.topic.source]
+== WebSocket
+
+[source, java]
+----
+import javax.websocket.OnMessage;
+import javax.websocket.ServerEndpoint;
+
+@ServerEndpoint(value = "/adoc/{adoc-id}",
+     decoders = { MessageDecoder.class },
+     encoders = { AsciidocMessageEncoder.class, OutputMessageEncoder.class, NotificationMessageEncoder.class })
+public class WWSMADEndpoint {
+
+    @OnMessage
+    public void message(final Session session, AsciidocMessage msg,
+			@PathParam("adoc-id") String adocId) {
+    
+      ...
+   }
+
+}
+----

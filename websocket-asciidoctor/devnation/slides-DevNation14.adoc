@@ -1,4 +1,5 @@
 [[when-websocket-met-asciidoctor]]
+[.topic]
 = Real-time _collaborative_ editor for _AsciiDoc_
 @mgreau 
 v1.0, Apr 16, 2014
@@ -10,19 +11,20 @@ v1.0, Apr 16, 2014
 :dzslides-style: devnation
 :dzslides-fonts: family=Open+Sans:400,700,200,300
 :dzslides-transition: fade
-:dzslides-highlight: github
+:dzslides-highlight: asciidoctor
 :language: highlight
 :source-highlighter: highlightjs
 :snippets: https://raw.github.com/mgreau/slides/master/websocket-asciidoctor/snippets
 
-[[slide1]]
-[.topic.intro]
-== .
+[[slide2]]
+[.topic]
+== /Me.
 
 Maxime GREAU - France -
 
 * twitter / github => @mgreau
 * blog / website => http://mgreau.com
+* hastag #wWSmAD => very important for demo
 
 [NOTE.speaker]
 ====
@@ -40,15 +42,18 @@ And I will show you how all this technology can fit together in order to do a Re
 ====
 
 
-[[slide2]]
-[.topic]
+[[slide3]]
+[.topic.recap]
 == Quick Pools
 
-Its 4PM, how many people _sent an email today_ ?
 
-And
+How many people 
 
-How many people _wrote technical documentation_ in the past two days ?
+_sent an email today_ ?
+
+
+How many people 
+_wrote technical documentation_ in the past two days ?
 
 Here we are !!
 
@@ -59,12 +64,13 @@ Here we are !!
 ====
 
 
-[[slide3]]
+[[slide4]]
 [.topic]
 == AsciiDoc to the rescue
 
 [.statement]
 Writing documentation have to be as easy as writing email !
+
 
 
 [NOTE.speaker]
@@ -79,9 +85,9 @@ and social media messages. That involves communication through writing. That’s
 http://asciidoctor.org/docs/what-is-asciidoc/
 ====
 
-[[slide4]]
+[[slide5]]
 [.topic]
-== What is AsciiDoc !
+== OK so What is AsciiDoc ? !
 
 AsciiDoc is... 
 
@@ -100,56 +106,233 @@ and social media messages. That involves communication through writing. That’s
 http://asciidoctor.org/docs/what-is-asciidoc/
 ====
 
-[[slide5]]
-[.topic]
-== Lightweight *markup* : example
+[[slide6]]
+[.topic.source]
+== AsciiDoc : Lightweight *markup*
 
----
 [source, asciidoc]
 ----
-include::{snippets}/snippets/asciidoctor_sample_asciidoc.adoc[]
+include::{snippets}/asciidoctor_sample_asciidoc.adoc[]
 ----
----
 
+[NOTE]
+[role="speaker"]
+====
+* Java EE 7 is the latest release of the platform and focuses around increasing productivity and embracing HTML5. WildFly 8 is Java EE 7 compliant and so you get all the technologies from the platform here.
+* WebSocket (JSR 356), Batch (JSR 352), JSON (JSR 353), Concurrency Utilities for Java EE (JSR 236) are four new techonlogies in the platform. JAX-RS 2 (JSR 339) and JMS 2 (JSR 343) went through significant updates. CDI 1.1 (JSR 346), Bean Validation 1.1 (JSR 349), JPA 2.1 (JSR 338), JTA 1.2 (JSR 907) also made updates.
+* Lets take a look at some Java EE 7 sample code.
+====
 
 [[slide7]]
 [.topic]
-== Publishing toolchain ?
+== !
 
 "Use AsciiDoc for document markup. It's actually readable by humans, easier to parse way more flexible than XML."
 -- Linus Torvald
 
+[NOTE.speaker]
+====
+* Why do you need to use AsciiDoc for documentation because Linus Torvald says it.
+====
+
+
 [[slide8]]
 [.topic]
-== Asciidoctor ??
+== *Asciidoctor*!
 
 A modern, open source implementation of AsciiDoc [ruby]#in Ruby#
 
+[NOTE.speaker]
+====
+* Why do we speak a lot about AsciiDoc this time, because a new project is arrived in 2013 : Asciidoctor
+* Asciidoctor is ...
+====
 
-[[slide8]]
+[[slide9]]
 [.topic]
-== Asciidoctor ??
+== Output formats (i.e., backends)!
 
-What can I render from AsciiDoc file with Asciidoctor :
+[.incremental.middle.pull-right]
+* HTML 5
+* DocBook 4.5 & 5.0
+* PDF [detail]#fop, dblatex#
+* eBook [detail]#ePub 2, mobi#
+* slides [detail]#deck.js, dzslides, reveal.js#
+* man pages
+* *custom*
 
-*
-
-
-
-
-[[slide8]]
+[[slide10]]
 [.topic]
+== How do I use Asciidoctor ?
+
+[.incremental.pull-right]
+* Ruby 
+* Java [detail]#asciidoctorJ _@alexsoto_#
+* Javascript
+* Groovy
+* and more
+
+[NOTE.speaker]
+====
+Polyglot
+====
+
+
+[[slide11]]
+[.topic]
+== Who is using Asciidoctor ?
+
+* Spring
+* Git
+
+[[slide12]]
+[.topic.recap]
 == Demo time
 
 * Asciidoctor and Asciidoctor.js with ad-editor
 
+[[slide13]]
+[.topic]
+== Asciidoctor resources
+
+* http://asciidoctor.org (website, user manual, writing guide...)
+
+By @mojavelinux, @aoffray and the community
+
+[[slide14]]
+[.topic]
+== Java EE 7 - WebSocket
 
 
+[[slide15]]
+[.topic]
+== Java EE 7
+
+* 4 new JSR
+
+[[slide16]]
+[.topic]
+== HTTP
+
+* half-duplex
+* verbose
+* hack for push
+
+[[slide17]]
+[.topic]
+== WebSocket
+
+WebSocket is a full duplex...
+
+
+[[slide18]]
+[.topic]
+== WebSocket lifecycle schema
+
+
+[[slide19]]
+[.topic]
+== WebSocket - Handshake
+
+[source, text]
+----
+GET /usopen/matches/1234 HTTP/1.1     # <1>
+Host: wildfly-mgreau.rhcloud.com:8000  # <2>    
+Upgrade: websocket  # <3>
+Connection: Upgrade # <4>
+Origin: http://wildfly-mgreau.rhcloud.com
+Sec-WebSocket-Key:0EK7XmpTZL341oOh7x1cDw==
+Sec-WebSocket-Version:13
+----
+
+* Response
+
+[[slide20]]
+[.topic]
+== Javascript API
+
+
+[[slide21]]
+[.topic]
+== Java API - JSR356
+
+
+[[slide22]]
+[.topic]
+== Java API - JSR356 - @ServerEndpoint
+
+
+
+[[slide23]]
+[.topic]
+== Java API - JSR356 - Annotations
+
+
+
+[[slide25]]
+[.topic]
+== WebSocket - Resources
+
+* Protocol
+* 
+
+
+[[slide26]]
+[.topic]
+== DEMO
+
+
+[[slide27]]
+[.topic]
+== ad-editor : schema
+
+
+
+[[slide28]]
+[.topic]
+== ad-editor : code
+
+
+
+[[slide29]]
+[.topic]
+== ad-editor : code
+
+
+
+[[slide30]]
+[.topic]
+== DevNation Killer feature ?
+
+* Prepare your smartphone / laptop
+
+
+[[slide31]]
+[.topic]
+== Webinar
+
+* slides on the video 
+* Asciidoctor add an AST feature
+
+
+[[slide32]]
+[.topic]
+== Webinar
+
+* slides on the video 
+* Asciidoctor add an AST feature
+
+
+
+
+[[slide45]]
 [.ending]
 == Thank you
 
+when-websocket-met-asciidoctor
+
 [role="footer"]
-http://github.com/mgreau/when-websocket-met-asciidoctor
+Maxime Gréau
 
 
 

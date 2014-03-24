@@ -20,12 +20,12 @@ v1.0, Apr 16, 2014
 [.topic]
 == /Me
 
-
 [.incremental]
-* IT Architect [detail]#Ministry of Enconomy and Finances#
+* IT Architect [detail]#Ministry of Economy and Finances#
 * Author [detail]#Apache Maven (French Book)#
 * Technical Reviewer [detail]#WildFly - EE7#
-* twitter / blog [detail]#http://mgreau.com#
+* Blog [detail]#http://mgreau.com#
+* Twitter/Github [detail]#@mgreau#
 
 [NOTE.speaker]
 ====
@@ -42,21 +42,29 @@ So I'm here to speak mainly about WebSocket Java EE 7 and Asciidoctor but also a
 And I will show you how all this technology can fit together in order to do a Real-time Collaborative Editor for AsciiDoc
 ====
 
+[[slide3]]
+[.topic]
+== When WebSocket met Asciidoctor
+
+[.incremental]
+* AsciiDoc
+* &#160; &#160; Asciidoctor
+* Java EE 7
+* &#160; &#160; WebSocket &#160; &#160; CDI &#160; &#160; WildFly
+* Javascript, Angular JS
+* HTML5
+
 
 [[slide3]]
 [.topic.recap]
-== Quick Pools
+== Quick Polls
 
 
-How many people 
-
-_sent an email today_ ?
-
-
-How many people 
-_wrote technical documentation_ in the past two days ?
-
-Here we are !!
+[.incremental]
+*  &#160;
+* Who _sent an email today_?
+* Who _wrote technical documentation_ in the past two days ?
+* &#160; &#160; *Here we are !!*
 
 [NOTE.speaker]
 ====
@@ -66,11 +74,8 @@ Here we are !!
 
 
 [[slide4]]
-[.topic]
-== AsciiDoc to the rescue
-
-[.statement]
-Writing documentation have to be as easy as writing email !
+[.topic.intro]
+== ``Writing documentation have to be _as easy as_ writing email !''
 
 
 

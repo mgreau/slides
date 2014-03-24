@@ -1,9 +1,9 @@
 [[when-websocket-met-asciidoctor]]
 [.topic]
-= Real-time _collaborative_ editor for _AsciiDoc_
-@mgreau 
+= Real-time *collaborative* *editor* for *AsciiDoc* &#160;&#160;&#160; _When WebSocket met Asciidoctor_
+Maxime GREAU <http://mgreau.com[@mgreau]>
 v1.0, Apr 16, 2014
-:hashtag:  #asciidoctor #WebSocket
+:hashtag:  #Asciidoctor #WebSocket #JavaEE7
 :copyright: CC BY-SA 2.0
 :website: http://asciidoctor.org
 :dzslides-aspect: 16-9
@@ -18,13 +18,14 @@ v1.0, Apr 16, 2014
 
 [[slide2]]
 [.topic]
-== /Me.
+== /Me
 
-Maxime GREAU - France -
 
-* twitter / github => @mgreau
-* blog / website => http://mgreau.com
-* hastag #wWSmAD => very important for demo
+[.incremental]
+* IT Architect [detail]#Ministry of Enconomy and Finances#
+* Author [detail]#Apache Maven (French Book)#
+* Technical Reviewer [detail]#WildFly - EE7#
+* twitter / blog [detail]#http://mgreau.com#
 
 [NOTE.speaker]
 ====
@@ -125,7 +126,7 @@ include::{snippets}/asciidoctor_sample_asciidoc.adoc[]
 
 [[slide7]]
 [.topic]
-== !
+== &#160;
 
 "Use AsciiDoc for document markup. It's actually readable by humans, easier to parse way more flexible than XML."
 -- Linus Torvald
@@ -138,9 +139,12 @@ include::{snippets}/asciidoctor_sample_asciidoc.adoc[]
 
 [[slide8]]
 [.topic]
-== *Asciidoctor*!
+== What is *Asciidoctor*
 
-A modern, open source implementation of AsciiDoc [ruby]#in Ruby#
+[.statement]
+AsciiDoc is... +
+lightweight *markup* +
+[.push2]#publishing *toolchain*#
 
 [NOTE.speaker]
 ====
@@ -152,7 +156,7 @@ A modern, open source implementation of AsciiDoc [ruby]#in Ruby#
 [.topic]
 == Output formats (i.e., backends)!
 
-[.incremental.middle.pull-right]
+[.incremental]
 * HTML 5
 * DocBook 4.5 & 5.0
 * PDF [detail]#fop, dblatex#
@@ -165,7 +169,7 @@ A modern, open source implementation of AsciiDoc [ruby]#in Ruby#
 [.topic]
 == How do I use Asciidoctor ?
 
-[.incremental.pull-right]
+[.incremental]
 * Ruby 
 * Java [detail]#asciidoctorJ _@alexsoto_#
 * Javascript

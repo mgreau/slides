@@ -2,7 +2,7 @@
 [.topic]
 = Real-time *collaborative* *editor* for *AsciiDoc* &#160;&#160;&#160; _When WebSocket met Asciidoctor_
 Maxime GREAU <http://mgreau.com[@mgreau]>
-v1.0, Apr 16, 2014
+v1.0, March 24, 2014
 :hashtag:  #Asciidoctor #WebSocket #JavaEE7
 :copyright: CC BY-SA 2.0
 :website: http://asciidoctor.org
@@ -14,7 +14,8 @@ v1.0, Apr 16, 2014
 :dzslides-highlight: asciidoctor
 :language: highlight
 :source-highlighter: highlightjs
-:snippets: https://raw.github.com/mgreau/slides/master/websocket-asciidoctor/snippets
+:snippets: https://raw.github.com/mgreau/slides/master/websocket-asciidoctor/devnation/snippets
+:images_dir: https://raw.github.com/mgreau/slides/master/websocket-asciidoctor/devnation/images
 
 [[slide2]]
 [.topic]
@@ -44,7 +45,7 @@ And I will show you how all this technology can fit together in order to do a Re
 
 [[slide3]]
 [.topic]
-== When WebSocket met Asciidoctor
+== When _WebSocket_ met *Asciidoctor*
 
 [.incremental]
 * AsciiDoc
@@ -64,7 +65,7 @@ And I will show you how all this technology can fit together in order to do a Re
 *  &#160;
 * Who _sent an email today_?
 * Who _wrote technical documentation_ in the past two days ?
-* &#160; &#160; *Here we are !!*
+* &#160; &#160; *Here we are !*
 
 [NOTE.speaker]
 ====
@@ -93,12 +94,12 @@ http://asciidoctor.org/docs/what-is-asciidoc/
 
 [[slide5]]
 [.topic]
-== OK so What is AsciiDoc ? !
+== OK so What is AsciiDoc ? 
 
-AsciiDoc is... 
-
-* lightweight *markup*
-* publishing *toolchain*
+[.statement]
+AsciiDoc is... +
+lightweight *markup* +
+[.push2]#publishing *toolchain*#
 
 [NOTE.speaker]
 ====
@@ -114,19 +115,34 @@ http://asciidoctor.org/docs/what-is-asciidoc/
 
 [[slide6]]
 [.topic.source]
-== AsciiDoc : Lightweight *markup*
+== AsciiDoc : *Lightweight markup*
 
 [source, asciidoc]
 ----
-include::{snippets}/asciidoctor_sample_asciidoc.adoc[]
+= Document Title2
+Doc Writer <doc@asciidoc.org>
+v1.0, 2013-01-01: Initial version
+
+http://asciidoc.org[AsciiDoc] is a lightweight markup language.
+
+This is the optional preamble (an untitled section body), useful for
+writing simple sectionless documents consisting only of a preamble.
+
+NOTE: The abstract, preface, appendix, bibliography, glossary and
+index section titles are significant (_specialsections_).
+
+== First section
+
+Document sections start at *level 1* and can nest four levels deep.
+
+* Item 1
+* Item 2
 ----
 
 [NOTE]
 [role="speaker"]
 ====
-* Java EE 7 is the latest release of the platform and focuses around increasing productivity and embracing HTML5. WildFly 8 is Java EE 7 compliant and so you get all the technologies from the platform here.
-* WebSocket (JSR 356), Batch (JSR 352), JSON (JSR 353), Concurrency Utilities for Java EE (JSR 236) are four new techonlogies in the platform. JAX-RS 2 (JSR 339) and JMS 2 (JSR 343) went through significant updates. CDI 1.1 (JSR 346), Bean Validation 1.1 (JSR 349), JPA 2.1 (JSR 338), JTA 1.2 (JSR 907) also made updates.
-* Lets take a look at some Java EE 7 sample code.
+
 ====
 
 [[slide7]]
@@ -144,12 +160,12 @@ include::{snippets}/asciidoctor_sample_asciidoc.adoc[]
 
 [[slide8]]
 [.topic]
-== What is *Asciidoctor*
+== What is *Asciidoctor* ?
 
 [.statement]
-AsciiDoc is... +
-lightweight *markup* +
-[.push2]#publishing *toolchain*#
+*Asciidoctor* +
+A modern, open source implementation of AsciiDoc in [.ruby]#Ruby#
+
 
 [NOTE.speaker]
 ====
@@ -159,7 +175,7 @@ lightweight *markup* +
 
 [[slide9]]
 [.topic]
-== Output formats (i.e., backends)!
+== Output *formats* (i.e., backends)
 
 [.incremental]
 * HTML 5
@@ -172,14 +188,13 @@ lightweight *markup* +
 
 [[slide10]]
 [.topic]
-== How do I use Asciidoctor ?
+== How do I *use* Asciidoctor ?
 
 [.incremental]
-* Ruby 
-* Java [detail]#asciidoctorJ _@alexsoto_#
-* Javascript
-* Groovy
-* and more
+* Ruby [detail]#asciidoctor asciidoctor-pdf#
+* Java [detail]#asciidoctorJ, asciidoctor-maven-plugin#
+* Javascript [detail]#asciidoctor.js, Chrome/Firefox extension#
+* Groovy [detail]#asciidoctor-gradle-plugin#
 
 [NOTE.speaker]
 ====
@@ -189,16 +204,28 @@ Polyglot
 
 [[slide11]]
 [.topic]
-== Who is using Asciidoctor ?
+== *Who* is using Asciidoctor ?
 
-* Spring
-* Git
+[.pull-right]
+* Frameworks [detail]#Spring, Infinispan#
+* JSR [detail]#CDI Specifications, JavaEE 8 Specs#
+* Publishers [detail]#O'Reilly#
+* Repositories [detail]#Github, Bintray#
+* and more...
+
+[NOTE.speaker]
+====
+TODO: add book enterprise Web Book
+====
+
 
 [[slide12]]
 [.topic.recap]
 == Demo time
 
-* Asciidoctor and Asciidoctor.js with ad-editor
+Asciidoctor via asciidoctor.js
+
+image::https://raw.github.com/mgreau/when-websocket-met-asciidoctor/master/doc/img/ad-editor-offline.png[Offline mode feature, 530, link="{imagesdir}ad-editor-offline.png"]
 
 [[slide13]]
 [.topic]
@@ -206,7 +233,8 @@ Polyglot
 
 * http://asciidoctor.org (website, user manual, writing guide...)
 
-By @mojavelinux, @aoffray and the community
+[.footer]
+By @mojavelinux, @aoffray, @alexsoto, @ and the community
 
 [[slide14]]
 [.topic]
@@ -332,13 +360,32 @@ Sec-WebSocket-Version:13
 * Asciidoctor add an AST feature
 
 
+[[slide32]]
+[.topic]
+== What's next ?
+
+* PDF renderer
+* Github worflow
+* Chat (audio, text)
+* OAuth
+* ... github/when-webscoket-met-asciidoctor
+
+[[slide32]]
+[.topic]
+== Thanks to...
+
+[.pull-right]
+* &#160; [detail]#@alexsotob#
+* &#160; &#160; [detail]#@mojavelinux#
+* &#160; [detail]#@arungupta#
+* &#160; &#160; [detail]#@tgrall#
 
 
 [[slide45]]
 [.ending]
 == Thank you
 
-when-websocket-met-asciidoctor
+http://github.com/mgreau/when-websocket-met-asciidoctor[when-websocket-met-asciidoctor on Github]
 
 [role="footer"]
 Maxime Gréau

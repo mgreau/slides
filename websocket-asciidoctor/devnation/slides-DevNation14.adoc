@@ -265,7 +265,7 @@ image::https://raw.githubusercontent.com/mgreau/slides/master/websocket-asciidoc
 [.topic]
 == WebSocket
 
-* 1 protocol - RF6455
+* 1 Protocol - RF6455
 * 1 Java API - JSR 356
 * 1 Javascrpt API - W3C
 
@@ -307,6 +307,30 @@ Upgrade:websocket
 [.topic]
 == Javascript API
 
+[source,javascript]
+----
+var wsUri = "ws://echo.websocket.org/";
+function testWebSocket() {
+        websocket = new WebSocket(wsUri);
+        websocket.onopen = function(evt) { onOpen(evt) };
+        websocket.onclose = function(evt) { onClose(evt) };
+        websocket.onmessage = function(evt) { onMessage(evt) };
+        websocket.onerror = function(evt) { onError(evt) }; }
+}
+function onOpen(evt) {
+        writeToScreen("CONNECTED");
+        doSend("WebSocket rocks");
+}
+function onClose(evt) {
+        writeToScreen("DISCONNECTED");
+}
+function onMessage(evt) {
+        writeToScreen('<span style="color: blue;">RESPONSE: ' + evt.data+'</span>');
+        websocket.close();
+}
+----
+
+
 
 [[slide21]]
 [.topic]
@@ -324,7 +348,22 @@ Upgrade:websocket
 [.topic]
 == Java API - JSR356 - @ServerEndpoint
 
+[source,java]
+.+EchoServer.java+
+----
+import javax.websocket.OnMessage;
+import javax.websocket.ServerEndpoint;
 
+@ServerEndpoint("/echo") 
+public class EchoServer {
+
+        @OnMessage 
+        public String handleMessage(String message){
+                return "Thanks for the message: " + message;
+        }
+}
+
+----
 
 [[slide23]]
 [.topic]
@@ -336,16 +375,13 @@ Upgrade:websocket
 |POJO to Server Endpoint
 |
 |@ClientEndpoint
-|Déclare un Client Endpoint
+|POJO to Client Endpoint
 |
 |@OnOpen
-|Ouverture de la connexion
+|Open connection
 |
 |@OnMessage
-|Réception d'un message
-|
-|@OnError
-|Evenement lors d'une erreur
+|Close connection
 |
 |===
 
@@ -361,20 +397,78 @@ image::https://raw.github.com/mgreau/when-websocket-met-asciidoctor/master/doc/d
 
 [[slide27]]
 [.topic]
-== ad-editor : schema
+== ad-editor : JSR356
 
+[source,java]
+.+WWSMADEndpoint.java+
+----
+@ServerEndpoint(value = "/adoc/{adoc-id}", 
+	decoders = { MessageDecoder.class }, 
+	encoders = { AsciidocMessageEncoder.class, OutputMessageEncoder.class, NotificationMessageEncoder.class })
+public class WWSMADEndpoint {
+	
+	static Set<Session> peers = Collections
+			.synchronizedSet(new HashSet<Session>());
 
+	@Inject @Backend("html5")
+	Event<AsciidocMessageEvent> html5Event;
+	
+	@Inject @Backend("dzslides")
+	Event<AsciidocMessageEvent> dzEvent;
+	
+	@OnMessage
+	public void message(final Session session, AsciidocMessage msg,
+			@PathParam("adoc-id") String adocId) {
+	}
+}	
+----
+
+[NOTE.speaker]
+====
+TODO : add schema
+====
 
 [[slide28]]
 [.topic]
-== ad-editor : code
+== ad-editor : CDI
 
+[source,java]
+.+AsciidocMessageConsumer.java+
+----
+public class AsciidocMessageConsumer {
+	
+	@Inject
+	AsciidoctorProcessor processor;
+
+	public void html5RenderedEvent(@Observes @Backend("html5") AsciidocMessageEvent event){
+	}
+	
+	public void dzslidesRenderedEvent(@Observes @Backend("dzslides") AsciidocMessageEvent event){
+	    ...
+	}
+}	
+----
 
 
 [[slide29]]
 [.topic]
-== ad-editor : code
+== ad-editor : Javascript
 
+[source,java]
+.+services.js+
+----
+// Send an adoc source to see the generated output back
+service.sendAdocSource = function(idAdoc, source, writer, backend) {
+		var jsonObj = {"type" : backend, "source" : source, "writer": writer};
+		service.ws[idAdoc].send(JSON.stringify(jsonObj));
+	};
+	
+// Send 2 adoc source to see the diff
+service.sendAdocSourceForDiff = function(idAdoc, source, writer, sourceToMerge) {
+		var jsonObj = {"type" : "adoc-for-diff", "source" : source, "writer": writer, "sourceToMerge" : sourceToMerge};
+		service.ws[idAdoc].send(JSON.stringify(jsonObj));
+	};
+----	
 
 
 [[slide30]]
@@ -384,20 +478,19 @@ image::https://raw.github.com/mgreau/when-websocket-met-asciidoctor/master/doc/d
 
 [[slide31]]
 [.topic]
-== Webinar without video !
+== Asciidoctor *AST* Transformation
 
 [.incremental]
-* Asciidoctor propose an *AST feature*
-* Render simply one part of the whole document
+* Asciidoctor propose an *AST feature*...
+* So easy to render *one part* of the document...
+*  and we can render *HTML5 slides*...
 
 [[slide32]]
 [.topic.recap]
 == Demo-time
 
 [.statement]
-*Asciidoctor* +
-A modern, open source implementation of AsciiDoc in [.ruby]#Ruby#
-
+*Webinar without VIDEO*
 
 
 [[slide32]]
@@ -413,7 +506,7 @@ A modern, open source implementation of AsciiDoc in [.ruby]#Ruby#
 [.topic]
 == Thanks to...
 
-[.pull-right]
+[.middle]
 * &#160; [detail]#@alexsotob#
 * &#160; &#160; [detail]#@mojavelinux#
 * &#160; [detail]#@arungupta#

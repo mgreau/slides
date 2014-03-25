@@ -56,7 +56,7 @@ And I will show you how all this technology can fit together in order to do a Re
 * HTML5
 
 
-[[slide3]]
+[[slide4]]
 [.topic.recap]
 == Quick Polls
 
@@ -74,7 +74,7 @@ And I will show you how all this technology can fit together in order to do a Re
 ====
 
 
-[[slide4]]
+[[slide5]]
 [.topic.intro]
 == ``Writing documentation have to be _as easy as_ writing email !''
 
@@ -92,9 +92,9 @@ and social media messages. That involves communication through writing. That’s
 http://asciidoctor.org/docs/what-is-asciidoc/
 ====
 
-[[slide5]]
+[[slide6]]
 [.topic]
-== OK so What is AsciiDoc ? 
+== *AsciiDoc* to the rescue
 
 [.statement]
 AsciiDoc is... +
@@ -113,7 +113,7 @@ and social media messages. That involves communication through writing. That’s
 http://asciidoctor.org/docs/what-is-asciidoc/
 ====
 
-[[slide6]]
+[[slide7]]
 [.topic.source]
 == AsciiDoc : *Lightweight markup*
 
@@ -145,7 +145,7 @@ Document sections start at *level 1* and can nest four levels deep.
 
 ====
 
-[[slide7]]
+[[slide8]]
 [.topic]
 == &#160;
 
@@ -158,7 +158,7 @@ Document sections start at *level 1* and can nest four levels deep.
 ====
 
 
-[[slide8]]
+[[slide9]]
 [.topic]
 == What is *Asciidoctor* ?
 
@@ -173,7 +173,7 @@ A modern, open source implementation of AsciiDoc in [.ruby]#Ruby#
 * Asciidoctor is ...
 ====
 
-[[slide9]]
+[[slide10]]
 [.topic]
 == Output *formats* (i.e., backends)
 
@@ -186,7 +186,7 @@ A modern, open source implementation of AsciiDoc in [.ruby]#Ruby#
 * man pages
 * *custom*
 
-[[slide10]]
+[[slide11]]
 [.topic]
 == How do I *use* Asciidoctor ?
 
@@ -202,7 +202,7 @@ Polyglot
 ====
 
 
-[[slide11]]
+[[slide12]]
 [.topic]
 == *Who* is using Asciidoctor ?
 
@@ -219,7 +219,7 @@ TODO: add book enterprise Web Book
 ====
 
 
-[[slide12]]
+[[slide13]]
 [.topic.recap]
 == Demo time
 
@@ -229,23 +229,22 @@ image::https://raw.github.com/mgreau/when-websocket-met-asciidoctor/master/doc/i
 
 [[slide13]]
 [.topic]
-== Asciidoctor resources
+== Asciidoctor *resources*
 
-* http://asciidoctor.org (website, user manual, writing guide...)
-
-[.footer]
-By @mojavelinux, @aoffray, @alexsoto, @ and the community
+* Website [detail]#http://asciidoctor.org (blog, user manual, writing guide...)#
+* Github sources [detail]#http://github.com/asciidoctor#
+* Forum [detail]#http://discuss.asciidoctor.org#
 
 [[slide14]]
-[.topic]
-== Java EE 7 - WebSocket
+[.intro.topic]
+== Java EE 7  *WebSocket*
 
 
 [[slide15]]
 [.topic]
-== Java EE 7
+== Java EE 7 - *Overview*
 
-* 4 new JSR
+image::https://raw.githubusercontent.com/mgreau/slides/master/websocket-asciidoctor/images/javaee_overview.png[JavaEE7, 610]
 
 [[slide16]]
 [.topic]
@@ -257,19 +256,29 @@ By @mojavelinux, @aoffray, @alexsoto, @ and the community
 
 [[slide17]]
 [.topic]
+== &#160;
+
+"WebSocket is a _full-duplex_ _bi-directional_ protocol, over a _Single TCP Connection_."
+-- Arun Gupta (RedHat)
+
+[[slide18]]
+[.topic]
 == WebSocket
 
-WebSocket is a full duplex...
-
+* 1 protocol - RF6455
+* 1 Java API - JSR 356
+* 1 Javascrpt API - W3C
 
 [[slide18]]
 [.topic]
 == WebSocket lifecycle schema
 
+image::https://raw.githubusercontent.com/mgreau/slides/master/websocket-asciidoctor/images/websocket_protocol.png[lifecycle, 330]
+
 
 [[slide19]]
 [.topic]
-== WebSocket - Handshake
+== WebSocket - Handshake *Request*
 
 [source, text]
 ----
@@ -282,7 +291,17 @@ Sec-WebSocket-Key:0EK7XmpTZL341oOh7x1cDw==
 Sec-WebSocket-Version:13
 ----
 
-* Response
+[[slide20]]
+[.topic]
+== WebSocket - Handshake - *Response*
+
+[source, text]
+----
+HTTP/1.1 101 Switching Protocols 
+Connection:Upgrade
+Sec-WebSocket-Accept:SuQ5/hh0kStSr6oIzDG6gRfTx2I=
+Upgrade:websocket 
+----
 
 [[slide20]]
 [.topic]
@@ -292,6 +311,13 @@ Sec-WebSocket-Version:13
 [[slide21]]
 [.topic]
 == Java API - JSR356
+
+[.incremental]
+* API for WebSocket Server and Client Endpoint
+** Annotated: [detail]#`@ServerEndpoint`, `@ClientEndpoint`#
+** Programmatic: [detail]#`Endpoint`#
+** WebSocket opening handshake negotiation
+* LIfecycle callback methods
 
 
 [[slide22]]
@@ -304,19 +330,33 @@ Sec-WebSocket-Version:13
 [.topic]
 == Java API - JSR356 - Annotations
 
-
-
-[[slide25]]
-[.topic]
-== WebSocket - Resources
-
-* Protocol
-* 
+[cols="3"] 
+|===
+|@ServerEndpoint
+|POJO to Server Endpoint
+|
+|@ClientEndpoint
+|Déclare un Client Endpoint
+|
+|@OnOpen
+|Ouverture de la connexion
+|
+|@OnMessage
+|Réception d'un message
+|
+|@OnError
+|Evenement lors d'une erreur
+|
+|===
 
 
 [[slide26]]
-[.topic]
-== DEMO
+[.topic.recap]
+== Demo time
+
+ad-editor : Asciidoctor via asciidoctorJ
+
+image::https://raw.github.com/mgreau/when-websocket-met-asciidoctor/master/doc/demo/collaborative-editor.gif[Collaborative-editor, 600, link="{demo-url}collaborative-editor.gif"]
 
 
 [[slide27]]
@@ -338,26 +378,26 @@ Sec-WebSocket-Version:13
 
 
 [[slide30]]
-[.topic]
-== DevNation Killer feature ?
-
-* Prepare your smartphone / laptop
+[.intro.topic]
+== DevNation *Killer feature* ?
 
 
 [[slide31]]
 [.topic]
-== Webinar
+== Webinar without video !
 
-* slides on the video 
-* Asciidoctor add an AST feature
-
+[.incremental]
+* Asciidoctor propose an *AST feature*
+* Render simply one part of the whole document
 
 [[slide32]]
-[.topic]
-== Webinar
+[.topic.recap]
+== Demo-time
 
-* slides on the video 
-* Asciidoctor add an AST feature
+[.statement]
+*Asciidoctor* +
+A modern, open source implementation of AsciiDoc in [.ruby]#Ruby#
+
 
 
 [[slide32]]
@@ -368,7 +408,6 @@ Sec-WebSocket-Version:13
 * Github worflow
 * Chat (audio, text)
 * OAuth
-* ... github/when-webscoket-met-asciidoctor
 
 [[slide32]]
 [.topic]

@@ -1,0 +1,15 @@
+[source, text]
+----
+GET /usopen/matches/1234 HTTP/1.1     # <1>
+Host: wildfly-mgreau.rhcloud.com:8000  # <2>	
+Upgrade: websocket  # <3>
+Connection: Upgrade # <4>
+Origin: http://wildfly-mgreau.rhcloud.com
+Sec-WebSocket-Key:0EK7XmpTZL341oOh7x1cDw==
+Sec-WebSocket-Version:13
+----
+<1> Methode HTTP GET et version 1.1 obligatoires
+<2> Host utilisé pour la connexion WebSocket
+<3> Demande d'Upgrade vers le protocole WebSocket
+<4> Demande d'Upgrade HTTP pour changer de protocole
+

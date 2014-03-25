@@ -1,0 +1,40 @@
+= Document Title2
+Doc Writer <doc@asciidoc.org>
+v1.0, 2013-01-01: Initial version
+
+http://asciidoc.org[AsciiDoc] is a lightweight markup language.
+
+This is the optional preamble (an untitled section body), useful for
+writing simple sectionless documents consisting only of a preamble.
+
+NOTE: The abstract, preface, appendix, bibliography, glossary and
+index section titles are significant (_specialsections_).
+
+== First section
+
+Document sections start at *level 1* and can nest four levels deep.
+
+* Item 1
+* Item 2
+
+[source,java]
+--
+...
+@ServerEndpoint(
+		value = "/matches/{match-id}",
+		        decoders = { MessageDecoder.class }, 
+		        encoders = { MatchMessageEncoder.class, BetMessageEncoder.class }
+		)
+public class MatchEndpoint {
+...
+
+    @OnMessage
+    public void message(final Session session, BetMessage msg,  @PathParam("match-id") String matchId) {
+        logger.log(Level.INFO, "Received: Bet Match Winner - {0}", msg.getWinner());
+        ...
+    }
+
+...
+}
+--
+	

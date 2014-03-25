@@ -1,0 +1,526 @@
+[[when-websocket-met-asciidoctor]]
+[.topic]
+= Real-time *collaborative* *editor* for *AsciiDoc* &#160;&#160;&#160; _When WebSocket met Asciidoctor_
+Maxime GREAU <http://mgreau.com[@mgreau]>
+v1.0, March 24, 2014
+:hashtag:  #Asciidoctor #WebSocket #JavaEE7
+:copyright: CC BY-SA 2.0
+:website: http://asciidoctor.org
+:dzslides-aspect: 16-9
+:icons: font
+:dzslides-style: devnation
+:dzslides-fonts: family=Open+Sans:400,700,200,300
+:dzslides-transition: fade
+:dzslides-highlight: asciidoctor
+:language: highlight
+:source-highlighter: highlightjs
+:snippets: https://raw.github.com/mgreau/slides/master/websocket-asciidoctor/devnation/snippets
+:images_dir: https://raw.github.com/mgreau/slides/master/websocket-asciidoctor/devnation/images
+
+[[slide2]]
+[.topic]
+== /Me
+
+[.incremental]
+* IT Architect [detail]#Ministry of Economy and Finances#
+* Author [detail]#Apache Maven (French Book)#
+* Technical Reviewer [detail]#WildFly - EE7#
+* Blog [detail]#http://mgreau.com#
+* Twitter/Github [detail]#@mgreau#
+
+[NOTE.speaker]
+====
+. Text : Introduce myself
+
+Hi, Thanks for coming, it's a honor for me to be here. So thanks to the DevNation team
+My name is Maxime Gréau and I work for the French Ministry for Economy and Finances in France.
+As you can hear, I'm a French guy. 
+and I will do my best to be well understood despite my accent.
+
+. Text : Overview
+
+So I'm here to speak mainly about WebSocket Java EE 7 and Asciidoctor but also about HTML5, Angular and CDI
+And I will show you how all this technology can fit together in order to do a Real-time Collaborative Editor for AsciiDoc
+====
+
+[[slide3]]
+[.topic]
+== When _WebSocket_ met *Asciidoctor*
+
+[.incremental]
+* AsciiDoc
+* &#160; &#160; Asciidoctor
+* Java EE 7
+* &#160; &#160; WebSocket &#160; &#160; CDI &#160; &#160; WildFly
+* Javascript, Angular JS
+* HTML5
+
+
+[[slide4]]
+[.topic.recap]
+== Quick Polls
+
+
+[.incremental]
+*  &#160;
+* Who _sent an email today_?
+* Who _wrote technical documentation_ in the past two days ?
+* &#160; &#160; *Here we are !*
+
+[NOTE.speaker]
+====
+. Ask to the attendees to hands up their hands
+
+====
+
+
+[[slide5]]
+[.topic.intro]
+== ``Writing documentation have to be _as easy as_ writing email !''
+
+
+
+[NOTE.speaker]
+====
+. Text
+
+Writing e-mail is easy. We do it all the time. Every day, we respond to dozens of e-mail
+and social media messages. That involves communication through writing. That’s right, writing!
+
+. References
+
+http://asciidoctor.org/docs/what-is-asciidoc/
+====
+
+[[slide6]]
+[.topic]
+== *AsciiDoc* to the rescue
+
+[.statement]
+AsciiDoc is... +
+lightweight *markup* +
+[.push2]#publishing *toolchain*#
+
+[NOTE.speaker]
+====
+. Text
+
+Writing e-mail is easy. We do it all the time. Every day, we respond to dozens of e-mail
+and social media messages. That involves communication through writing. That’s right, writing!
+
+. References
+
+http://asciidoctor.org/docs/what-is-asciidoc/
+====
+
+[[slide7]]
+[.topic.source]
+== AsciiDoc : *Lightweight markup*
+
+[source, asciidoc]
+----
+= Document Title2
+Doc Writer <doc@asciidoc.org>
+v1.0, 2013-01-01: Initial version
+
+http://asciidoc.org[AsciiDoc] is a lightweight markup language.
+
+This is the optional preamble (an untitled section body), useful for
+writing simple sectionless documents consisting only of a preamble.
+
+NOTE: The abstract, preface, appendix, bibliography, glossary and
+index section titles are significant (_specialsections_).
+
+== First section
+
+Document sections start at *level 1* and can nest four levels deep.
+
+* Item 1
+* Item 2
+----
+
+[NOTE]
+[role="speaker"]
+====
+
+====
+
+[[slide8]]
+[.topic]
+== &#160;
+
+"Use AsciiDoc for document markup. It's actually readable by humans, easier to parse way more flexible than XML."
+-- Linus Torvald
+
+[NOTE.speaker]
+====
+* Why do you need to use AsciiDoc for documentation because Linus Torvald says it.
+====
+
+
+[[slide9]]
+[.topic]
+== What is *Asciidoctor* ?
+
+[.statement]
+*Asciidoctor* +
+A modern, open source implementation of AsciiDoc in [.ruby]#Ruby#
+
+
+[NOTE.speaker]
+====
+* Why do we speak a lot about AsciiDoc this time, because a new project is arrived in 2013 : Asciidoctor
+* Asciidoctor is ...
+====
+
+[[slide10]]
+[.topic]
+== Output *formats* (i.e., backends)
+
+[.incremental]
+* HTML 5
+* DocBook 4.5 & 5.0
+* PDF [detail]#fop, dblatex#
+* eBook [detail]#ePub 2, mobi#
+* slides [detail]#deck.js, dzslides, reveal.js#
+* man pages
+* *custom*
+
+[[slide11]]
+[.topic]
+== How do I *use* Asciidoctor ?
+
+[.incremental]
+* Ruby [detail]#asciidoctor asciidoctor-pdf#
+* Java [detail]#asciidoctorJ, asciidoctor-maven-plugin#
+* Javascript [detail]#asciidoctor.js, Chrome/Firefox extension#
+* Groovy [detail]#asciidoctor-gradle-plugin#
+
+[NOTE.speaker]
+====
+Polyglot
+====
+
+
+[[slide12]]
+[.topic]
+== *Who* is using Asciidoctor ?
+
+[.pull-right]
+* Frameworks [detail]#Spring, Infinispan#
+* JSR [detail]#CDI Specifications, JavaEE 8 Specs#
+* Publishers [detail]#O'Reilly#
+* Repositories [detail]#Github, Bintray#
+* and more...
+
+[NOTE.speaker]
+====
+TODO: add book enterprise Web Book
+====
+
+
+[[slide13]]
+[.topic.recap]
+== Demo time
+
+Asciidoctor via asciidoctor.js
+
+image::https://raw.github.com/mgreau/when-websocket-met-asciidoctor/master/doc/img/ad-editor-offline.png[Offline mode feature, 530, link="{imagesdir}ad-editor-offline.png"]
+
+[[slide13]]
+[.topic]
+== Asciidoctor *resources*
+
+* Website [detail]#http://asciidoctor.org (blog, user manual, writing guide...)#
+* Github sources [detail]#http://github.com/asciidoctor#
+* Forum [detail]#http://discuss.asciidoctor.org#
+
+[[slide14]]
+[.intro.topic]
+== Java EE 7  *WebSocket*
+
+
+[[slide15]]
+[.topic]
+== Java EE 7 - *Overview*
+
+image::https://raw.githubusercontent.com/mgreau/slides/master/websocket-asciidoctor/images/javaee_overview.png[JavaEE7, 610]
+
+[[slide16]]
+[.topic]
+== HTTP
+
+* half-duplex
+* verbose
+* hack for push
+
+[[slide17]]
+[.topic]
+== &#160;
+
+"WebSocket is a _full-duplex_ _bi-directional_ protocol, over a _Single TCP Connection_."
+-- Arun Gupta (RedHat)
+
+[[slide18]]
+[.topic]
+== WebSocket
+
+* 1 Protocol - RF6455
+* 1 Java API - JSR 356
+* 1 Javascrpt API - W3C
+
+[[slide18]]
+[.topic]
+== WebSocket lifecycle schema
+
+image::https://raw.githubusercontent.com/mgreau/slides/master/websocket-asciidoctor/images/websocket_protocol.png[lifecycle, 330]
+
+
+[[slide19]]
+[.topic]
+== WebSocket - Handshake *Request*
+
+[source, text]
+----
+GET /usopen/matches/1234 HTTP/1.1     # <1>
+Host: wildfly-mgreau.rhcloud.com:8000  # <2>    
+Upgrade: websocket  # <3>
+Connection: Upgrade # <4>
+Origin: http://wildfly-mgreau.rhcloud.com
+Sec-WebSocket-Key:0EK7XmpTZL341oOh7x1cDw==
+Sec-WebSocket-Version:13
+----
+
+[[slide20]]
+[.topic]
+== WebSocket - Handshake - *Response*
+
+[source, text]
+----
+HTTP/1.1 101 Switching Protocols 
+Connection:Upgrade
+Sec-WebSocket-Accept:SuQ5/hh0kStSr6oIzDG6gRfTx2I=
+Upgrade:websocket 
+----
+
+[[slide20]]
+[.topic]
+== Javascript API
+
+[source,javascript]
+----
+var wsUri = "ws://echo.websocket.org/";
+function testWebSocket() {
+        websocket = new WebSocket(wsUri);
+        websocket.onopen = function(evt) { onOpen(evt) };
+        websocket.onclose = function(evt) { onClose(evt) };
+        websocket.onmessage = function(evt) { onMessage(evt) };
+        websocket.onerror = function(evt) { onError(evt) }; }
+}
+function onOpen(evt) {
+        writeToScreen("CONNECTED");
+        doSend("WebSocket rocks");
+}
+function onClose(evt) {
+        writeToScreen("DISCONNECTED");
+}
+function onMessage(evt) {
+        writeToScreen('<span style="color: blue;">RESPONSE: ' + evt.data+'</span>');
+        websocket.close();
+}
+----
+
+
+
+[[slide21]]
+[.topic]
+== Java API - JSR356
+
+[.incremental]
+* API for WebSocket Server and Client Endpoint
+** Annotated: [detail]#`@ServerEndpoint`, `@ClientEndpoint`#
+** Programmatic: [detail]#`Endpoint`#
+** WebSocket opening handshake negotiation
+* LIfecycle callback methods
+
+
+[[slide22]]
+[.topic]
+== Java API - JSR356 - @ServerEndpoint
+
+[source,java]
+.+EchoServer.java+
+----
+import javax.websocket.OnMessage;
+import javax.websocket.ServerEndpoint;
+
+@ServerEndpoint("/echo") 
+public class EchoServer {
+
+        @OnMessage 
+        public String handleMessage(String message){
+                return "Thanks for the message: " + message;
+        }
+}
+
+----
+
+[[slide23]]
+[.topic]
+== Java API - JSR356 - Annotations
+
+[cols="3"] 
+|===
+|@ServerEndpoint
+|POJO to Server Endpoint
+|
+|@ClientEndpoint
+|POJO to Client Endpoint
+|
+|@OnOpen
+|Open connection
+|
+|@OnMessage
+|Close connection
+|
+|===
+
+
+[[slide26]]
+[.topic.recap]
+== Demo time
+
+ad-editor : Asciidoctor via asciidoctorJ
+
+image::https://raw.github.com/mgreau/when-websocket-met-asciidoctor/master/doc/demo/collaborative-editor.gif[Collaborative-editor, 600, link="{demo-url}collaborative-editor.gif"]
+
+
+[[slide27]]
+[.topic]
+== ad-editor : JSR356
+
+[source,java]
+.+WWSMADEndpoint.java+
+----
+@ServerEndpoint(value = "/adoc/{adoc-id}", 
+	decoders = { MessageDecoder.class }, 
+	encoders = { AsciidocMessageEncoder.class, OutputMessageEncoder.class, NotificationMessageEncoder.class })
+public class WWSMADEndpoint {
+	
+	static Set<Session> peers = Collections
+			.synchronizedSet(new HashSet<Session>());
+
+	@Inject @Backend("html5")
+	Event<AsciidocMessageEvent> html5Event;
+	
+	@Inject @Backend("dzslides")
+	Event<AsciidocMessageEvent> dzEvent;
+	
+	@OnMessage
+	public void message(final Session session, AsciidocMessage msg,
+			@PathParam("adoc-id") String adocId) {
+	}
+}	
+----
+
+[NOTE.speaker]
+====
+TODO : add schema
+====
+
+[[slide28]]
+[.topic]
+== ad-editor : CDI
+
+[source,java]
+.+AsciidocMessageConsumer.java+
+----
+public class AsciidocMessageConsumer {
+	
+	@Inject
+	AsciidoctorProcessor processor;
+
+	public void html5RenderedEvent(@Observes @Backend("html5") AsciidocMessageEvent event){
+	}
+	
+	public void dzslidesRenderedEvent(@Observes @Backend("dzslides") AsciidocMessageEvent event){
+	    ...
+	}
+}	
+----
+
+
+[[slide29]]
+[.topic]
+== ad-editor : Javascript
+
+[source,java]
+.+services.js+
+----
+// Send an adoc source to see the generated output back
+service.sendAdocSource = function(idAdoc, source, writer, backend) {
+		var jsonObj = {"type" : backend, "source" : source, "writer": writer};
+		service.ws[idAdoc].send(JSON.stringify(jsonObj));
+	};
+	
+// Send 2 adoc source to see the diff
+service.sendAdocSourceForDiff = function(idAdoc, source, writer, sourceToMerge) {
+		var jsonObj = {"type" : "adoc-for-diff", "source" : source, "writer": writer, "sourceToMerge" : sourceToMerge};
+		service.ws[idAdoc].send(JSON.stringify(jsonObj));
+	};
+----	
+
+
+[[slide30]]
+[.intro.topic]
+== DevNation *Killer feature* ?
+
+
+[[slide31]]
+[.topic]
+== Asciidoctor *AST* Transformation
+
+[.incremental]
+* Asciidoctor propose an *AST feature*...
+* So easy to render *one part* of the document...
+*  and we can render *HTML5 slides*...
+
+[[slide32]]
+[.topic.recap]
+== Demo-time
+
+[.statement]
+*Webinar without VIDEO*
+
+
+[[slide32]]
+[.topic]
+== What's next ?
+
+* PDF renderer
+* Github worflow
+* Chat (audio, text)
+* OAuth
+
+[[slide32]]
+[.topic]
+== Thanks to...
+
+[.middle]
+* &#160; [detail]#@alexsotob#
+* &#160; &#160; [detail]#@mojavelinux#
+* &#160; [detail]#@arungupta#
+* &#160; &#160; [detail]#@tgrall#
+
+
+[[slide45]]
+[.ending]
+== Thank you
+
+http://github.com/mgreau/when-websocket-met-asciidoctor[when-websocket-met-asciidoctor on Github]
+
+[role="footer"]
+Maxime Gréau
+
+
+

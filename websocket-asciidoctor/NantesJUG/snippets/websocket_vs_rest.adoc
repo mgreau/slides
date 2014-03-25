@@ -1,0 +1,20 @@
+[cols="3*", options="header"] 
+|===
+|Type de Requête
+|Temps execution + 
+*REST Endpoint*
+|Temps execution +
+*WebSocket Endpoint*
+|Envoi de 10 messages de 1 byte
+|220 ms
+|7 ms
+|Envoi de 100 messages de 10 bytes
+|986 ms
+|57 ms
+|Envoi de 1000 messages de 100 bytes
+|10 210 ms
+|179 ms
+|Envoi de 5000 messages de 1000 bytes
+|54 449 ms
+|1202 ms
+|===

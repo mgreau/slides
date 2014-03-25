@@ -1,0 +1,25 @@
+[[when-websocket-met-asciidoctor]]
+= Real-time _collaborative_ editor for _AsciiDoc_
+@mgreau 
+v1.0, Apr 16, 2014
+:hashtag: #DevNation #asciidoctor #JavaEE7
+:copyright: CC BY-SA 2.0
+:website: http://asciidoctor.org
+:dzslides-aspect: 16-9
+:math:
+:icons: font
+:dzslides-style: devnation
+:dzslides-fonts: family=Open+Sans:400,700,200,300
+
+[.topic.intro]
+== .
+
+[.topic]
+== April 16, 2014, San Francisco
+
+* When 
+* &#160; &#160; _WebSocket_
+* met 
+* &#160; &#160; _Asciidoctor_
+
+Rendez-vous *4:50 p.m.-5:50 p.m. Room 208*

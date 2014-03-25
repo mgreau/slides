@@ -15,7 +15,7 @@ v1.0, March 24, 2014
 :language: highlight
 :source-highlighter: highlightjs
 :snippets: https://raw.github.com/mgreau/slides/master/websocket-asciidoctor/devnation/snippets
-:images_dir: https://raw.github.com/mgreau/slides/master/websocket-asciidoctor/devnation/images
+
 
 [[slide2]]
 [.topic]
@@ -225,7 +225,7 @@ TODO: add book enterprise Web Book
 
 Asciidoctor via asciidoctor.js
 
-image::https://raw.github.com/mgreau/when-websocket-met-asciidoctor/master/doc/img/ad-editor-offline.png[Offline mode feature, 530, link="{imagesdir}ad-editor-offline.png"]
+image::ad-editor-offline.png[Offline mode feature, 530]
 
 [[slide13]]
 [.topic]
@@ -244,7 +244,7 @@ image::https://raw.github.com/mgreau/when-websocket-met-asciidoctor/master/doc/i
 [.topic]
 == Java EE 7 - *Overview*
 
-image::https://raw.githubusercontent.com/mgreau/slides/master/websocket-asciidoctor/images/javaee_overview.png[JavaEE7, 610]
+image::javaee_overview.png[JavaEE7, 610]
 
 [[slide16]]
 [.topic]
@@ -273,7 +273,7 @@ image::https://raw.githubusercontent.com/mgreau/slides/master/websocket-asciidoc
 [.topic]
 == WebSocket lifecycle schema
 
-image::https://raw.githubusercontent.com/mgreau/slides/master/websocket-asciidoctor/images/websocket_protocol.png[lifecycle, 330]
+image::websocket_protocol.png[lifecycle, 330]
 
 
 [[slide19]]
@@ -392,7 +392,7 @@ public class EchoServer {
 
 ad-editor : Asciidoctor via asciidoctorJ
 
-image::https://raw.github.com/mgreau/when-websocket-met-asciidoctor/master/doc/demo/collaborative-editor.gif[Collaborative-editor, 600, link="{demo-url}collaborative-editor.gif"]
+image::collaborative-editor.gif[Collaborative-editor, 600]
 
 
 [[slide27]]

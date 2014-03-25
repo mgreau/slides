@@ -225,6 +225,8 @@ Attributs de l'annotation +@ServerEndpoint+  :
 --
 
 
+
+
 == !
 [.statement]
 
@@ -418,6 +420,9 @@ image::ad-editor-0.1.0-alpha2.png[]
 --
 * Chrome : supprimer Browser Storage (IndexedDB + cache) => chrome://settings/cookies
 * Chrome : voir Browser Storage => Onglet Resources
+* video::-SfXIRHbHKU[youtube, 640, 360, start=60, options=autoplay]
+*  :asciidoctor-source: https://raw.github.com/javaee-samples/javaee7-hol/master/docs/chapters
+* include::{asciidoctor-source}/batch.adoc[]
 --
 
 [.footer]

@@ -1,9 +1,0 @@
-[source, text]
----- 
-HTTP/1.1 101 Switching Protocols # <1>
-Connection:Upgrade
-Sec-WebSocket-Accept:SuQ5/hh0kStSr6oIzDG6gRfTx2I=
-Upgrade:websocket <2>
-----
-<1> Code HTTP 101, le serveur est compatible et accepte le changement de protocole
-<2> L'upgrade vers le protocole WebSocket est accepté

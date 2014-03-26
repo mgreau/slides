@@ -1,0 +1,50 @@
+who really like to do documentation ?
+yeah, this is exactly what I thought
+
+We have so many tools that it's make so very easy to write code
+
+Did you write the documentation for this thing ?
+
+the first thing is
+There is a plethora of documentation format : so which one do we pick ?
+do we go with HTML ? maybe
+XML is not the way to go
+Docbook is XML based but tbat's ok
+
+The other thing is tooling support.
+What if do you start to use an office tool ?
+Can you refactor the documentation ?
+Can you do a simple diff of the documentation ?
+
+Can you follow almost the same workflow that you have when writing code ?
+
+This is a resaon why a group of people created a new kind of format Asciidoc.
+
+Asciidoc is not really that new. It's ten years old. It's being around for a while. It's Python based but there is a bright new tools out there, ruby based.
+There are ways to run this things inside the JVM and this is Asciidoctor.
+
+so here is an example.
+this is just plain text
+you see a couple of annotations
+the first thing is just the title
+then we have a paragraph 
+then we have an other section 
+
+that basic text file was transform to HTML 
+
+HTML is just one of the many target formats that you can transform asciidoc to.
+
+the main project is asciidoctor, implemented in Ruby
+there is an other project called AsciidoctorJ which is a wrapper on top of plain asciidoctor using JRUby
+And from there we can construct any other tools based on the JVM that consumes asciidoctorJ and in this case we have a maven plugin and a gradle plugin
+
+you can also run Asciidoctor throught Javascript, Ruby has a transpiler call Opal. Opal transforms Ruby code into Javascript code so you can run Asciidoctor on the browser or anywhere that Javascript can be run.
+There are also a Chrome extension and a Firefox addon
+
+An other thing I like about Asciidoctor as an implementation of AsciiDoc is the output format processor.
+What Asciidoctor is actually doing is generated an AST of your document 
+this is a very power full feature	
+
+groovy golo and ceylon languages used Asciidoc for their documentation
+
+I'm a book author

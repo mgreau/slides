@@ -15,7 +15,7 @@ v1.0, March 24, 2014
 :language: highlight
 :source-highlighter: highlightjs
 :snippets: https://raw.github.com/mgreau/slides/master/websocket-asciidoctor/devnation/snippets
-
+:images_dir: https://raw.github.com/mgreau/slides/master/websocket-asciidoctor/devnation/images
 
 [[slide2]]
 [.topic]
@@ -55,6 +55,10 @@ And I will show you how all this technology can fit together in order to do a Re
 * Javascript, Angular JS
 * HTML5
 
+[NOTE.speaker]
+====
+* TODO => Download logos
+====
 
 [[slide4]]
 [.topic.recap]
@@ -70,13 +74,13 @@ And I will show you how all this technology can fit together in order to do a Re
 [NOTE.speaker]
 ====
 . Ask to the attendees to hands up their hands
-
+* TODO => css style
 ====
 
 
 [[slide5]]
 [.topic.intro]
-== ``Writing documentation have to be _as easy as_ writing email !''
+== ``Writing documentation has to be _as easy as_ writing email !''
 
 
 
@@ -93,8 +97,12 @@ http://asciidoctor.org/docs/what-is-asciidoc/
 ====
 
 [[slide6]]
-[.topic]
+[.intro.topic]
 == *AsciiDoc* to the rescue
+
+[[slide6]]
+[.topic]
+== &#160;
 
 [.statement]
 AsciiDoc is... +
@@ -145,11 +153,37 @@ Document sections start at *level 1* and can nest four levels deep.
 
 ====
 
+[[slide7]]
+[.topic.source]
+== AsciiDoc : *Lightweight markup*
+
+[source, asciidoc]
+----
+= Document Title2
+Doc Writer <doc@asciidoc.org>
+v1.0, 2013-01-01: Initial version
+
+http://asciidoc.org[AsciiDoc] is a lightweight markup language.
+
+This is the optional preamble (an untitled section body), useful for
+writing simple sectionless documents consisting only of a preamble.
+
+NOTE: The abstract, preface, appendix, bibliography, glossary and
+index section titles are significant (_specialsections_).
+
+== First section
+
+Document sections start at *level 1* and can nest four levels deep.
+
+* Item 1
+* Item 2
+----
+
 [[slide8]]
 [.topic]
 == &#160;
 
-"Use AsciiDoc for document markup. It's actually readable by humans, easier to parse way more flexible than XML."
+"Use _AsciiDoc_ for document markup. It's actually _readable_ by humans, _easier to parse_ way more flexible than XML."
 -- Linus Torvald
 
 [NOTE.speaker]
@@ -157,20 +191,23 @@ Document sections start at *level 1* and can nest four levels deep.
 * Why do you need to use AsciiDoc for documentation because Linus Torvald says it.
 ====
 
+[[slide9]]
+[.intro.topic]
+== What's *Asciidoctor* ?
 
 [[slide9]]
 [.topic]
-== What is *Asciidoctor* ?
+== &#160;
 
 [.statement]
 *Asciidoctor* +
 A modern, open source implementation of AsciiDoc in [.ruby]#Ruby#
 
-
 [NOTE.speaker]
 ====
 * Why do we speak a lot about AsciiDoc this time, because a new project is arrived in 2013 : Asciidoctor
 * Asciidoctor is ...
+* TODO => add logo
 ====
 
 [[slide10]]
@@ -225,7 +262,7 @@ TODO: add book enterprise Web Book
 
 Asciidoctor via asciidoctor.js
 
-image::ad-editor-offline.png[Offline mode feature, 530]
+image::https://raw.github.com/mgreau/when-websocket-met-asciidoctor/master/doc/img/ad-editor-offline.png[Offline mode feature, 530, link="{imagesdir}ad-editor-offline.png"]
 
 [[slide13]]
 [.topic]
@@ -244,7 +281,7 @@ image::ad-editor-offline.png[Offline mode feature, 530]
 [.topic]
 == Java EE 7 - *Overview*
 
-image::javaee_overview.png[JavaEE7, 610]
+image::https://raw.githubusercontent.com/mgreau/slides/master/websocket-asciidoctor/images/javaee_overview.png[JavaEE7, 610]
 
 [[slide16]]
 [.topic]
@@ -273,11 +310,11 @@ image::javaee_overview.png[JavaEE7, 610]
 [.topic]
 == WebSocket lifecycle schema
 
-image::websocket_protocol.png[lifecycle, 330]
+image::https://raw.githubusercontent.com/mgreau/slides/master/websocket-asciidoctor/images/websocket_protocol.png[lifecycle, 330]
 
 
 [[slide19]]
-[.topic]
+[.topic.source]
 == WebSocket - Handshake *Request*
 
 [source, text]
@@ -292,7 +329,7 @@ Sec-WebSocket-Version:13
 ----
 
 [[slide20]]
-[.topic]
+[.topic.source]
 == WebSocket - Handshake - *Response*
 
 [source, text]
@@ -304,7 +341,7 @@ Upgrade:websocket
 ----
 
 [[slide20]]
-[.topic]
+[.topic.source]
 == Javascript API
 
 [source,javascript]
@@ -345,8 +382,8 @@ function onMessage(evt) {
 
 
 [[slide22]]
-[.topic]
-== Java API - JSR356 - @ServerEndpoint
+[.topic.source]
+== Java API - JSR356 - *@ServerEndpoint*
 
 [source,java]
 .+EchoServer.java+
@@ -385,6 +422,10 @@ public class EchoServer {
 |
 |===
 
+[[slide26]]
+[.intro.topic]
+== *ad-editor* &#10; Demo & Code
+
 
 [[slide26]]
 [.topic.recap]
@@ -392,12 +433,12 @@ public class EchoServer {
 
 ad-editor : Asciidoctor via asciidoctorJ
 
-image::collaborative-editor.gif[Collaborative-editor, 600]
+image::https://raw.github.com/mgreau/when-websocket-met-asciidoctor/master/doc/demo/collaborative-editor.gif[Collaborative-editor, 600, link="{demo-url}collaborative-editor.gif"]
 
 
 [[slide27]]
-[.topic]
-== ad-editor : JSR356
+[.topic.source]
+== ad-editor : *JSR 356*
 
 [source,java]
 .+WWSMADEndpoint.java+
@@ -429,8 +470,8 @@ TODO : add schema
 ====
 
 [[slide28]]
-[.topic]
-== ad-editor : CDI
+[.topic.source]
+== ad-editor : *CDI*
 
 [source,java]
 .+AsciidocMessageConsumer.java+
@@ -451,8 +492,8 @@ public class AsciidocMessageConsumer {
 
 
 [[slide29]]
-[.topic]
-== ad-editor : Javascript
+[.topic.source]
+== ad-editor : *Javascript*
 
 [source,java]
 .+services.js+
@@ -520,7 +561,7 @@ service.sendAdocSourceForDiff = function(idAdoc, source, writer, sourceToMerge) 
 http://github.com/mgreau/when-websocket-met-asciidoctor[when-websocket-met-asciidoctor on Github]
 
 [role="footer"]
-Maxime Gréau
+Maxime Gréau - Thanks
 
 
 

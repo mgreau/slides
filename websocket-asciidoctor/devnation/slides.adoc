@@ -120,7 +120,7 @@ If you want to know more about me, you can check my website or connect me on twi
 ====
 * HERE WE ARE !
 * Writing e-mail is easy. We do it all the time. Every day, we respond to dozens of e-mail
-and social media messages. That involves communication through writing. That’s right, writing!
+and social media messages with Twitter, facebook.... That involves communication through writing. That’s right, writing!
 * So how can we write documentation on an esay way ?
 
 . References
@@ -355,8 +355,9 @@ image::https://raw.githubusercontent.com/mgreau/slides/master/websocket-asciidoc
 
 [[slide19]]
 [.topic.source]
-== WebSocket - Handshake *Request*
+== WebSocket - Handshake 
 
+Request
 [source, text]
 ----
 GET /usopen/matches/1234 HTTP/1.1     # <1>
@@ -368,10 +369,7 @@ Sec-WebSocket-Key:0EK7XmpTZL341oOh7x1cDw==
 Sec-WebSocket-Version:13
 ----
 
-[[slide20]]
-[.topic.source]
-== WebSocket - Handshake - *Response*
-
+*Response*
 [source, text]
 ----
 HTTP/1.1 101 Switching Protocols 
@@ -466,6 +464,20 @@ public class EchoServer {
 [.intro.topic]
 == *ad-editor* &#10; Demo & Code
 
+
+
+[[slide27]]
+[.topic]
+== How does this project born ?
+
+* Back to Devoxx 2013
+
+
+[NOTE]
+[role="speaker"]
+====
+* TODO : add twitter image
+====
 
 [[slide26]]
 [.topic.recap]
@@ -572,6 +584,11 @@ service.sendAdocSourceForDiff = function(idAdoc, source, writer, sourceToMerge) 
 
 [.statement]
 *Webinar without VIDEO*
+
+
+[[slide30]]
+[.intro.topic]
+== *Next ?*
 
 
 [[slide32]]

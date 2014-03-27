@@ -17,12 +17,13 @@ v1.0, March 24, 2014
 :snippets: https://raw.github.com/mgreau/slides/master/websocket-asciidoctor/devnation/snippets
 :images_dir: https://raw.github.com/mgreau/slides/master/websocket-asciidoctor/devnation/images
 
+
 [[slide2]]
 [.topic]
 == /Me
 
 [.incremental]
-* IT Architect [detail]#Ministry of Economy and Finances#
+* IT Architect [detail]#Ministry for the Economy and Finance#
 * Author [detail]#Apache Maven (French Book)#
 * Technical Reviewer [detail]#WildFly - EE7#
 * Blog [detail]#http://mgreau.com#
@@ -30,25 +31,43 @@ v1.0, March 24, 2014
 
 [NOTE.speaker]
 ====
-. Text : Introduce myself
+* Slide 1 : INTRO + Overview
 
-Hi, Thanks for coming, it's a honor for me to be here. So thanks to the DevNation team
-My name is Maxime Gréau and I work for the French Ministry for Economy and Finances in France.
-As you can hear, I'm a French guy. 
-and I will do my best to be well understood despite my accent.
+Hi, Thanks for coming, it's a honor for me to be here. So thanks to the DevNation team.
+My name is Maxime Gréau. As you can hear, I'm a French guy and I will do my best to be well understood despite my accent.
 
-. Text : Overview
+So I'm here to speak mainly about Java EE 7, WebSocket and Asciidoctor and others technologies.
+And I will show you how all those technologies can fit together in order to do a Real-time Collaborative Editor for AsciiDoc
 
-So I'm here to speak mainly about WebSocket Java EE 7 and Asciidoctor but also about HTML5, Angular and CDI
-And I will show you how all this technology can fit together in order to do a Real-time Collaborative Editor for AsciiDoc
+--------
+SLIDE 2
+--------
+* Slide 2
+
+Just a quick overview about what I'm doing.
+So I work for the French Ministry for the Economy and Finance in France.
+More precisely in the department which is in charge of calculate the retirement pension for the state officials
+http://www.economie.gouv.fr/welcome-to-the-french-ministry-for-the-economy-and-finance
+
+I'm also a Book Author since I wrote a French book about Apache Maven 3 years ago.
+I'm currently reviewing a book about WldFly and Java EE 7
+If you want to know more about me, you can check my website or connect me on twitter.
+
 ====
 
 [[slide3]]
 [.topic]
 == When _WebSocket_ met *Asciidoctor*
 
+       .o.                           o8o   o8o  oooooooooo.                       
+      .888.                          `"'   `"'  `888'   `Y8b                      
+     .8"888.      .oooo.o  .ooooo.  oooo  oooo   888      888  .ooooo.   .ooooo.  
+    .8' `888.    d88(  "8 d88' `"Y8 `888  `888   888      888 d88' `88b d88' `"Y8 
+   .88ooo8888.   `"Y88b.  888        888   888   888      888 888   888 888       
+  .8'     `888.  o.  )88b 888   .o8  888   888   888     d88' 888   888 888   .o8 
+ o88o     o8888o 8""888P' `Y8bod8P' o888o o888o o888bood8P'   `Y8bod8P' `Y8bod8P'
+
 [.incremental]
-* AsciiDoc
 * &#160; &#160; Asciidoctor
 * Java EE 7
 * &#160; &#160; WebSocket &#160; &#160; CDI &#160; &#160; WildFly
@@ -58,23 +77,36 @@ And I will show you how all this technology can fit together in order to do a Re
 [NOTE.speaker]
 ====
 * TODO => Download logos
+* So here are all the technologies that this project is about : AsciiDoc, Asciidoctor, WebSocket Java EE 7, 
 ====
 
 [[slide4]]
 [.topic.recap]
 == Quick Polls
 
-
-[.incremental]
-*  &#160;
+[.statement]
 * Who _sent an email today_?
-* Who _wrote technical documentation_ in the past two days ?
-* &#160; &#160; *Here we are !*
+
 
 [NOTE.speaker]
 ====
 . Ask to the attendees to hands up their hands
-* TODO => css style
+* TODO =>add image
+====
+
+
+[[slide4]]
+[.topic.recap]
+== Quick Polls
+
+
+[.statement]
+* Who _wrote technical documentation_ in the past two days ?
+
+[NOTE.speaker]
+====
+. Ask to the attendees to hands up their hands
+* TODO => add image
 ====
 
 
@@ -86,13 +118,12 @@ And I will show you how all this technology can fit together in order to do a Re
 
 [NOTE.speaker]
 ====
-. Text
-
-Writing e-mail is easy. We do it all the time. Every day, we respond to dozens of e-mail
+* HERE WE ARE !
+* Writing e-mail is easy. We do it all the time. Every day, we respond to dozens of e-mail
 and social media messages. That involves communication through writing. That’s right, writing!
+* So how can we write documentation on an esay way ?
 
 . References
-
 http://asciidoctor.org/docs/what-is-asciidoc/
 ====
 
@@ -195,13 +226,22 @@ Document sections start at *level 1* and can nest four levels deep.
 [.intro.topic]
 == What's *Asciidoctor* ?
 
-[[slide9]]
+[[slide10]]
 [.topic]
 == &#160;
 
 [.statement]
 *Asciidoctor* +
 A modern, open source implementation of AsciiDoc in [.ruby]#Ruby#
+
+[[slide11]]
+[.topic]
+== &#160;
+
+** full AsciiDoc support
+** Unicode compliant
+** extend AsciiDoc feature
+** AST
 
 [NOTE.speaker]
 ====
@@ -210,7 +250,7 @@ A modern, open source implementation of AsciiDoc in [.ruby]#Ruby#
 * TODO => add logo
 ====
 
-[[slide10]]
+[[slide11]]
 [.topic]
 == Output *formats* (i.e., backends)
 

@@ -254,8 +254,11 @@ follow almost the same workflow that you have when writing code :
 
 [NOTE.speaker]
 ====
+----
+SLIDE 11 : Asciidoctor
+----
 * Remember that I said that AsciiDoc is not really that new. 
-It's Python based but there is a bright new tools out there, ruby based.
+It's Python based but there is a bright new tools out there since 2013, which is ruby based.
 There are ways to run this things inside the JVM and this is Asciidoctor.
 ====
 
@@ -266,6 +269,16 @@ There are ways to run this things inside the JVM and this is Asciidoctor.
 [.statement]
 *Asciidoctor* +
 A modern, open source implementation of AsciiDoc in [.ruby]#Ruby#
+
+[NOTE.speaker]
+====
+----
+SLIDE 12 : Asciidoctor
+----
+* Remember that I said that AsciiDoc is not really that new. 
+It's Python based but there is a bright new tools out there since 2013, which is ruby based.
+There are ways to run this things inside the JVM and this is Asciidoctor.
+====
 
 [[slide13]]
 [.topic]
@@ -278,12 +291,15 @@ A modern, open source implementation of AsciiDoc in [.ruby]#Ruby#
 
 [NOTE.speaker]
 ====
+----
+SLIDE 13 : Asciidoctor
+----
 * Why do we speak a lot about AsciiDoc this time, because a new project is arrived in 2013 : Asciidoctor
 * Asciidoctor is ...
 * TODO => add logo
 ====
 
-[[slide11]]
+[[slide14]]
 [.topic]
 == Output *formats* (i.e., backends)
 
@@ -296,7 +312,17 @@ A modern, open source implementation of AsciiDoc in [.ruby]#Ruby#
 * man pages
 * *custom*
 
-[[slide11]]
+[NOTE.speaker]
+====
+----
+SLIDE 14 : Output
+----
+* Why do we speak a lot about AsciiDoc this time, because a new project is arrived in 2013 : Asciidoctor
+* Asciidoctor is ...
+* TODO => add logo
+====
+
+[[slide15]]
 [.topic]
 == How do I *use* Asciidoctor ?
 
@@ -308,28 +334,36 @@ A modern, open source implementation of AsciiDoc in [.ruby]#Ruby#
 
 [NOTE.speaker]
 ====
-Polyglot
+----
+SLIDE 15 : Polyglot
+----
+* Why do we speak a lot about AsciiDoc this time, because a new project is arrived in 2013 : Asciidoctor
+* Asciidoctor is ...
+* TODO => add logo
 ====
 
 
-[[slide12]]
+[[slide16]]
 [.topic]
 == *Who* is using Asciidoctor ?
 
 [.pull-right]
 * Frameworks [detail]#Spring, Infinispan#
-* JSR [detail]#CDI Specifications, JavaEE 8 Specs#
+* JSR [detail]#CDI Specifications, Beans Validation Spec#
 * Publishers [detail]#O'Reilly#
 * Repositories [detail]#Github, Bintray#
 * and more...
 
 [NOTE.speaker]
 ====
+----
+SLIDE 16 : Who use
+----
 TODO: add book enterprise Web Book
 ====
 
 
-[[slide13]]
+[[slide17]]
 [.topic.recap]
 == Demo time
 
@@ -337,7 +371,15 @@ Asciidoctor via asciidoctor.js
 
 image::https://raw.github.com/mgreau/when-websocket-met-asciidoctor/master/doc/img/ad-editor-offline.png[Offline mode feature, 530, link="{imagesdir}ad-editor-offline.png"]
 
-[[slide13]]
+[NOTE.speaker]
+====
+----
+SLIDE 17 : Who use
+----
+DEMO
+====
+
+[[slide18]]
 [.topic]
 == Asciidoctor *resources*
 
@@ -345,18 +387,26 @@ image::https://raw.github.com/mgreau/when-websocket-met-asciidoctor/master/doc/i
 * Github sources [detail]#http://github.com/asciidoctor#
 * Forum [detail]#http://discuss.asciidoctor.org#
 
-[[slide14]]
+[NOTE.speaker]
+====
+----
+SLIDE 18 : Who use
+----
+TODO: add book enterprise Web Book
+====
+
+[[slide19]]
 [.intro.topic]
 == Java EE 7  *WebSocket*
 
 
-[[slide15]]
+[[slide20]]
 [.topic]
 == Java EE 7 - *Overview*
 
 image::https://raw.githubusercontent.com/mgreau/slides/master/websocket-asciidoctor/images/javaee_overview.png[JavaEE7, 610]
 
-[[slide16]]
+[[slide21]]
 [.topic]
 == HTTP
 

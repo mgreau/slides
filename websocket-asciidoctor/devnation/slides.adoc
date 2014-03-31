@@ -27,13 +27,13 @@ v1.0, March 24, 2014
 * Author [detail]#Apache Maven (French Book)#
 * Technical Reviewer [detail]#WildFly - EE7#
 * Blog [detail]#http://mgreau.com#
-* Twitter/Github [detail]#@mgreau#
+* Twitter [detail]#@mgreau# #adeditor
 
 [NOTE.speaker]
 ====
---------
+----
 SLIDE 1 : Introduction
---------
+----
 
 Hi, Thanks for coming, it's a honor for me to be here. So thanks to the DevNation team.
 My name is Maxime Gréau. As you can hear, I'm a French guy and I will do my best to be well understood despite my accent.
@@ -41,17 +41,20 @@ My name is Maxime Gréau. As you can hear, I'm a French guy and I will do my bes
 So I'm here to speak mainly about Java EE 7, WebSocket and Asciidoctor and others technologies.
 And I will show you how all those technologies can fit together in order to do a Real-time Collaborative Editor for AsciiDoc
 
---------
-SLIDE 2
---------
+----
+SLIDE 2 : Overview
+----
 Just a quick overview about what I'm doing.
 So I work for the French Ministry for the Economy and Finance in France.
 More precisely in the department which is in charge of calculate the retirement pension for the state officials
 http://www.economie.gouv.fr/welcome-to-the-french-ministry-for-the-economy-and-finance
 
 * I'm also a Book Author since I wrote a French book about Apache Maven 3 years ago.
-* I'm currently reviewing a book about WldFly and Java EE 7
+* I'm currently reviewing a book about WidFly and Java EE 7
 * If you want to know more about me, you can check my website or connect me on twitter.
+* Near my twitter account, you can see the hastag #adeditor which is the hashtag that I used just before this session
+in order to post the DEMO URL. 
+So search for this hastag on twitter and you will be ready for the collaborative demo.
 
 ====
 
@@ -70,8 +73,11 @@ http://www.economie.gouv.fr/welcome-to-the-french-ministry-for-the-economy-and-f
 
 [NOTE.speaker]
 ====
-* TODO => Download logos
-* So here are all the technologies that this project is about : AsciiDoc, Asciidoctor, WebSocket Java EE 7, 
+----
+SLIDE 3 : Bench of technologies
+----
+* Here you can see all the technologies that this project is about : AsciiDoc, Asciidoctor, WebSocket Java EE 7,
+but also HTML5, Javascript and Angular. And this app is deployed on the cloud on WildFly 8 with OpenShift.
 ====
 
 [[slide4]]
@@ -81,30 +87,32 @@ http://www.economie.gouv.fr/welcome-to-the-french-ministry-for-the-economy-and-f
 [.statement]
 * Who _sent an email today_?
 
-
 [NOTE.speaker]
 ====
-. Ask to the attendees to hands up their hands
-* TODO =>add image
+----
+SLIDE 4 : Poll
+----
+* OK so a quick poll, it's 5pm, who sent an email today ? hands up please. OK
 ====
 
-
-[[slide4]]
+[[slide5]]
 [.topic.recap]
 == Quick Polls
-
 
 [.statement]
 * Who _wrote technical documentation_ in the past two days ?
 
 [NOTE.speaker]
 ====
-. Ask to the attendees to hands up their hands
-* TODO => add image
+----
+SLIDE 5 : Poll
+----
+* Next, who wrote technical documentation in the past two days ? you can hands up too, 
+Yeah, that's what I thougt, there is far fewer people.
 ====
 
 
-[[slide5]]
+[[slide6]]
 [.topic.intro]
 == ``Writing documentation has to be _as easy as_ writing email !''
 
@@ -112,20 +120,36 @@ http://www.economie.gouv.fr/welcome-to-the-french-ministry-for-the-economy-and-f
 
 [NOTE.speaker]
 ====
+----
+SLIDE 6 : Easy
+----
 * HERE WE ARE !
 * Writing e-mail is easy. We do it all the time. Every day, we respond to dozens of e-mail
-and social media messages with Twitter, facebook.... That involves communication through writing. That’s right, writing!
+and social media messages with Twitter, facebook.... That involves communication through writing. 
+That’s right, writing!
+* So Writing documentation has to be as easy as writing email !
 * So how can we write documentation on an esay way ?
 
 . References
 http://asciidoctor.org/docs/what-is-asciidoc/
 ====
 
-[[slide6]]
+[[slide7]]
 [.intro.topic]
 == *AsciiDoc* to the rescue
 
-[[slide6]]
+[NOTE.speaker]
+====
+----
+SLIDE 7 : AsciiDoc
+----
+* AsciiDoc is being around for a while. It was created twelve years ago and based on Python.
+
+. References
+http://asciidoctor.org/docs/what-is-asciidoc/
+====
+
+[[slide8]]
 [.topic]
 == &#160;
 
@@ -136,17 +160,22 @@ lightweight *markup* +
 
 [NOTE.speaker]
 ====
-. Text
+----
+SLIDE 8 : AsciiDoc
+----
+* So What is AsciiDoc ?
+AsciiDoc is two things:
 
-Writing e-mail is easy. We do it all the time. Every day, we respond to dozens of e-mail
-and social media messages. That involves communication through writing. That’s right, writing!
+** A mature[1], plain-text format for authoring notes, articles, documentation, 
+books, ebooks, web pages, slide decks, blog posts, man pages and more.
+** A text processor and toolchain for translating AsciiDoc documents into various formats (called backends), 
+including HTML, DocBook, PDF and ePub[2].
 
 . References
-
 http://asciidoctor.org/docs/what-is-asciidoc/
 ====
 
-[[slide7]]
+[[slide9]]
 [.topic.source]
 == AsciiDoc : *Lightweight markup*
 
@@ -175,36 +204,23 @@ Document sections start at *level 1* and can nest four levels deep.
 [NOTE]
 [role="speaker"]
 ====
+----
+SLIDE 9 : example
+----
+* so here is an example.
+* this is just plain text
+* you see a couple of annotations
+* the first thing is just the title
+* then we have a paragraph 
+* then we have an other section 
+* AsciiDoc gets us back to what’s important: writing. 
+You can drop those angle brackets, but you don’t have to drop the semantics. 
+And it’s a syntax a human can actually edit, efficiently.
 
 ====
 
-[[slide7]]
-[.topic.source]
-== AsciiDoc : *Lightweight markup*
 
-[source, asciidoc]
-----
-= Document Title2
-Doc Writer <doc@asciidoc.org>
-v1.0, 2013-01-01: Initial version
-
-http://asciidoc.org[AsciiDoc] is a lightweight markup language.
-
-This is the optional preamble (an untitled section body), useful for
-writing simple sectionless documents consisting only of a preamble.
-
-NOTE: The abstract, preface, appendix, bibliography, glossary and
-index section titles are significant (_specialsections_).
-
-== First section
-
-Document sections start at *level 1* and can nest four levels deep.
-
-* Item 1
-* Item 2
-----
-
-[[slide8]]
+[[slide10]]
 [.topic]
 == &#160;
 
@@ -213,14 +229,37 @@ Document sections start at *level 1* and can nest four levels deep.
 
 [NOTE.speaker]
 ====
-* Why do you need to use AsciiDoc for documentation because Linus Torvald says it.
+----
+SLIDE 10 : Linus Torvald
+----
+* Why do you need to use AsciiDoc for documentation... because Linus Torvald said it.
+More seriously, AsciiDoc works because:
+
+** It’s readable
+** It’s concise
+** It’s comprehensive
+** It’s extensible
+** It produces beautiful output (HTML, DocBook, PDF, ePub and more)
+
+* Regarding to the other office tools, AsciiDoc gives you the possibility to
+follow almost the same workflow that you have when writing code :
+** refactor the documentation
+** do a simple diff on documentation
+
 ====
 
-[[slide9]]
+[[slide11]]
 [.intro.topic]
 == What's *Asciidoctor* ?
 
-[[slide10]]
+[NOTE.speaker]
+====
+* Remember that I said that AsciiDoc is not really that new. 
+It's Python based but there is a bright new tools out there, ruby based.
+There are ways to run this things inside the JVM and this is Asciidoctor.
+====
+
+[[slide12]]
 [.topic]
 == &#160;
 
@@ -228,7 +267,7 @@ Document sections start at *level 1* and can nest four levels deep.
 *Asciidoctor* +
 A modern, open source implementation of AsciiDoc in [.ruby]#Ruby#
 
-[[slide11]]
+[[slide13]]
 [.topic]
 == &#160;
 
@@ -490,7 +529,7 @@ image::https://raw.github.com/mgreau/when-websocket-met-asciidoctor/master/doc/d
 .+WWSMADEndpoint.java+
 ----
 @ServerEndpoint(value = "/adoc/{adoc-id}", 
-	decoders = { MessageDecoder.class }, 
+    decoders = { MessageDecoder.class }, 
 	encoders = { AsciidocMessageEncoder.class, OutputMessageEncoder.class, NotificationMessageEncoder.class })
 public class WWSMADEndpoint {
 	

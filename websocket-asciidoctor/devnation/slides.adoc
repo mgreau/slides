@@ -31,7 +31,9 @@ v1.0, March 24, 2014
 
 [NOTE.speaker]
 ====
-* Slide 1 : INTRO + Overview
+--------
+SLIDE 1 : Introduction
+--------
 
 Hi, Thanks for coming, it's a honor for me to be here. So thanks to the DevNation team.
 My name is Maxime Gréau. As you can hear, I'm a French guy and I will do my best to be well understood despite my accent.
@@ -42,16 +44,14 @@ And I will show you how all those technologies can fit together in order to do a
 --------
 SLIDE 2
 --------
-* Slide 2
-
 Just a quick overview about what I'm doing.
 So I work for the French Ministry for the Economy and Finance in France.
 More precisely in the department which is in charge of calculate the retirement pension for the state officials
 http://www.economie.gouv.fr/welcome-to-the-french-ministry-for-the-economy-and-finance
 
-I'm also a Book Author since I wrote a French book about Apache Maven 3 years ago.
-I'm currently reviewing a book about WldFly and Java EE 7
-If you want to know more about me, you can check my website or connect me on twitter.
+* I'm also a Book Author since I wrote a French book about Apache Maven 3 years ago.
+* I'm currently reviewing a book about WldFly and Java EE 7
+* If you want to know more about me, you can check my website or connect me on twitter.
 
 ====
 
@@ -67,12 +67,6 @@ If you want to know more about me, you can check my website or connect me on twi
   .8'     `888.  o.  )88b 888   .o8  888   888   888     d88' 888   888 888   .o8 
  o88o     o8888o 8""888P' `Y8bod8P' o888o o888o o888bood8P'   `Y8bod8P' `Y8bod8P'
 
-[.incremental]
-* &#160; &#160; Asciidoctor
-* Java EE 7
-* &#160; &#160; WebSocket &#160; &#160; CDI &#160; &#160; WildFly
-* Javascript, Angular JS
-* HTML5
 
 [NOTE.speaker]
 ====

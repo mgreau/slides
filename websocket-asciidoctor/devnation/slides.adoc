@@ -44,17 +44,17 @@ And I will show you how all those technologies can fit together in order to do a
 ----
 SLIDE 2 : Overview
 ----
-Just a quick overview about what I'm doing.
+Just a quick overview about me.
 So I work for the French Ministry for the Economy and Finance in France.
 More precisely in the department which is in charge of calculate the retirement pension for the state officials
 http://www.economie.gouv.fr/welcome-to-the-french-ministry-for-the-economy-and-finance
 
 * I'm also a Book Author since I wrote a French book about Apache Maven 3 years ago.
 * I'm currently reviewing a book about WidFly and Java EE 7
-* If you want to know more about me, you can check my website or connect me on twitter.
+* If you want to know more about me, you can check my website or follow me on twitter.
 * Near my twitter account, you can see the hastag #adeditor which is the hashtag that I used just before this session
-in order to post the DEMO URL. 
-So search for this hastag on twitter and you will be ready for the collaborative demo.
+in order to post 2 URLs for demonstration. 
+So you can search for this hastag on twitter and you will be ready for the the demo.
 
 ====
 
@@ -77,7 +77,7 @@ So search for this hastag on twitter and you will be ready for the collaborative
 SLIDE 3 : Bench of technologies
 ----
 * Here you can see all the technologies that this project is about : AsciiDoc, Asciidoctor, WebSocket Java EE 7,
-but also HTML5, Javascript and Angular. And this app is deployed on the cloud on WildFly 8 with OpenShift.
+but also HTML5, Javascript and Angular. And this application is deployed to the Cloud on WildFly 8 with OpenShift.
 ====
 
 [[slide4]]
@@ -107,7 +107,7 @@ SLIDE 4 : Poll
 ----
 SLIDE 5 : Poll
 ----
-* Next, who wrote technical documentation in the past two days ? you can hands up too, 
+* Next, who wrote technical documentation in the past two days ? you put your hands up too, 
 Yeah, that's what I thougt, there is far fewer people.
 ====
 
@@ -115,7 +115,6 @@ Yeah, that's what I thougt, there is far fewer people.
 [[slide6]]
 [.topic.intro]
 == ``Writing documentation has to be _as easy as_ writing email !''
-
 
 
 [NOTE.speaker]
@@ -255,14 +254,14 @@ follow almost the same workflow that you have when writing code :
 [NOTE.speaker]
 ====
 ----
-SLIDE 11 : Asciidoctor
+SLIDE 9 : Asciidoctor
 ----
 * Remember that I said that AsciiDoc is not really that new. 
 It's Python based but there is a bright new tools out there since 2013, which is ruby based.
 There are ways to run this things inside the JVM and this is Asciidoctor.
 ====
 
-[[slide12]]
+[[slide10]]
 [.topic]
 == &#160;
 
@@ -273,14 +272,12 @@ A modern, open source implementation of AsciiDoc in [.ruby]#Ruby#
 [NOTE.speaker]
 ====
 ----
-SLIDE 12 : Asciidoctor
+SLIDE 10 : Asciidoctor
 ----
-* Remember that I said that AsciiDoc is not really that new. 
-It's Python based but there is a bright new tools out there since 2013, which is ruby based.
-There are ways to run this things inside the JVM and this is Asciidoctor.
+* Asciidoctor is a modern open-source implementation of AsciiDoc, written in Ruby mainly by Dan Allen and the community
 ====
 
-[[slide13]]
+[[slide11]]
 [.topic]
 == &#160;
 
@@ -292,14 +289,14 @@ There are ways to run this things inside the JVM and this is Asciidoctor.
 [NOTE.speaker]
 ====
 ----
-SLIDE 13 : Asciidoctor
+SLIDE 11 : Asciidoctor
 ----
 * Why do we speak a lot about AsciiDoc this time, because a new project is arrived in 2013 : Asciidoctor
 * Asciidoctor is ...
 * TODO => add logo
 ====
 
-[[slide14]]
+[[slide12]]
 [.topic]
 == Output *formats* (i.e., backends)
 
@@ -315,14 +312,14 @@ SLIDE 13 : Asciidoctor
 [NOTE.speaker]
 ====
 ----
-SLIDE 14 : Output
+SLIDE 12 : Output
 ----
 * Why do we speak a lot about AsciiDoc this time, because a new project is arrived in 2013 : Asciidoctor
 * Asciidoctor is ...
 * TODO => add logo
 ====
 
-[[slide15]]
+[[slide13]]
 [.topic]
 == How do I *use* Asciidoctor ?
 
@@ -335,7 +332,7 @@ SLIDE 14 : Output
 [NOTE.speaker]
 ====
 ----
-SLIDE 15 : Polyglot
+SLIDE 13 : Polyglot
 ----
 * Why do we speak a lot about AsciiDoc this time, because a new project is arrived in 2013 : Asciidoctor
 * Asciidoctor is ...

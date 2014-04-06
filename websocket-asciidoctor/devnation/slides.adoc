@@ -20,7 +20,7 @@ v1.0, March 24, 2014
 
 [[slide2]]
 [.topic]
-== Me
+== About Me
 
 [.incremental]
 * IT Architect [detail]#Ministry for the Economy and Finance#
@@ -171,7 +171,7 @@ books, ebooks, web pages, slide decks, blog posts, man pages and more.
 ** A text processor and toolchain for translating AsciiDoc documents into various formats (called backends), 
 including HTML, DocBook, PDF and ePub[2].
 
-AsciiDoc provide a plain text syntax designed for humans--easy to edit, read, version and share in raw form. AsciiDoc goes further by satisfying even the most advanced technical semantics and publishing requirements. AsciiDoc is a capable shorthand alternative to DocBook and can produce beautiful HTML 5, ePub and PDF output--even slides! Follow the lead of authors
+AsciiDoc provide a plain text syntax designed for humans--easy to edit, read, version and share in raw form.
 
 . References
 http://asciidoctor.org/docs/what-is-asciidoc/
@@ -359,7 +359,7 @@ SLIDE 14 : Who use it
 ----
 * So Asciidoctor is a really new project but it's already much used, in fact we have
 ** some frameworks which generates their technical documentation with Asciidoctor like Spring, Infinispan and others
-** There are already 2 JSR which used Asciidoctor : CDI and Bean Validation
+** There are already 1 JSR which used Asciidoctor : CDI specification
 ** there are also some publisher like O'Reilly (enterprise Web Book)
 ** some repositories like Github, in fact you can write your doc file like README with AsciiDoc and you will see the rendered HTML
 ====
@@ -388,7 +388,6 @@ DEMO :
 .. do a drag and drop (HTML5) with the demo1.adoc
 .. render it with Alt+R
 .. change mode to "on change"
-.. add text and add title => show the TOC and click to the last title
 .. copy/paste source code to show higlight
 .. save the doc (HTML5)
 .. delete the content and re-load it to show HTML5 indexedDB
@@ -410,22 +409,24 @@ CONCLUDE:
 [NOTE.speaker]
 ====
 ----
-SLIDE 18 : Who use it
+SLIDE 16 : Resources
 ----
-TODO: add book enterprise Web Book
-====
+* I will conclude this section with the list of resources if you want to know more about asciidoctor.
+** so there is the website asciidoctor.org where you can find all the documentation for asciidoctor with a very complete user-manual.
+** You will find all sources on github for asciidoctor, asciidoctor.js, asciidoctorJ and so on
+** there is a forum and you can follow, on twitter, the guys of the asciidoctor community project if you want to know more about it.
 
-[[slide19]]
+[[slide17]]
 [.intro.topic]
 == Java EE 7  *WebSocket*
 
 [NOTE.speaker]
 ====
 ----
-SLIDE 19 : Second part
+SLIDE 17 : Second part
 ----
 * OK so that was the part about documentation, AsciiDoc and Asciidoctor.
-* We also had an introduction to the asciidoc editor application on offline mode.
+* We also had a short introduction to the asciidoc editor application on offline mode.
 * Now, let's talk about Java EE 7 and WebSocket.
 ====
 
@@ -709,8 +710,8 @@ SLIDE 36 : What's next
 ----
 SLIDE 27 : Killer feature
 ----
-* Ok so I pretty sure that you already love Asciidoctor, WebSocket and so ad-editor, am I right ?
-So do you want a killer feature ? OK let's go...
+* Ok so I'm pretty sure that you already love Asciidoctor, WebSocket and so ad-editor, am I right ?
+So do you want a killer feature ? yes, OK let's go...
 ====
 
 [[slide34]]

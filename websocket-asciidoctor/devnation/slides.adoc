@@ -143,6 +143,7 @@ http://asciidoctor.org/docs/what-is-asciidoc/
 SLIDE 7 : AsciiDoc
 ----
 * AsciiDoc is being around for a while. It was created twelve years ago and based on Python.
+* The idea behind lightweight markup languages such as AsciiDoc is "Forget about the layout and styling and just let the thoughts flow"  
 
 . References
 http://asciidoctor.org/docs/what-is-asciidoc/
@@ -169,6 +170,8 @@ AsciiDoc is two things:
 books, ebooks, web pages, slide decks, blog posts, man pages and more.
 ** A text processor and toolchain for translating AsciiDoc documents into various formats (called backends), 
 including HTML, DocBook, PDF and ePub[2].
+
+They provide a plain text syntax designed for humans--easy to edit, read, version and share in raw form. AsciiDoc goes further by satisfying even the most advanced technical semantics and publishing requirements. AsciiDoc is a capable shorthand alternative to DocBook and can produce beautiful HTML 5, ePub and PDF output--even slides! Follow the lead of authors
 
 . References
 http://asciidoctor.org/docs/what-is-asciidoc/
@@ -209,12 +212,13 @@ SLIDE 9 : example
 * so here is an example.
 * this is just plain text
 * you see a couple of annotations
-* the first thing is just the title
+* the first thing is just the title	
 * then we have a paragraph 
 * then we have an other section 
 * AsciiDoc gets us back to what’s important: writing. 
+
 You can drop those angle brackets, but you don’t have to drop the semantics. 
-And it’s a syntax a human can actually edit, efficiently.
+And it’s a syntax that a human can actually edit, efficiently.
 
 ====
 
@@ -244,6 +248,7 @@ More seriously, AsciiDoc works because:
 follow almost the same workflow that you have when writing code :
 ** refactor the documentation
 ** do a simple diff on documentation
+So It looks like code, it hacks like code, it can be check on the source code revising control just like code
 
 ====
 
@@ -254,7 +259,7 @@ follow almost the same workflow that you have when writing code :
 [NOTE.speaker]
 ====
 ----
-SLIDE 9 : Asciidoctor
+SLIDE 11 : Asciidoctor
 ----
 * Remember that I said that AsciiDoc is not really that new. 
 It's Python based but there is a bright new tools out there since 2013, which is ruby based.
@@ -275,6 +280,11 @@ A modern, open source implementation of AsciiDoc in [.ruby]#Ruby#
 SLIDE 10 : Asciidoctor
 ----
 * Asciidoctor is a modern open-source implementation of AsciiDoc, written in Ruby mainly by Dan Allen and the community
+* The idea is : 
+** we have a asciidoc document
+** we have an asciidoc processor
+** we put the document to the processor
+** and VOILA => it comes to HTML
 ====
 
 [[slide11]]
@@ -294,6 +304,8 @@ SLIDE 11 : Asciidoctor
 * Why do we speak a lot about AsciiDoc this time, because a new project is arrived in 2013 : Asciidoctor
 * Asciidoctor is ...
 * TODO => add logo
+* Asciidocotor built a document Abstract Syntax Tree (AST), not to different to our source code (when we have classes and methods) 
+so you have the ability to manipuliate the document
 ====
 
 [[slide12]]
@@ -314,9 +326,12 @@ SLIDE 11 : Asciidoctor
 ----
 SLIDE 12 : Output
 ----
-* Why do we speak a lot about AsciiDoc this time, because a new project is arrived in 2013 : Asciidoctor
-* Asciidoctor is ...
-* TODO => add logo
+* So what can Asciidoctor make ?
+* Asciidoctor can do HTML5, DocBook, PDF, ePub, mobi
+* Asciidoctor can do slides like this deck, can do man pages
+* and most important "anything you want"
+** you have the ability to plug in your own backend so the HTML that you get, is not the HTML that you have to have 
+** you can create whatever you want
 ====
 
 [[slide13]]
@@ -326,17 +341,22 @@ SLIDE 12 : Output
 [.incremental]
 * Ruby [detail]#asciidoctor asciidoctor-pdf#
 * Java [detail]#asciidoctorJ, asciidoctor-maven-plugin#
-* Javascript [detail]#asciidoctor.js, Chrome/Firefox extension#
 * Groovy [detail]#asciidoctor-gradle-plugin#
+* Javascript [detail]#asciidoctor.js, Chrome/Firefox extension#
 
 [NOTE.speaker]
 ====
 ----
 SLIDE 13 : Polyglot
 ----
-* Why do we speak a lot about AsciiDoc this time, because a new project is arrived in 2013 : Asciidoctor
-* Asciidoctor is ...
-* TODO => add logo
+* The main project is asciidoctor, implemented in Ruby
+* But Ruby runs on the JVM
+** There is an other project called AsciidoctorJ which is a wrapper on top of plain asciidoctor using JRUby
+so you do not need Ruby to run Asciidoctor, you just need Java
+** And from there we can construct any other tools based on the JVM that consumes asciidoctorJ and in this case we have a maven plugin and a gradle plugin
+* You can also run Asciidoctor throught Javascript, Ruby has a transpiler call Opal. Opal transforms Ruby code into Javascript code so you can run Asciidoctor on the browser or anywhere that Javascript can be run.
+** There are also a Chrome extension and a Firefox addon
+* So we have a POLYGLOT environment here
 ====
 
 

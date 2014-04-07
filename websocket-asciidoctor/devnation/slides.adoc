@@ -376,9 +376,11 @@ image::https://raw.github.com/mgreau/when-websocket-met-asciidoctor/master/doc/i
 [NOTE.speaker]
 ====
 ----
-SLIDE 15 : asciidoctor.js
+SLIDE 15 : DEMO asciidoctor.js
 ----
-DEMO :
+* Local : prepare a server
+* Online : http://tinyurl.com/adeditor
+* DEMO :
 . Present the ad-editor
 .. on the left side, you have the AsciiDoc editor based on angular-ui-ace-editor
 .. on the top of the screen, you have the navbar which tells you if you are working online or offline
@@ -388,9 +390,9 @@ DEMO :
 .. do a drag and drop (HTML5) with the demo1.adoc
 .. render it with Alt+R
 .. change mode to "on change"
+.. add a title before the first section
 .. copy/paste source code to show higlight
-.. save the doc (HTML5)
-.. delete the content and re-load it to show HTML5 indexedDB
+.. talk about HTML5 features like storage with indexedDB, drag and drop
 
 CONCLUDE:
 * Ok that was the demo in order to show how Asciidoctor works with asciidoctor.js and some HTML5 features like drag and drop and storage with IndexedDB.
@@ -602,7 +604,7 @@ public class EchoServer {
 
 ad-editor : Asciidoctor via asciidoctorJ and WebSocket
 
-http://goo.gl/RBhvtP or on twitter #
+http://tinyurl.com/adeditor or on twitter #adeditor
 
 image::https://raw.github.com/mgreau/when-websocket-met-asciidoctor/master/doc/demo/collaborative-editor.gif[Collaborative-editor, 600, link="{demo-url}collaborative-editor.gif"]
 
@@ -674,12 +676,6 @@ service.sendAdocSource = function(idAdoc, source, writer, backend) {
 		var jsonObj = {"type" : backend, "source" : source, "writer": writer};
 		service.ws[idAdoc].send(JSON.stringify(jsonObj));
 	};
-	
-// Send 2 adoc source to see the diff
-service.sendAdocSourceForDiff = function(idAdoc, source, writer, sourceToMerge) {
-		var jsonObj = {"type" : "adoc-for-diff", "source" : source, "writer": writer, "sourceToMerge" : sourceToMerge};
-		service.ws[idAdoc].send(JSON.stringify(jsonObj));
-	};
 ----	
 
 [[slide36]]
@@ -741,7 +737,7 @@ like render only a selected part of it. Plus Asciidoctor can render slides, Plus
 [.statement]
 *Start your engine*
 
-http://goo.gl/gWVz4I
+http://tinyurl.com/webinar85
 SpaceID : 85
 
 [NOTE.speaker]

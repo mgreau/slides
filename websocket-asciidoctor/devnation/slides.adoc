@@ -14,7 +14,6 @@ v1.0, March 24, 2014
 :dzslides-highlight: asciidoctor
 :language: highlight
 :source-highlighter: highlightjs
-:snippets: https://raw.github.com/mgreau/slides/master/websocket-asciidoctor/devnation/snippets
 :imagesdir: https://raw.github.com/mgreau/slides/master/websocket-asciidoctor/devnation/images
 
 
@@ -266,7 +265,7 @@ It's Python based but there is a bright new tools out there since 2013, which is
 There are ways to run this things inside the JVM and this is Asciidoctor.
 ====
 
-[[slide11]]
+[[slide12]]
 [.topic]
 == &#160;
 
@@ -277,7 +276,7 @@ A modern, open source implementation of AsciiDoc in [.ruby]#Ruby#
 [NOTE.speaker]
 ====
 ----
-SLIDE 11 : Asciidoctor
+SLIDE 12 : Asciidoctor
 ----
 * Asciidoctor is a modern open-source implementation of AsciiDoc, written in Ruby mainly by Dan Allen and the community
 * The idea is : 
@@ -288,7 +287,7 @@ SLIDE 11 : Asciidoctor
 ====
 
 
-[[slide12]]
+[[slide13]]
 [.topic]
 == Output *formats* (i.e., backends)
 
@@ -304,7 +303,7 @@ SLIDE 11 : Asciidoctor
 [NOTE.speaker]
 ====
 ----
-SLIDE 12 : Output
+SLIDE 13 : Output
 ----
 * So what can Asciidoctor make ?
 * Asciidoctor can do HTML5, DocBook, PDF, ePub, mobi
@@ -315,7 +314,7 @@ SLIDE 12 : Output
 so you have the ability to manipulate the document and you can create whatever you want
 ====
 
-[[slide13]]
+[[slide14]]
 [.topic]
 == How do I *use* Asciidoctor ?
 
@@ -328,7 +327,7 @@ so you have the ability to manipulate the document and you can create whatever y
 [NOTE.speaker]
 ====
 ----
-SLIDE 13 : Polyglot
+SLIDE 14 : Polyglot
 ----
 * The main project is asciidoctor, implemented in Ruby. asciidoctor-pdf is a native PDF renderer for AsciiDoc built with asciidoctor and prawn. AsciiDoc direct to PDF.
 * So, ok it's Ruby,  but Ruby runs on the JVM thanks to JRuby !!
@@ -341,7 +340,7 @@ so you do not need Ruby to run Asciidoctor, you just need Java
 ====
 
 
-[[slide14]]
+[[slide15]]
 [.topic]
 == *Who* is using Asciidoctor ?
 
@@ -355,7 +354,7 @@ so you do not need Ruby to run Asciidoctor, you just need Java
 [NOTE.speaker]
 ====
 ----
-SLIDE 14 : Who use it
+SLIDE 15 : Who use it
 ----
 * So Asciidoctor is a really new project but it's already much used, in fact we have
 ** some frameworks which generates their technical documentation with Asciidoctor like Spring, Infinispan and others
@@ -365,18 +364,18 @@ SLIDE 14 : Who use it
 ====
 
 
-[[slide15]]
+[[slide16]]
 [.topic.recap]
 == Demo time 1/3
 
 Asciidoctor via asciidoctor.js
 
-image::https://raw.github.com/mgreau/when-websocket-met-asciidoctor/master/doc/img/ad-editor-offline.png[Offline mode feature, 530, link="{imagesdir}ad-editor-offline.png"]
+image::ad-editor-offline.png[Offline mode feature, 530, link="{imagesdir}ad-editor-offline.png"]
 
 [NOTE.speaker]
 ====
 ----
-SLIDE 15 : DEMO asciidoctor.js
+SLIDE 16 : DEMO asciidoctor.js
 ----
 * Local : prepare a server
 * Online : http://tinyurl.com/adeditor
@@ -399,7 +398,7 @@ CONCLUDE:
 
 ====
 
-[[slide16]]
+[[slide17]]
 [.topic]
 == Asciidoctor *resources*
 
@@ -411,7 +410,7 @@ CONCLUDE:
 [NOTE.speaker]
 ====
 ----
-SLIDE 16 : Resources
+SLIDE 17 : Resources
 ----
 * I will conclude this section with the list of resources if you want to know more about asciidoctor.
 ** so there is the website asciidoctor.org where you can find all the documentation for asciidoctor with a very complete user-manual.
@@ -419,27 +418,35 @@ SLIDE 16 : Resources
 ** there is a forum and you can follow, on twitter, the guys of the asciidoctor community project if you want to know more about it.
 ====
 
-[[slide17]]
+[[slide18]]
 [.intro.topic]
 == Java EE 7  *WebSocket*
 
 [NOTE.speaker]
 ====
 ----
-SLIDE 17 : Second part
+SLIDE 18 : Second part
 ----
 * OK so that was the part about documentation, AsciiDoc and Asciidoctor.
 * We also had a short introduction to the asciidoc editor application on offline mode.
 * Now, let's talk about Java EE 7 and WebSocket.
 ====
 
-[[slide20]]
+[[slide19]]
 [.topic]
 == Java EE 7 - *Overview*
 
-image::https://raw.githubusercontent.com/mgreau/slides/master/websocket-asciidoctor/images/javaee_overview.png[JavaEE7, 610]
+image::javaee_overview.png[JavaEE7, 610]
 
-[[slide21]]
+[NOTE.speaker]
+====
+----
+SLIDE 19 : JavaEE7
+----
+* Java EE7 released on June one year ago.
+====
+
+[[slide20]]
 [.topic]
 == HTTP
 
@@ -447,14 +454,31 @@ image::https://raw.githubusercontent.com/mgreau/slides/master/websocket-asciidoc
 * verbose
 * hack for push
 
-[[slide22]]
+[NOTE.speaker]
+====
+----
+SLIDE 20 : Second part
+----
+
+====
+
+
+[[slide21]]
 [.topic]
 == &#160;
 
 "WebSocket is a _full-duplex_ _bi-directional_ protocol, over a _Single TCP Connection_."
 -- Arun Gupta (RedHat)
 
-[[slide23]]
+[NOTE.speaker]
+====
+----
+SLIDE 21 : Second part
+----
+
+====
+
+[[slide22]]
 [.topic]
 == WebSocket
 
@@ -462,12 +486,27 @@ image::https://raw.githubusercontent.com/mgreau/slides/master/websocket-asciidoc
 * 1 Java API - JSR 356
 * 1 Javascrpt API - W3C
 
-[[slide24]]
+[NOTE.speaker]
+====
+----
+SLIDE 22 : 3 things
+----
+
+====
+
+[[slide23]]
 [.topic]
 == WebSocket lifecycle schema
 
-image::https://raw.githubusercontent.com/mgreau/slides/master/websocket-asciidoctor/images/websocket_protocol.png[lifecycle, 330]
+image::devnation_websocket_protocol.png[lifecycle]
 
+[NOTE.speaker]
+====
+----
+SLIDE 23 : Lifecycle
+----
+
+====
 
 [[slide25]]
 [.topic.source]
@@ -493,6 +532,14 @@ Connection:Upgrade
 Sec-WebSocket-Accept:SuQ5/hh0kStSr6oIzDG6gRfTx2I=
 Upgrade:websocket 
 ----
+
+[NOTE.speaker]
+====
+----
+SLIDE 25 : Handshake
+----
+
+====
 
 [[slide26]]
 [.topic.source]
@@ -521,7 +568,13 @@ function onMessage(evt) {
 }
 ----
 
+[NOTE.speaker]
+====
+----
+SLIDE 26 : Javascript API
+----
 
+====
 
 [[slide27]]
 [.topic]
@@ -534,6 +587,13 @@ function onMessage(evt) {
 ** WebSocket opening handshake negotiation
 * LIfecycle callback methods
 
+[NOTE.speaker]
+====
+----
+SLIDE 27 : Java API
+----
+
+====
 
 [[slide28]]
 [.topic.source]
@@ -556,7 +616,15 @@ public class EchoServer {
 
 ----
 
-[[slide23]]
+[NOTE.speaker]
+====
+----
+SLIDE 28 : Java API sample
+----
+
+====
+
+[[slide29]]
 [.topic]
 == Java API - JSR356 - Annotations
 
@@ -576,22 +644,38 @@ public class EchoServer {
 |
 |===
 
-[[slide26]]
+[NOTE.speaker]
+====
+----
+SLIDE 29 : JSR356 Annotations
+----
+
+====
+
+[[slide30]]
 [.intro.topic]
 == *ad-editor* &#10; Demo & Code
 
+[NOTE.speaker]
+====
+----
+SLIDE 30 : Demo/Code
+----
 
+====
 
-[[slide27]]
+[[slide31]]
 [.topic]
 == How does this project born ?
 
 * Back to Devoxx 2013
 
 
-[NOTE]
-[role="speaker"]
+[NOTE.speaker]
 ====
+----
+SLIDE 31 : Demo/Code
+----
 * TODO : add twitter image
 * Back to Devoxx 2013, on the agenda you had
 ** on one side you have a talk about Asciidoctor by Dan Allen : a powerful tools to write documentation 
@@ -599,7 +683,7 @@ public class EchoServer {
 * So I had this idea : What about a cross-over between this 2 technologies => When WebSocket met Asciidoctor
 ====
 
-[[slide29]]
+[[slide32]]
 [.topic.recap]
 == Demo time 2/3
 
@@ -607,12 +691,33 @@ ad-editor : Asciidoctor via asciidoctorJ and WebSocket
 
 http://tinyurl.com/adeditor or on twitter #adeditor
 
-image::https://raw.github.com/mgreau/when-websocket-met-asciidoctor/master/doc/demo/collaborative-editor.gif[Collaborative-editor, 600, link="{demo-url}collaborative-editor.gif"]
+image::collaborative-editor.gif[Collaborative-editor, 600, link="{demo-url}collaborative-editor.gif"]
+
+[NOTE.speaker]
+====
+----
+SLIDE 32 : Demo/Code
+----
+
+====
 
 
-[[slide30]]
+[[slide33]]
+[.topic]
+== How does ad-editor work ?
+
+[NOTE.speaker]
+====
+----
+SLIDE 33 : Archi
+----
+* TODO : Add an architecture schema
+====
+
+
+[[slide34]]
 [.topic.source]
-== ad-editor : *JSR 356*
+== ad-editor : *JSR 356 - @ServerEndpoint*
 
 [source,java]
 .+WWSMADEndpoint.java+
@@ -628,24 +733,27 @@ public class WWSMADEndpoint {
 	@Inject @Backend("html5")
 	Event<AsciidocMessageEvent> html5Event;
 	
-	@Inject @Backend("dzslides")
-	Event<AsciidocMessageEvent> dzEvent;
+	...
 	
 	@OnMessage
 	public void message(final Session session, AsciidocMessage msg,
 			@PathParam("adoc-id") String adocId) {
+				
 	}
 }	
 ----
 
 [NOTE.speaker]
 ====
-TODO : add schema
+----
+SLIDE 34 : ad Endpoint
+----
+* 
 ====
 
-[[slide31]]
+[[slide35]]
 [.topic.source]
-== ad-editor : *Javascript*
+== ad-editor : *Javascript - sendMessage*
 
 [source,java]
 .+services.js+
@@ -657,10 +765,19 @@ service.sendAdocSource = function(idAdoc, source, writer, backend) {
 	};
 ----	
 
+[NOTE.speaker]
+====
+----
+SLIDE 35 : ad Endpoint
+----
+* Here we are into an Angular service and we are using the Javascript WebSocket API in order to send the AsciiDoc to 
+the server endpoint.
+====
 
-[[slide32]]
+
+[[slide36]]
 [.topic.source]
-== ad-editor : *CDI*
+== ad-editor : *CDI and AsciidoctorJ*
 
 [source,java]
 .+AsciidocMessageConsumer.java+
@@ -671,17 +788,23 @@ public class AsciidocMessageConsumer {
 	AsciidoctorProcessor processor;
 
 	public void html5RenderedEvent(@Observes @Backend("html5") AsciidocMessageEvent event){
-	}
-	
-	public void dzslidesRenderedEvent(@Observes @Backend("dzslides") AsciidocMessageEvent event){
-	    ...
+		...
 	}
 }	
 ----
 
-[[slide33]]
+[NOTE.speaker]
+====
+----
+SLIDE 36 : ad Endpoint
+----
+* Here we are into an Angular service and we are using the Javascript WebSocket API in order to send the AsciiDoc to 
+the server endpoint.
+====
+
+[[slide37]]
 [.topic.source]
-== ad-editor : *Javascript*
+== ad-editor : *Javascript - Consume*
 
 [source,java]
 .+services.js+
@@ -693,41 +816,29 @@ service.sendAdocSource = function(idAdoc, source, writer, backend) {
 	};
 ----	
 
-
-
-[[slide36]]
-[.topic]
-== What's next for ad-editor ?
-
-* Github worflow
-* PDF renderer
-* OAuth
-* Chat (audio, text)
-* pull request are welcome :)
-
 [NOTE.speaker]
 ====
 ----
-SLIDE 36 : What's next
+SLIDE 37 : ad Endpoint
 ----
-* What's next for this project ?
- a lot of new features will happen, feedbacks are welcome
+* Here we are into an Angular service and we are using the Javascript WebSocket API in order to send the AsciiDoc to 
+the server endpoint.
 ====
 
-[[slide33]]
+[[slide38]]
 [.intro.topic]
-== DevNation *Killer feature* ?
+== What about a *Killer feature* ?
 
 [NOTE.speaker]
 ====
 ----
-SLIDE 27 : Killer feature
+SLIDE 38 : Killer feature
 ----
 * Ok so I'm pretty sure that you already love Asciidoctor, WebSocket and so ad-editor, am I right ?
 So do you want a killer feature ? yes, OK let's go...
 ====
 
-[[slide34]]
+[[slide39]]
 [.topic]
 == Asciidoctor *AST* Transformation
 
@@ -740,14 +851,14 @@ So do you want a killer feature ? yes, OK let's go...
 [NOTE.speaker]
 ====
 ----
-SLIDE 28 : AST
+SLIDE 39 : AST
 ----
 * Remember that I said that Asciidoctor provide an AST (Abstract syntax tree) feature. So that means that you can do a lot of things with the document
 like render only a selected part of it. Plus Asciidoctor can render slides, Plus WebSocket which provide a full-duplex bi-directional protocol...
 ====
 
 
-[[slide35]]
+[[slide40]]
 [.topic.recap]
 == Demo-time 3/3
 
@@ -760,7 +871,7 @@ SpaceID : 85
 [NOTE.speaker]
 ====
 ----
-SLIDE 28 : AST
+SLIDE 40 : AST
 ----
 * So prepare your smartphone : iphone, android, whatever
 * prepare your laptotp, your ipad
@@ -769,8 +880,27 @@ SLIDE 28 : AST
 video::-SfXIRHbHKU[youtube, 640, 360, start=60, options=autoplay]
 ====
 
+[[slide41]]
+[.topic]
+== What's next for ad-editor ?
 
-[[slide37]]
+* Github worflow
+* PDF renderer
+* OAuth
+* Chat (audio, text)
+* pull request are welcome :)
+
+[NOTE.speaker]
+====
+----
+SLIDE 41 : What's next
+----
+* What's next for this project ?
+ a lot of new features will happen, feedbacks are welcome
+====
+
+
+[[slide42]]
 [.topic]
 == Thanks to...
 
@@ -783,12 +913,12 @@ video::-SfXIRHbHKU[youtube, 640, 360, start=60, options=autoplay]
 [NOTE.speaker]
 ====
 ----
-SLIDE 37 : Thanks to
+SLIDE 42 : Thanks to
 ----
 * Thanks to the guys who help me for this session : alex, dan and the asciidoctor community and to arun and tug
 ====
 
-[[slide38]]
+[[slide43]]
 [.ending]
 == Thank you
 
@@ -800,7 +930,7 @@ Maxime Gréau - Thanks
 [NOTE.speaker]
 ====
 ----
-SLIDE 38 : Thank YOU
+SLIDE 43 : Thank YOU
 ----
 * Thank you. I hope that this session 
 * We have a couple of minutes, is there any questions ?

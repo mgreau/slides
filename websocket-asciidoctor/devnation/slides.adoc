@@ -15,7 +15,7 @@ v1.0, March 24, 2014
 :language: highlight
 :source-highlighter: highlightjs
 :snippets: https://raw.github.com/mgreau/slides/master/websocket-asciidoctor/devnation/snippets
-:images_dir: https://raw.github.com/mgreau/slides/master/websocket-asciidoctor/devnation/images
+:imagesdir: https://raw.github.com/mgreau/slides/master/websocket-asciidoctor/devnation/images
 
 
 [[slide2]]

@@ -417,6 +417,7 @@ SLIDE 16 : Resources
 ** so there is the website asciidoctor.org where you can find all the documentation for asciidoctor with a very complete user-manual.
 ** You will find all sources on github for asciidoctor, asciidoctor.js, asciidoctorJ and so on
 ** there is a forum and you can follow, on twitter, the guys of the asciidoctor community project if you want to know more about it.
+====
 
 [[slide17]]
 [.intro.topic]
@@ -644,6 +645,21 @@ TODO : add schema
 
 [[slide31]]
 [.topic.source]
+== ad-editor : *Javascript*
+
+[source,java]
+.+services.js+
+----
+// Send an adoc source to see the generated output back
+service.sendAdocSource = function(idAdoc, source, writer, backend) {
+		var jsonObj = {"type" : backend, "source" : source, "writer": writer};
+		service.ws[idAdoc].send(JSON.stringify(jsonObj));
+	};
+----	
+
+
+[[slide32]]
+[.topic.source]
 == ad-editor : *CDI*
 
 [source,java]
@@ -663,8 +679,7 @@ public class AsciidocMessageConsumer {
 }	
 ----
 
-
-[[slide32]]
+[[slide33]]
 [.topic.source]
 == ad-editor : *Javascript*
 
@@ -677,6 +692,8 @@ service.sendAdocSource = function(idAdoc, source, writer, backend) {
 		service.ws[idAdoc].send(JSON.stringify(jsonObj));
 	};
 ----	
+
+
 
 [[slide36]]
 [.topic]

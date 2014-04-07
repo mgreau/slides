@@ -498,7 +498,7 @@ SLIDE 22 : 3 things
 [.topic]
 == WebSocket lifecycle schema
 
-image::devnation_websocket_protocol.png[lifecycle]
+image::devnation_websocket_protocol.png[lifecycle, 450]
 
 [NOTE.speaker]
 ====
@@ -581,7 +581,7 @@ SLIDE 26 : Javascript API
 == Java API - JSR356
 
 [.incremental]
-* API for WebSocket Server and Client Endpoint
+* API for WebSocket [detail]#Server and Client Endpoint#
 ** Annotated: [detail]#`@ServerEndpoint`, `@ClientEndpoint`#
 ** Programmatic: [detail]#`Endpoint`#
 ** WebSocket opening handshake negotiation
@@ -687,9 +687,9 @@ SLIDE 31 : Demo/Code
 [.topic.recap]
 == Demo time 2/3
 
-ad-editor : Asciidoctor via asciidoctorJ and WebSocket
+[detail]#Asciidoctor via asciidoctorJ and WebSocket#
 
-http://tinyurl.com/adeditor or on twitter #adeditor
+http://tinyurl.com/adeditor or #adeditor
 
 image::collaborative-editor.gif[Collaborative-editor, 600, link="{demo-url}collaborative-editor.gif"]
 

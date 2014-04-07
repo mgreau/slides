@@ -1,0 +1,74 @@
+[[when-websocket-met-asciidoctor]]
+[.topic]
+= Real-time *collaborative* *editor* for *AsciiDoc* &#160;&#160;&#160; _When WebSocket met Asciidoctor_
+Maxime GREAU <http://mgreau.com[@mgreau]>
+v1.0, March 24, 2014
+:hashtag:  #Asciidoctor #WebSocket #JavaEE7
+:copyright: CC BY-SA 2.0
+:website: http://asciidoctor.org
+:dzslides-aspect: 16-9
+:icons: font
+:dzslides-style: devnation
+:dzslides-fonts: family=Open+Sans:400,700,200,300
+:dzslides-transition: fade
+:dzslides-highlight: asciidoctor
+:language: highlight
+:source-highlighter: highlightjs
+:snippets: https://raw.github.com/mgreau/slides/master/websocket-asciidoctor/devnation/snippets
+:images_dir: https://raw.github.com/mgreau/slides/master/websocket-asciidoctor/devnation/images
+
+
+[[slide2]]
+[.intro.topic]
+== Webinar doesn't need material ?
+
+
+[[slide3]]
+[.topic]
+== HTML5 is powerful !
+
+[.middle]
+* &#160; Slides [detail]#DzSlides, deck.js#
+
+[[slide4]]
+[.topic]
+== HTML5 is powerful !
+
+[.middle]
+* &#160; Slides [detail]#DzSlides, deck.js#
+* &#160; Audio [detail]#RFC#
+
+[[slide5]]
+[.topic]
+== HTML5 is powerful !
+
+[.middle]
+* &#160; Slides [detail]#DzSlides, deck.js#
+* &#160; Audio [detail]#RFC#
+* &#160; Video [detail]#RFC#
+
+
+[[slide6]]
+[.intro.topic]
+== Thanks
+
+[NOTE.speaker]
+====
+* Thanks for coming
+====
+
+[[slide7]]
+[.ending]
+== Hope
+
+[NOTE.speaker]
+====
+* Hope that this session was great :)
+====
+
+[[slide8]]
+[.topic]
+== Ends with video/music ?
+
+video::-SfXIRHbHKU[youtube, 640, 360, start=60, options=autoplay]
+

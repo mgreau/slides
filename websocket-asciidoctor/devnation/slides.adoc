@@ -770,7 +770,6 @@ video::-SfXIRHbHKU[youtube, 640, 360, start=60, options=autoplay]
 ====
 
 
-
 [[slide37]]
 [.topic]
 == Thanks to...
@@ -786,7 +785,7 @@ video::-SfXIRHbHKU[youtube, 640, 360, start=60, options=autoplay]
 ----
 SLIDE 37 : Thanks to
 ----
-* Quickly thanks to alex, dan and the asciidoctor community and to arun and tug
+* Thanks to the guys who help me for this session : alex, dan and the asciidoctor community and to arun and tug
 ====
 
 [[slide38]]

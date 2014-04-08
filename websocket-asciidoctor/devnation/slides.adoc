@@ -484,7 +484,7 @@ SLIDE 21 : Second part
 
 * 1 Protocol - RF6455
 * 1 Java API - JSR 356
-* 1 Javascrpt API - W3C
+* 1 Javascript API - W3C
 
 [NOTE.speaker]
 ====
@@ -508,7 +508,7 @@ SLIDE 23 : Lifecycle
 
 ====
 
-[[slide25]]
+[[slide24]]
 [.topic.source]
 == WebSocket - Handshake 
 
@@ -536,12 +536,12 @@ Upgrade:websocket
 [NOTE.speaker]
 ====
 ----
-SLIDE 25 : Handshake
+SLIDE 24 : Handshake
 ----
 
 ====
 
-[[slide26]]
+[[slide25]]
 [.topic.source]
 == Javascript API
 
@@ -571,12 +571,12 @@ function onMessage(evt) {
 [NOTE.speaker]
 ====
 ----
-SLIDE 26 : Javascript API
+SLIDE 25 : Javascript API
 ----
 
 ====
 
-[[slide27]]
+[[slide26]]
 [.topic]
 == Java API - JSR356
 
@@ -590,12 +590,12 @@ SLIDE 26 : Javascript API
 [NOTE.speaker]
 ====
 ----
-SLIDE 27 : Java API
+SLIDE 26 : Java API
 ----
 
 ====
 
-[[slide28]]
+[[slide27]]
 [.topic.source]
 == Java API - JSR356 - *@ServerEndpoint*
 
@@ -619,12 +619,12 @@ public class EchoServer {
 [NOTE.speaker]
 ====
 ----
-SLIDE 28 : Java API sample
+SLIDE 27 : Java API sample
 ----
 
 ====
 
-[[slide29]]
+[[slide28]]
 [.topic]
 == Java API - JSR356 - Annotations
 
@@ -647,24 +647,24 @@ SLIDE 28 : Java API sample
 [NOTE.speaker]
 ====
 ----
-SLIDE 29 : JSR356 Annotations
+SLIDE 28 : JSR356 Annotations
 ----
 
 ====
 
-[[slide30]]
+[[slide29]]
 [.intro.topic]
 == *ad-editor* &#10; Demo & Code
 
 [NOTE.speaker]
 ====
 ----
-SLIDE 30 : Demo/Code
+SLIDE 29 : Demo/Code
 ----
 
 ====
 
-[[slide31]]
+[[slide30]]
 [.topic]
 == How does this project born ?
 
@@ -674,7 +674,7 @@ SLIDE 30 : Demo/Code
 [NOTE.speaker]
 ====
 ----
-SLIDE 31 : Demo/Code
+SLIDE 30 : Demo/Code
 ----
 * TODO : add twitter image
 * Back to Devoxx 2013, on the agenda you had
@@ -683,7 +683,7 @@ SLIDE 31 : Demo/Code
 * So I had this idea : What about a cross-over between this 2 technologies => When WebSocket met Asciidoctor
 ====
 
-[[slide32]]
+[[slide31]]
 [.topic.recap]
 == Demo time 2/3
 
@@ -696,86 +696,99 @@ image::collaborative-editor.gif[Collaborative-editor, 600, link="{demo-url}colla
 [NOTE.speaker]
 ====
 ----
-SLIDE 32 : Demo/Code
+SLIDE 31 : Demo/Code
 ----
 
 ====
 
 
-[[slide33]]
+[[slide32]]
 [.topic]
 == How does ad-editor work ?
 
 [NOTE.speaker]
 ====
 ----
-SLIDE 33 : Archi
+SLIDE 32 : Archi
 ----
 * TODO : Add an architecture schema
 ====
 
 
+
+[[slide33]]
+[.topic.source]
+== ad-editor : *API Javascript send Message -> Java API*
+
+[source,javascript]
+.+services.js+
+----
+app.factory('WebSocketService', function($window) {
+    ...
+    // Send an adoc source to see the generated output back
+    service.sendAdocSource = function(idAdoc, source, writer, backend) {
+        var wsUrl;
+        ...
+        var websocket = new WebSocket(wsUrl);
+    
+        var jsonObj = {"type" : backend, "source" : source, "writer": writer};
+        websocket.send(JSON.stringify(jsonObj));
+    };
+    ...
+});
+----	
+
+[NOTE.speaker]
+====
+----
+SLIDE 33 : Javascript API
+----
+* Here we are into an Angular service and we are using the Javascript WebSocket API in order to send the AsciiDoc to 
+the server endpoint.
+====
+
 [[slide34]]
 [.topic.source]
-== ad-editor : *JSR 356 - @ServerEndpoint*
+== ad-editor : *Java API  @ServerEndpoint*
 
 [source,java]
-.+WWSMADEndpoint.java+
 ----
-@ServerEndpoint(value = "/adoc/{adoc-id}", 
-    decoders = { MessageDecoder.class }, 
-	encoders = { AsciidocMessageEncoder.class, OutputMessageEncoder.class, NotificationMessageEncoder.class })
+@ServerEndpoint(value = "/adoc/{adoc-id}",              <1>
+    decoders = { MessageDecoder.class },                <2>
+    encoders = { AsciidocMessageEncoder.class ... })    <3>
 public class WWSMADEndpoint {
-	
-	static Set<Session> peers = Collections
-			.synchronizedSet(new HashSet<Session>());
-
-	@Inject @Backend("html5")
-	Event<AsciidocMessageEvent> html5Event;
-	
-	...
-	
-	@OnMessage
-	public void message(final Session session, AsciidocMessage msg,
-			@PathParam("adoc-id") String adocId) {
-				
-	}
+    
+    static Set<Session> peers = Collections             <4>
+                                    .synchronizedSet(new HashSet<Session>());
+    @Inject @Backend("html5")
+    Event<AsciidocMessageEvent> html5Event;             <5>
+    
+    @OnMessage                                                         
+    public void message(Session session, AsciidocMessage msg,            <6>
+                                    @PathParam("adoc-id") String adocId) {
+        AsciidocMessageEvent event = 
+                        new AsciidocMessageEvent(session, adocId, msg);
+        ...
+        html5Event.fire(event);         <7>
+    }
 }	
 ----
 
 [NOTE.speaker]
 ====
 ----
-SLIDE 34 : ad Endpoint
+SLIDE 34 : Java API Endpoint
 ----
-* 
+* <1> : ok so first I have the @ServerEndpoint annootation with the path URI and the adoc dash id parameter
+* <2> : we define a decoder which give us the possibility to work with an POJO which will be processing into 
+JSON format with JSON-P API
+* <3> : we define an encoder in order to transform the JSON that you saw in the previous slide
+* <4> : in the number four you can see all the session represented all the peers
+* <5> : then we have 
 ====
+
 
 [[slide35]]
-[.topic.source]
-== ad-editor : *Javascript - sendMessage*
-
-[source,java]
-.+services.js+
-----
-// Send an adoc source to see the generated output back
-service.sendAdocSource = function(idAdoc, source, writer, backend) {
-		var jsonObj = {"type" : backend, "source" : source, "writer": writer};
-		service.ws[idAdoc].send(JSON.stringify(jsonObj));
-	};
-----	
-
-[NOTE.speaker]
-====
-----
-SLIDE 35 : ad Endpoint
-----
-* Here we are into an Angular service and we are using the Javascript WebSocket API in order to send the AsciiDoc to 
-the server endpoint.
-====
-
-
-[[slide36]]
 [.topic.source]
 == ad-editor : *CDI and AsciidoctorJ*
 
@@ -784,14 +797,62 @@ the server endpoint.
 ----
 public class AsciidocMessageConsumer {
 	
-	@Inject
-	AsciidoctorProcessor processor;
+    @Inject
+    AsciidoctorProcessor processor; <1>
 
-	public void html5RenderedEvent(@Observes @Backend("html5") AsciidocMessageEvent event){
-		...
-	}
+    public void html5RenderedEvent(@Observes @Backend("html5")          <2>
+                                               AsciidocMessageEvent event){
+        OutputMessage html;
+        ...
+        html.setContent(
+            processor.renderAsDocument(event.msg.getAdocSource())); <3>
+            
+        // send the new HTML version to all connected peers
+        WWSMADEndpoint.sendMessage(html, event.id);  <4>
+    }
 }	
 ----
+
+[NOTE.speaker]
+====
+----
+SLIDE 35 : CDI Consumer and AsciidoctorJ processor
+----
+* <1> We inject the AsciidoctorProcessor instance
+====
+
+[[slide36]]
+[.topic.source]
+== ad-editor : *API Java send -> API Javascript Consume*
+
+[source,java]
+----
+@ServerEndpoint(value = "/adoc/{adoc-id}",              <1>
+    decoders = { MessageDecoder.class },                <2>
+public class WWSMADEndpoint {
+    
+    static Set<Session> peers = Collections             <4>
+                                    .synchronizedSet(new HashSet<Session>());
+    
+    public static void sendMessage(Message msg, String adocId) {
+		for (Session session : peers) {
+			...
+			if (session.isOpen()) {
+			session.getAsyncRemote().sendObject(msg);
+		}
+    }
+}    
+----
+
+[source,javascript]
+.+services.js+
+----
+// Send an adoc source to see the generated output back
+service.sendAdocSource = function(idAdoc, source, writer, backend) {
+    var jsonObj = {"type" : backend, "source" : source, "writer": writer};
+    service.ws[idAdoc].send(JSON.stringify(jsonObj));
+};
+----	
 
 [NOTE.speaker]
 ====
@@ -803,42 +864,19 @@ the server endpoint.
 ====
 
 [[slide37]]
-[.topic.source]
-== ad-editor : *Javascript - Consume*
-
-[source,java]
-.+services.js+
-----
-// Send an adoc source to see the generated output back
-service.sendAdocSource = function(idAdoc, source, writer, backend) {
-		var jsonObj = {"type" : backend, "source" : source, "writer": writer};
-		service.ws[idAdoc].send(JSON.stringify(jsonObj));
-	};
-----	
-
-[NOTE.speaker]
-====
-----
-SLIDE 37 : ad Endpoint
-----
-* Here we are into an Angular service and we are using the Javascript WebSocket API in order to send the AsciiDoc to 
-the server endpoint.
-====
-
-[[slide38]]
 [.intro.topic]
 == What about a *Killer feature* ?
 
 [NOTE.speaker]
 ====
 ----
-SLIDE 38 : Killer feature
+SLIDE 37 : Killer feature
 ----
 * Ok so I'm pretty sure that you already love Asciidoctor, WebSocket and so ad-editor, am I right ?
 So do you want a killer feature ? yes, OK let's go...
 ====
 
-[[slide39]]
+[[slide38]]
 [.topic]
 == Asciidoctor *AST* Transformation
 
@@ -850,14 +888,14 @@ So do you want a killer feature ? yes, OK let's go...
 [NOTE.speaker]
 ====
 ----
-SLIDE 39 : AST
+SLIDE 38 : AST
 ----
 * Remember that I said that Asciidoctor provide an AST (Abstract syntax tree) feature. So that means that you can do a lot of things with the document
 like render only a selected part of it. Plus Asciidoctor can render slides, Plus WebSocket which provide a full-duplex bi-directional protocol...
 ====
 
 
-[[slide40]]
+[[slide39]]
 [.topic.recap]
 == Demo-time 3/3
 
@@ -871,7 +909,7 @@ SpaceID : 85
 [NOTE.speaker]
 ====
 ----
-SLIDE 40 : AST
+SLIDE 39 : DEMO
 ----
 * So prepare your smartphone : iphone, android, whatever
 * prepare your laptotp, your ipad
@@ -880,7 +918,7 @@ SLIDE 40 : AST
 video::-SfXIRHbHKU[youtube, 640, 360, start=60, options=autoplay]
 ====
 
-[[slide41]]
+[[slide40]]
 [.topic]
 == What's next for ad-editor ?
 
@@ -893,14 +931,14 @@ video::-SfXIRHbHKU[youtube, 640, 360, start=60, options=autoplay]
 [NOTE.speaker]
 ====
 ----
-SLIDE 41 : What's next
+SLIDE 40 : What's next
 ----
 * What's next for this project ?
  a lot of new features will happen, feedbacks are welcome
 ====
 
 
-[[slide42]]
+[[slide41]]
 [.topic]
 == Thanks to...
 
@@ -912,12 +950,12 @@ SLIDE 41 : What's next
 [NOTE.speaker]
 ====
 ----
-SLIDE 42 : Thanks to
+SLIDE 41 : Thanks to
 ----
 * Thanks to the guys who help me for this session : alex, dan and the asciidoctor community and to arun and tug
 ====
 
-[[slide43]]
+[[slide42]]
 [.ending]
 == Thank you
 
@@ -929,7 +967,7 @@ Maxime Gréau - Thanks
 [NOTE.speaker]
 ====
 ----
-SLIDE 43 : Thank YOU
+SLIDE 42 : Thank YOU
 ----
 * Thank you. I hope that this session 
 * We have a couple of minutes, is there any questions ?

@@ -443,7 +443,19 @@ image::javaee_overview.png[JavaEE7, 610]
 ----
 SLIDE 19 : JavaEE7
 ----
-* Java EE7 released on June one year ago.
+The *Java Platform Enterprise Edition* was released in Version 7 (Java EE 7) in *June 2013*.
+In line with the two previous versions (Java EE 5 and Java EE 6) *Java EE 7* always proposes to simplify the work of the developer.
+This version decorates previous versions with 3 main objectives :
+
+* embraces *HTML5* (WebSocket API, JSON-P API, JAX-RS)
+* provide an *even better productivity* to developer (JMS)
+* meeting *enterprise demands* (Batch API, Concurrency Utilities)
+
+Java Platform, Entreprise Edition 7 (JSR 342) can be summmed up around :
+
+* 4 newest specifications : *+Java API for WebSocket 1.0+*, *+Java API for JSON Processing 1.0+* , *+Batch Applications 1.0+* and *+Concurrency Utilities for Java EE 1.0+*
+* 3 specifications with major updates : *+JMS 2.0+*, *+JAX-RS 2.0+* and *+EL 3.0+*	
+* and 6 specifications with minor updates : *+JPA 2.1+*, *+Servlet 3.1+*, *+EJB 3.2+*, *+CDI 1.1+*, *+JSF 2.2+* and *+Bean Validation 1.1+*
 ====
 
 [[slide20]]
@@ -457,7 +469,13 @@ SLIDE 19 : JavaEE7
 [NOTE.speaker]
 ====
 ----
-SLIDE 20 : Second part
+SLIDE 20 : HTTP
+
+{link-rfc2616}[HTTP] is the standard protocol for the Web, it's very effective for a lot of use cases but, nevertheless, has *some drawbacks* in the case of *interactive Web applications* :
+
+* *half-duplex* : based on the request/response pattern, the client sends a request and the server performs processing before sending a response, the client is forced to wait for a server response
+* *verbose* : a lot of information are send in HTTP headers associated with the message, both in the HTTP request and in the HTTP response
+* in order to add a *server push* mode, you need to use workaround (polling, long polling, Comet/Ajax) since there is no standard
 ----
 
 ====

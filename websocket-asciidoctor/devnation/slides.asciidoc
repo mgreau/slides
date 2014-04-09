@@ -58,7 +58,7 @@ So you can search for this hastag on twitter and you will be ready for the the d
 ====
 
 [[slide3]]
-[.topic]
+[.topic.logos]
 == When _WebSocket_ met *Asciidoctor*
 
        .o.                           o8o   o8o  oooooooooo.                       
@@ -68,7 +68,6 @@ So you can search for this hastag on twitter and you will be ready for the the d
    .88ooo8888.   `"Y88b.  888        888   888   888      888 888   888 888       
   .8'     `888.  o.  )88b 888   .o8  888   888   888     d88' 888   888 888   .o8 
  o88o     o8888o 8""888P' `Y8bod8P' o888o o888o o888bood8P'   `Y8bod8P' `Y8bod8P'
-
 
 [NOTE.speaker]
 ====
@@ -464,7 +463,7 @@ Java Platform, Entreprise Edition 7 (JSR 342) can be summmed up around :
 
 * half-duplex
 * verbose
-* hack for push
+* hack for server push
 
 [NOTE.speaker]
 ====
@@ -504,16 +503,17 @@ This is why the *new WebSocket protocol* offers more advanced features than HTTP
 [.topic]
 == WebSocket
 
-* 1 Protocol - RF6455
-* 1 Java API - JSR 356
-* 1 Javascript API - W3C
+* WebSocket Protocol [detail]#IETF - RF6455#
+* Java API for WebSocket [detail]#JSR 356#
+* Javascript API [detail]#W3C#
 
 [NOTE.speaker]
 ====
 ----
 SLIDE 22 : 3 things
 ----
-The WebSocket protocol was originally intended to be part of the HTML5 specification but as HTML5 will be officially released in 2014, the WebSocket protocol is finally set, as well as HTTP protocol, by an IETF specification, {link-rfc6455}[with RFC 6455].
+The WebSocket protocol was originally intended to be part of the HTML5 specification but as HTML5 will be 
+officially released in 2014, the WebSocket protocol is finally set, as well as HTTP protocol, by an IETF specification, {link-rfc6455}[with RFC 6455].
 
 ====
 
@@ -696,9 +696,9 @@ SLIDE 29 : Demo/Code
 
 [detail]#Asciidoctor via asciidoctorJ and WebSocket#
 
-http://tinyurl.com/adeditor or #adeditor
+http://tinyurl.com/adeditor [detail]##adeditor#
 
-image::collaborative-editor.gif[Collaborative-editor, 600, link="{demo-url}collaborative-editor.gif"]
+image::collaborative-editor.gif[Collaborative-editor, 500, link="{demo-url}collaborative-editor.gif"]
 
 [NOTE.speaker]
 ====
@@ -713,12 +713,14 @@ SLIDE 30 : Demo/Code
 [.topic]
 == How does ad-editor work ?
 
+image::ad-editor-archi.png[ad-editor archi, 490, link="{demo-url}ad-editor-archi.png"]
+
 [NOTE.speaker]
 ====
 ----
 SLIDE 31 : Archi
 ----
-* TODO : Add an architecture schema
+* Explain the schema
 ====
 
 
@@ -835,30 +837,26 @@ SLIDE 34 : CDI Consumer and AsciidoctorJ processor
 [source,java]
 ----
 @ServerEndpoint(value = "/adoc/{adoc-id}",              <1>
-    decoders = { MessageDecoder.class },                <2>
+    decoders = { MessageDecoder.class }...                <2>
 public class WWSMADEndpoint {
-    
-    static Set<Session> peers = Collections             <4>
-                                    .synchronizedSet(new HashSet<Session>());
-    
+    ...
     public static void sendMessage(Message msg, String adocId) {
-		for (Session session : peers) {
-			...
-			if (session.isOpen()) {
-			session.getAsyncRemote().sendObject(msg);
-		}
+        for (Session session : peers) {
+            ...
+            session.getAsyncRemote().sendObject(msg);   <3>
+        }
     }
 }    
 ----
 
 [source,javascript]
-.+services.js+
 ----
-// Send an adoc source to see the generated output back
-service.sendAdocSource = function(idAdoc, source, writer, backend) {
-    var jsonObj = {"type" : backend, "source" : source, "writer": writer};
-    service.ws[idAdoc].send(JSON.stringify(jsonObj));
-};
+app.controller("adEditorCtrl", function($scope, WebSocketService) {
+    WebSocketService.subscribe(function(id, message) {
+        var obj = JSON.parse(message);
+        $scope.space[id].html5 = obj.data;
+    });
+});    
 ----	
 
 [NOTE.speaker]
@@ -888,9 +886,10 @@ So do you want a killer feature ? yes, OK let's go...
 == Asciidoctor *AST* Transformation
 
 [.incremental]
-* Asciidoctor propose an *AST feature*...
-* So easy to render *one part* of the document...
-*  and we can render *HTML5 slides*... with the *WebSocket protocol*...
+* Asciidoctor -> *AST feature*...
+* easy to render *one part* of the document...
+*  and we can render *HTML5 slides*... 
+* and with have the *WebSocket protocol*...
 
 [NOTE.speaker]
 ====
@@ -910,6 +909,7 @@ like render only a selected part of it. Plus Asciidoctor can render slides, Plus
 *Start your engine*
 
 http://tinyurl.com/webinar85
+
 SpaceID : 85
 
 [NOTE.speaker]
@@ -951,7 +951,7 @@ SLIDE 39 : What's next
 * &#160; [detail]#@alexsotob#
 * &#160; &#160; [detail]#@tgrall#
 * &#160; [detail]#@arungupta#
-* &#160; &#160; [detail]#@mojavelinux and the Asciidoctor community#
+* &#160; &#160; [detail]#@mojavelinux#
 
 [NOTE.speaker]
 ====
@@ -963,12 +963,12 @@ SLIDE 40 : Thanks to
 
 [[slide41]]
 [.ending]
-== Thank you
+== Thank You
 
 http://github.com/mgreau/when-websocket-met-asciidoctor[when-websocket-met-asciidoctor on Github]
 
 [role="footer"]
-Maxime Gréau - Thanks
+Maxime Gréau - @mgreau
 
 [NOTE.speaker]
 ====

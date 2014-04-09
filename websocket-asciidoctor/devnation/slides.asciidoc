@@ -14,7 +14,7 @@ v1.0, March 24, 2014
 :dzslides-highlight: asciidoctor
 :language: highlight
 :source-highlighter: highlightjs
-:imagesdir: https://raw.github.com/mgreau/slides/master/websocket-asciidoctor/devnation/images
+:imagesdir: ./images
 
 
 [[slide2]]
@@ -605,10 +605,10 @@ SLIDE 25 : Javascript API
 [.topic]
 == Java API for WebSocket - JSR356
 
-* -> Server and Client Endpoint
+* Server and Client Endpoint
 ** 'Annotated' [detail]#`@ServerEndpoint` `@ClientEndpoint`#
 ** 'Programmatic' [detail]#`Endpoint`#
-* -> Send and consume messages
+* Send and consume messages
 ** 'all types' [detail]#`text, binary or control msg`#
 ** 'as Java Objects' [detail]#`Encoders Decoders`#
 ** send 'synchronously'  'asynchronously' 
@@ -889,7 +889,7 @@ So do you want a killer feature ? yes, OK let's go...
 * Asciidoctor -> *AST feature*...
 * easy to render *one part* of the document...
 *  and we can render *HTML5 slides*... 
-* and with have the *WebSocket protocol*...
+* and we have the *WebSocket protocol*...
 
 [NOTE.speaker]
 ====
@@ -904,13 +904,12 @@ like render only a selected part of it. Plus Asciidoctor can render slides, Plus
 [[slide38]]
 [.topic.recap]
 == Demo-time 3/3
-
-[.statement]
-*Start your engine*
-
 http://tinyurl.com/webinar85
 
 SpaceID : 85
+
+[.statement]
+*Start your engine*
 
 [NOTE.speaker]
 ====

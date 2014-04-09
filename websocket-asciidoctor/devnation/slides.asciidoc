@@ -343,7 +343,6 @@ so you do not need Ruby to run Asciidoctor, you just need Java
 [.topic]
 == *Who* is using Asciidoctor ?
 
-[.pull-right]
 * Frameworks [detail]#Spring, Infinispan#
 * JSR [detail]#CDI Specifications#
 * Publishers [detail]#O'Reilly#
@@ -369,7 +368,7 @@ SLIDE 15 : Who use it
 
 Asciidoctor via asciidoctor.js
 
-image::ad-editor-offline.png[Offline mode feature, 530, link="{imagesdir}ad-editor-offline.png"]
+image::ad-editor-offline.png[Offline mode feature, 500, link="{imagesdir}ad-editor-offline.png"]
 
 [NOTE.speaker]
 ====
@@ -402,7 +401,7 @@ CONCLUDE:
 == Asciidoctor *resources*
 
 * Website [detail]#http://asciidoctor.org (blog, user manual, writing guide...)#
-* Github sources [detail]#http://github.com/asciidoctor#
+* Github [detail]#http://github.com/asciidoctor#
 * Forum [detail]#http://discuss.asciidoctor.org#
 * Twitter [detail]#@asciidoctor @mojavelinux @alexsotob @lightguardjp#
 
@@ -519,7 +518,7 @@ officially released in 2014, the WebSocket protocol is finally set, as well as H
 
 [[slide23]]
 [.topic]
-== WebSocket lifecycle schema
+== WebSocket Protocol lifecycle
 
 image::devnation_websocket_protocol.png[lifecycle, 450]
 
@@ -536,12 +535,12 @@ As shown in the diagram below, the *WebSocket protocol works in two phases* name
 
 [[slide24]]
 [.topic.source]
-== WebSocket - Handshake 
+== WebSocket Protocol - Handshake 
 
 Request
 [source, text]
 ----
-GET /usopen/matches/1234 HTTP/1.1     # <1>
+GET /ad-editor/adoc/1234 HTTP/1.1     # <1>
 Host: wildfly-mgreau.rhcloud.com:8000  # <2>    
 Upgrade: websocket  # <3>
 Connection: Upgrade # <4>
@@ -569,7 +568,7 @@ SLIDE 24 : Handshake
 
 [[slide25]]
 [.topic.source]
-== Javascript API
+== Javascript WebSocket API example
 
 [source,javascript]
 ----
@@ -604,14 +603,15 @@ SLIDE 25 : Javascript API
 
 [[slide26]]
 [.topic]
-== Java API - JSR356
+== Java API for WebSocket - JSR356
 
-[.incremental]
-* API for WebSocket [detail]#Server and Client Endpoint#
-** Annotated: [detail]#`@ServerEndpoint`, `@ClientEndpoint`#
-** Programmatic: [detail]#`Endpoint`#
-** WebSocket opening handshake negotiation
-* LIfecycle callback methods
+* -> Server and Client Endpoint
+** 'Annotated' [detail]#`@ServerEndpoint` `@ClientEndpoint`#
+** 'Programmatic' [detail]#`Endpoint`#
+* -> Send and consume messages
+** 'all types' [detail]#`text, binary or control msg`#
+** 'as Java Objects' [detail]#`Encoders Decoders`#
+** send 'synchronously'  'asynchronously' 
 
 [NOTE.speaker]
 ====

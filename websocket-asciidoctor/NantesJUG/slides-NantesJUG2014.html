@@ -1,0 +1,274 @@
+<!DOCTYPE html><html lang="en" class="aspect-16-9"><head><meta charset="UTF-8" /><meta name="generator" content="Asciidoctor 1.5.0.preview.1, dzslides backend" /><title>Quand WebSocket rencontre Asciidoctor</title><meta name="author" content="Maxime GREAU" /><meta name="copyright" content="CC BY-SA 2.0" /><meta name="presdate" content="Feb 17, 2014" /><link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700,200,300" /><link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css" /><link rel="stylesheet" href="./dzslides/themes/highlight/monokai.css" /><link rel="stylesheet" href="./dzslides/themes/style/tomorrow.css" /><style>section:not(.topic) > h2 { display: none;}</style><link rel="stylesheet" href="./dzslides/core/dzslides.css" /><link rel="stylesheet" href="./dzslides/themes/transition/fade.css" /><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['\\(','\\)']],
+    displayMath: [['\\[','\\]']],
+    ignoreClass: 'nomath|nolatexmath'
+  },
+  asciimath2jax: {
+    delimiters: [['\\$','\\$']],
+    ignoreClass: 'nomath|noasciimath'
+  }
+});</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script><script type="text/javascript">document.addEventListener('DOMContentLoaded', MathJax.Hub.TypeSet)</script></head><body id="websocket-asciidoctor"><section class="title"><h1>Quand <em>WebSocket</em> rencontre <em>Asciidoctor</em></h1><footer><span class="author">Maxime GREAU</span> <span class="email"><a href="http://mgreau.com">@mgreau</a></span><span class="hashtag">#websocket #asciidoctor</span></footer></section><section><ul><li>Java EE 7</li><li>WebSocket<ul><li>Protocole</li><li>Javascript API / Java API (JSR 356)</li></ul></li><li>Asciidoctor</li><li>Editeur collaboratif en temps réél pour Asciidoc</li></ul></section>
+<section><p class="statement"><strong>Java EE 7</strong>
+Sortie en Juin 2013 - 4 nouvelles JSRs</p>
+<img class="pull-right" src="images/javaee7_intro.png" alt="javaee7 intro" /></section>
+<section class="topic"><h2>JEE n&#8217;existe pas ! <strong>Java EE ou EE</strong></h2><img class="middle stretch-y" src="images/javaee_no_jee.png" alt="javaee no jee" /></section>
+<section class="topic"><h2>J2EE c&#8217;est l&#8217;histoire !</h2><img class="middle stretch-y" src="images/javaee_history.png" alt="javaee history" /></section>
+<section class="topic"><h2>Java EE 7 - Spécifications</h2><img class="middle stretch-y" src="images/javaee_overview.png" alt="javaee overview" />
+<details><details open=""><summary>Notes</summary><p>Java EE 7 propose toujours de simplifier le travail du développeur avec 3 objectifs :</p>
+<ul><li>s’interfacer avec HTML5 (WebSocket API, JSON-P API, JAX-RS)</li><li>avoir une meilleure productivité (nouvelles annotations, moins de code inutile, meilleure cohésion entre JSRs)</li><li>répondre aux besoins des entreprises (Batch API, JMS API 2.0)</li><li>4 nouvelles spécifications : <strong><code>Java API for WebSocket 1.0</code></strong>, <strong><code>Java API for JSON Processing 1.0</code></strong> , <strong><code>Batch Applications 1.0</code></strong> et <strong><code>Concurrency Utilities for Java EE 1.0</code></strong></li><li>3 spécifications avec une mise à jour majeure : <strong><code>JMS 2.0</code></strong>, <strong><code>JAX-RS 2.0</code></strong> et <strong><code>EL 3.0</code></strong></li><li>ainsi que 7 spécifications mises à jour dans une version mineure : <strong><code>JPA 2.1</code></strong>, <strong><code>Servlet 3.1</code></strong>, <strong><code>EJB 3.2</code></strong>, <strong><code>CDI 1.1</code></strong>, <strong><code>JSF 2.2</code></strong> et <strong><code>Bean Validation 1.1</code></strong></li></ul></details></details></section>
+<section><p class="statement"><strong>WebSocket</strong><br />
+Protocole - Javascript API - Java API (JSR 356)</p></section>
+<section class="topic"><h2>HTTP</h2><ul><li>Half-duplex</li><li>Verbeux</li><li>Hacks pour faire du "server push"</li></ul>
+<details><details open=""><summary>Notes</summary><ul><li>créé il y a 20 ans</li><li>Half-duplex : requête / réponse pattern, client attend la réponse du serveur</li><li>verbose : bcp de headers HTTP (navigateurs, serveurs app) même pour simple hello world</li><li>Hacks for server push : pooling, long pooling, streaming</li></ul></details></details></section>
+<section><blockquote><p>WebSocket is a <em>full-duplex</em> <em>bi-directional</em> protocol, over a <em>Single TCP Connection</em>.</p><br /><cite>Arun Gupta (RedHat)</cite></blockquote>
+<details><details open=""><summary>Notes</summary><ul><li>basé sur <strong><code>1 unique connexion TCP entre 2 peers</code></strong> (en HTTP chaque requête/réponse necessite une nouvelle connexion TCP)</li><li><strong><code>bi-directionnel</code></strong> : le client peut envoyer un message au serveur et le serveur peut envoyer un message au client</li><li><strong><code>full-duplex</code></strong> : le client peut envoyer plusieurs messages vers le serveur et le serveur vers le client sans attendre de réponse l&#8217;un de l&#8217;autre</li></ul></details></details></section>
+<section><img class="middle stretch-y" src="images/websocket_protocol.svg" alt="websocket protocol" />
+<details><details open=""><summary>Notes</summary><p>le <strong>protocole WebSocket fonctionne en 2 phases</strong> nommées :</p>
+<ol class="arabic"><li><strong><code>handshake</code></strong></li><li><strong><code>data transfer</code></strong></li></ol>
+<p>1 <strong>unique échange requête/réponse HTTP</strong> entre l&#8217;initiateur de la connexion (peer client)  et le peer serveur. Cet échange HTTP est spécifique car il utilise la notion {link-rfc2616-upgrade}[<strong>d&#8217;Upgrade, définie dans la spécification HTTP</strong>.]<br />
+Le principe est simple : <strong>l&#8217;Upgrade HTTP</strong> permet au client de communiquer avec le serveur pour lui demander de changer de protocole de communication et ainsi faire en sorte que le client et le serveur utilisent un protocole autre que HTTP pour discuter.</p></details></details></section>
+<section class="topic source"><h2>Requête HTTP WebSocket Handshake !</h2><div class="listingblock"><pre class="highlight"><code class="text">GET /usopen/matches/1234 HTTP/1.1     <i class="conum" data-value="1"></i><b>(1)</b>
+Host: wildfly-mgreau.rhcloud.com:8000  <i class="conum" data-value="2"></i><b>(2)</b>
+Upgrade: websocket  <i class="conum" data-value="3"></i><b>(3)</b>
+Connection: Upgrade <i class="conum" data-value="4"></i><b>(4)</b>
+Origin: http://wildfly-mgreau.rhcloud.com
+Sec-WebSocket-Key:0EK7XmpTZL341oOh7x1cDw==
+Sec-WebSocket-Version:13</code></pre></div>
+<div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td>Methode HTTP GET et version 1.1 obligatoires</td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td>Host utilisé pour la connexion WebSocket</td></tr><tr><td><i class="conum" data-value="3"></i><b>3</b></td><td>Demande d&#8217;Upgrade vers le protocole WebSocket</td></tr><tr><td><i class="conum" data-value="4"></i><b>4</b></td><td>Demande d&#8217;Upgrade HTTP pour changer de protocole</td></tr></table></div>
+<details><details open=""><summary>Notes</summary><ul><li>Expliquer le WebSocket key (SHA1)
+*
+*</li></ul></details></details></section>
+<section class="topic source"><h2>Réponse HTTP WebSocket Handshake !</h2><div class="listingblock"><pre class="highlight"><code class="text">HTTP/1.1 101 Switching Protocols <i class="conum" data-value="1"></i><b>(1)</b>
+Connection:Upgrade
+Sec-WebSocket-Accept:SuQ5/hh0kStSr6oIzDG6gRfTx2I=
+Upgrade:websocket <i class="conum" data-value="2"></i><b>(2)</b></code></pre></div>
+<div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td>Code HTTP 101, le serveur est compatible et accepte le changement de protocole</td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td>L&#8217;upgrade vers le protocole WebSocket est accepté</td></tr></table></div>
+<details><details open=""><summary>Notes</summary><p>Expliquer le WebSocket Accept (SHA1)</p></details></details></section>
+<section class="topic source lhs"><h2>WebSocket Javascript API</h2><div class="listingblock"><pre class="highlight"><code class="javascript">[Constructor(DOMString url, optional (DOMString or DOMString[]) protocols)]
+interface WebSocket : EventTarget {
+  readonly attribute DOMString url;
+
+  // ready state
+  const unsigned short CONNECTING = 0;
+  const unsigned short OPEN = 1;
+  const unsigned short CLOSING = 2;
+  const unsigned short CLOSED = 3;
+  readonly attribute unsigned short readyState;
+  readonly attribute unsigned long bufferedAmount;
+
+  // networking
+           attribute EventHandler onopen;
+           attribute EventHandler onerror;
+           attribute EventHandler onclose;
+  readonly attribute DOMString extensions;
+  readonly attribute DOMString protocol;
+  void close([Clamp] optional unsigned short code, optional DOMString reason);
+
+  // messaging
+           attribute EventHandler onmessage;
+           attribute DOMString binaryType;
+  void send(DOMString data);
+  void send(Blob data);
+  void send(ArrayBuffer data);
+  void send(ArrayBufferView data);
+};</code></pre></div>
+<details><details open=""><summary>Notes</summary><ul><li>un attribut pour l&#8217;URL de connexion au server Endpoint (<code>url</code>)</li><li>un attribut sur l&#8217;état de la connexion (<code>readyState</code> : CONNECTING, OPEN, CLOSING, CLOSED)</li><li>des <strong>Event-Handler (gestionnaire d&#8217;évènement)</strong> pour s&#8217;adapter aux méthodes du cycle de vie des WebSocket, par exemple :<ul><li>l&#8217;Event-Handler <code>onopen</code> est appelé lorsqu&#8217;une nouvelle connexion est initiée</li><li>l&#8217;Event-Handler <code>onerror</code> est appelé lorsqu&#8217;une erreur est reçue pendant la communication</li><li>l&#8217;Event-Handler <code>onmessage</code> est appelé lorsqu&#8217;un message est reçu</li></ul></li><li>les méthodes (<code>send(DOMString data)</code>, <code>send(Blob data)</code>) avec lesquelles il est possible d&#8217;envoyer différents types de flux (texte, binaire) vers le serveur Endpoint</li></ul></details></details></section>
+<section class="topic source lhs"><h2>WebSocket Javascript exemple</h2><div class="listingblock"><pre class="highlight"><code class="javascript">var wsUri = "ws://echo.websocket.org/";
+function testWebSocket() {
+
+	websocket = new WebSocket(wsUri);
+	websocket.onopen = function(evt) { onOpen(evt) };
+	websocket.onclose = function(evt) { onClose(evt) };
+	websocket.onmessage = function(evt) { onMessage(evt) };
+	websocket.onerror = function(evt) { onError(evt) }; }
+}
+function onOpen(evt) {
+	writeToScreen("CONNECTED");
+	doSend("WebSocket rocks");
+}
+function onClose(evt) {
+	writeToScreen("DISCONNECTED");
+}
+function onMessage(evt) {
+	writeToScreen('&lt;span style="color: blue;"&gt;RESPONSE: ' + evt.data+'&lt;/span&gt;');
+	websocket.close();
+}
+function onError(evt) {
+	writeToScreen('&lt;span style="color: red;"&gt;ERROR:&lt;/span&gt; ' + evt.data);
+}
+function doSend(message) {
+	writeToScreen("SENT: " + message);
+	websocket.send(message);
+}</code></pre></div></section>
+<section class="topic"><h2>WebSocket Java API (JSR 356)</h2><ul><li>API pour <strong>WebSocket Endpoint</strong></li><li>approche par <strong>annotation Java</strong> ou par programmation</li><li>gestion des sessions WebSocket</li><li>Java EE <strong>Web Profile</strong></li></ul>
+<details><details open=""><summary>Notes</summary><ol class="arabic"><li><strong>WebSocket Endpoint</strong> (serveur ou client)</li><li>approche par <strong>annotation Java</strong> ou par programmation</li><li><strong>envoyer et de consommer des messages</strong> de contrôles, textuels ou binaires via ce protocole<ol class="loweralpha"><li>de gérer le message en tant que message complet ou par une séquence de messages partiels</li><li>envoyer ou recevoir les messages en tant qu&#8217;objets Java (notion d&#8217;<strong>encoders/decoders</strong>)</li><li>envoyer les messages <strong>en synchrone ou en asynchrone</strong></li></ol></li><li>la configuration et la <strong>gestion des sessions WebSocket</strong></li><li>Java EE <strong>Web Profile</strong></li></ol></details></details></section>
+<section class="topic source lhs"><h2>WebSocket Java API (JSR 356) : Server Endpoint</h2><div class="listingblock"><pre class="highlight"><code class="java">import javax.websocket.OnMessage;
+import javax.websocket.ServerEndpoint;
+
+@ServerEndpoint("/echo") <i class="conum" data-value="1"></i><b>(1)</b>
+public class EchoServer {
+
+	@OnMessage <i class="conum" data-value="2"></i><b>(2)</b>
+	public String handleMessage(String message){
+		return "Thanks for the message: " + message;
+	}
+
+}</code></pre></div>
+<div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td>L&#8217;annotation @ServerEndpoint transforme le POJO en WebSocket Endpoint, l&#8217;attribut <strong>value</strong> est obligatoire afin de préciser l&#8217;URI d&#8217;accès à cet Endpoint</td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td>la méthode handleMessage sera évoquée lors de chaque message reçu</td></tr></table></div></section>
+<section><table class="tableblock frame-all grid-all" style="width: 100%"><colgroup><col style="width: 50%" /><col style="width: 50%" /></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">@ServerEndpoint</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Déclare un Server Endpoint</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">@ClientEndpoint</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Déclare un Client Endpoint</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">@OnOpen</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Ouverture de la connexion</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">@OnMessage</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Réception d&#8217;un message</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">@OnError</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Evenement lors d&#8217;une erreur</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">@OnClose</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Clôture de la connexion</p></td></tr></tbody></table>
+<details><details open=""><summary>Notes</summary><p>Attributs de l&#8217;annotation <code>@ServerEndpoint</code>  :</p>
+<ul><li>value:: URI relative ou URI template (ex: "/echo", "/chat/{subscriver-level}")</li><li>decoders:: liste de noms de classes utilisées pour décoder les messages entrants</li><li>encoders:: liste de noms de classes utilisées pour encoder les messages sortants</li><li>subprotocols:: liste de sous-protocoles autorisés (ex: <a href="http://wamp.ws)">http://wamp.ws)</a></li></ul></details></details></section>
+<section><img class="middle stretch-y" src="images/websocket_demo_usopen.png" alt="websocket demo usopen" /></section>
+<section><ul><li><a href="http://tools.ietf.org/html/rfc6455">RFC 6455: The WebSocket Protocol</a> - Spécification IETF</li><li><a href="http://w3.org/TR/websockets/">W3C: The WebSocket API</a> - Spécification W3C (Candidate Recommandation)</li><li><a href="http://jcp.org/en/jsr/detail?id=356">JSR 356: Java API for WebSocket Protocol</a> - Spécification Java</li></ul></section>
+<section><p class="statement"><strong>Asciidoctor</strong><br />
+Une implémentation moderne, open source, de AsciiDoc en <span class="ruby">Ruby</span></p>
+<img class="corner" src="images/rubygems.png" alt="Ruby gem" width="200" height="141" />
+<details><details open=""><summary>Notes</summary><ul><li>asciidoc créé en 2002 pour convertir du texte, écrit en python</li><li>asciidoctor, nouvelle implémentation en 2013, écrit en Ruby</li></ul></details></details></section>
+<section><p class="statement">AsciiDoc is&#8230;<br />
+lightweight <strong>markup</strong><br />
+<span class="push2">publishing <strong>toolchain</strong></span></p></section>
+<section><figure><img class="relax-y elevate" src="images/asciidoc-processor.png" alt="asciidoc processor" /><figcaption>AsciiDoc processor</figcaption></figure></section>
+<section class="topic source lhs"><h2>Comparons Asciidoc&#8230;</h2><div class="listingblock"><pre class="highlight"><code class="asciidoc">= Document Title2
+Doc Writer &lt;doc@asciidoc.org&gt;
+v1.0, 2013-01-01: Initial version
+
+http://asciidoc.org[AsciiDoc] is a lightweight markup language.
+
+This is the optional preamble (an untitled section body), useful for
+writing simple sectionless documents consisting only of a preamble.
+
+NOTE: The abstract, preface, appendix, bibliography, glossary and
+index section titles are significant (_specialsections_).
+
+== First section
+
+Document sections start at *level 1* and can nest four levels deep.
+
+* Item 1
+* Item 2
+
+[source,ruby]
+puts 'Hello, World!'</code></pre></div></section>
+<section class="topic source"><h2>&#8230;avec Markdown</h2><div class="listingblock"><pre class="highlight"><code class="markdown"># Document Title
+
+[AsciiDoc](http://asciidoc.org) is a lightweight markup language.
+
+This is the optional preamble (an untitled section body). Useful for
+writing simple sectionless documents consisting only of a preamble.
+
+&lt;div class="note"&gt;
+  &lt;h5&gt;Note&lt;/h5&gt;
+  &lt;p&gt;The abstract, preface, appendix, bibliography, glossary and index
+  section titles are significant (&lt;em&gt;specialsections&lt;/em&gt;).&lt;/p&gt;
+&lt;/div&gt;
+
+## First section
+
+Document sections start at **level 1** and can nest four levels deep.
+
+* Item 1
+* Item 2
+
+{% highlight ruby %}
+puts 'Hello, World!'
+{% endhighlight %}</code></pre></div></section>
+<section class="topic source"><h2>&#8230;avec DocBook</h2><div class="listingblock"><pre class="highlight"><code class="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+    "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd"&gt;
+&lt;book lang="en"&gt;
+    &lt;bookinfo&gt;
+        &lt;title&gt;Document Title&lt;/title&gt;
+        &lt;date&gt;2013-01-01&lt;/date&gt;
+        &lt;author&gt;
+            &lt;firstname&gt;Doc&lt;/firstname&gt;
+            &lt;surname&gt;Writer&lt;/surname&gt;
+            &lt;email&gt;doc@asciidoc.org&lt;/email&gt;
+        &lt;/author&gt;
+        &lt;authorinitials&gt;DW&lt;/authorinitials&gt;
+        &lt;revhistory&gt;
+            &lt;revision&gt;
+                &lt;revnumber&gt;1.0&lt;/revnumber&gt;
+                &lt;date&gt;2013-01-01&lt;/date&gt;
+                &lt;authorinitials&gt;DW&lt;/authorinitials&gt;
+                &lt;revremark&gt;Initial version&lt;/revremark&gt;
+            &lt;/revision&gt;
+        ...</code></pre></div></section>
+<section class="topic source"><h2>&#8230;avec DocBook (suite&#8230;)</h2><div class="listingblock"><pre class="highlight"><code class="xml">                ...
+        &lt;/revhistory&gt;
+    &lt;/bookinfo&gt;
+    &lt;preface&gt;
+        &lt;title&gt;&lt;/title&gt;
+        &lt;simpara&gt;
+           &lt;ulink url="http://asciidoc.org"&gt;AsciiDoc&lt;/ulink&gt; is a
+           lightweight markup language.
+        &lt;/simpara&gt;
+        &lt;simpara&gt;
+            This is the optional preamble (an untitled section body).
+            Useful for writing simple sectionless documents consisting
+            only of a preamble.
+        &lt;/simpara&gt;
+        &lt;note&gt;
+            &lt;simpara&gt;
+                The abstract, preface, appendix, bibliography, glossary
+                and index section titles are significant
+                (&lt;emphasis&gt;specialsections&lt;/emphasis&gt;).
+            &lt;/simpara&gt;
+                ...</code></pre></div></section>
+<section class="topic source"><h2>&#8230;avec DocBook (fin)</h2><div class="listingblock"><pre class="highlight"><code class="xml">            ...
+        &lt;/note&gt;
+    &lt;/preface&gt;
+    &lt;chapter id="_first_section"&gt;
+        &lt;title&gt;First section&lt;/title&gt;
+        &lt;simpara&gt;
+            Document sections start at &lt;emphasis role="strong"&gt;level
+            1&lt;/emphasis&gt; and can nest four levels deep.
+        &lt;/simpara&gt;
+        &lt;itemizedlist&gt;
+            &lt;listitem&gt;
+                &lt;simpara&gt;Item 1&lt;/simpara&gt;
+            &lt;/listitem&gt;
+            &lt;listitem&gt;
+                &lt;simpara&gt;Item 2&lt;/simpara&gt;
+            &lt;/listitem&gt;
+        &lt;/itemizedlist&gt;
+    &lt;/chapter&gt;
+&lt;/book&gt;</code></pre></div></section>
+<section class="topic source"><h2>Remember the AsciiDoc?</h2><div class="listingblock"><pre class="highlight"><code class="asciidoc">= Document Title2
+Doc Writer &lt;doc@asciidoc.org&gt;
+v1.0, 2013-01-01: Initial version
+
+http://asciidoc.org[AsciiDoc] is a lightweight markup language.
+
+This is the optional preamble (an untitled section body), useful for
+writing simple sectionless documents consisting only of a preamble.
+
+NOTE: The abstract, preface, appendix, bibliography, glossary and
+index section titles are significant (_specialsections_).
+
+== First section
+
+Document sections start at *level 1* and can nest four levels deep.
+
+* Item 1
+* Item 2
+
+[source,ruby]
+puts 'Hello, World!'</code></pre></div></section>
+<section><img class="pull-left" src="images/export-icon.png" alt="export icon" />
+<ul class="incremental middle pull-right"><li>HTML 5</li><li>DocBook 4.5 &amp; 5.0</li><li>PDF <span class="detail">fop, dblatex</span></li><li>eBook <span class="detail">ePub 2, mobi</span></li><li>slides <span class="detail">deck.js, dzslides, reveal.js</span></li><li>man pages</li><li><strong>custom</strong></li></ul></section>
+<section class="topic intro"><h2>Asciidoctor <strong>Java</strong></h2></section>
+<section><p><span class="image"><img src="images/jruby-logo.png" alt="JRuby" width="356" height="102" /></span></p>
+<p>The <strong class="ruby">Ruby</strong> Programming Language on the JVM</p></section>
+<section><figure><img src="images/asciidoctor-java.png" alt="AsciidoctorJ processor" /><figcaption>AsciidoctorJ</figcaption></figure></section>
+<section class="topic"><h2>Java Integration</h2><ul class="scatter incremental"><li><a href="https://github.com/asciidoctor/asciidoctor-maven-plugin">Maven Plugin</a></li><li><a href="https://github.com/asciidoctor/asciidoctor-gradle-plugin">Gradle Plugin</a></li><li><a href="https://github.com/asciidoctor/asciidoclet">Asciidoclet</a></li><li><a href="http://jbake.org/">jBake</a></li><li>&#8230;</li></ul></section>
+<section><p class="statement"><strong>Opal</strong><br />
+&#8203;<br />
+A <span class="ruby">Ruby</span> to <span class="javascript">JavaScript</span> cross compiler</p>
+<img class="top corner" src="images/opal-logo.png" alt="Opal" width="200" height="200" /></section>
+<section><figure><img class="relax-y elevate" src="images/asciidoctorjs-compile.png" alt="asciidoctorjs compile" /><figcaption>asciidoctor.js compilation</figcaption></figure></section>
+<section><figure><img src="images/github-sample.png" alt="github sample" /><figcaption class="band">AsciiDoc rendering on GitHub</figcaption></figure></section>
+<section><ul class="scatter incremental"><li><a href="https://github.com/git/git/tree/master/Documentation">Git</a> <span class="detail">User guide, man pages</span></li><li><a href="http://docs.spring.io/spring/docs/4.0.0.BUILD-SNAPSHOT/spring-framework-reference/htmlsingle">Spring Framework</a> <span class="detail">Reference</span></li><li><a href="https://github.com/cdi-spec/cdi/tree/master/spec">CDI</a> <span class="detail">Specification</span></li><li>Repositories <span class="detail">Bintray, <strong>GitHub!</strong></span></li><li>&#8230;</li></ul></section>
+<section><img class="middle stretch-y" src="images/ad-editor-0.1.0-alpha2.png" alt="ad editor 0.1.0 alpha2" /></section>
+<section class="topic ending"><h2 class="name">WebSocket met AsciiDoctor !</h2><details><details open=""><summary>Notes</summary><ul><li>Chrome : supprimer Browser Storage (IndexedDB + cache) &#8658; chrome://settings/cookies</li><li>Chrome : voir Browser Storage &#8658; Onglet Resources</li></ul></details></details>
+<p class="footer"><a href="https://github.com/mgreau/when-websocket-met-asciidoctor">source github</a> - <a href="http://twitter.com/mgreau">@mgreau</a></p></section><script src="./dzslides/core/dzslides.js"></script><script src="./dzslides/highlight/highlight.pack.js"></script><script>hljs.initHighlightingOnLoad()</script></body></html>

@@ -665,25 +665,6 @@ SLIDE 29 : Demo/Code
 ====
 
 [[slide30]]
-[.topic]
-== How does this project born ?
-
-* Back to Devoxx 2013
-
-
-[NOTE.speaker]
-====
-----
-SLIDE 30 : Demo/Code
-----
-* TODO : add twitter image
-* Back to Devoxx 2013, on the agenda you had
-** on one side you have a talk about Asciidoctor by Dan Allen : a powerful tools to write documentation 
-** on the other side you have a talk about Java EE7 and WebSocket by Arun Gupta  a powerful technology to do real-time collaborative application
-* So I had this idea : What about a cross-over between this 2 technologies => When WebSocket met Asciidoctor
-====
-
-[[slide31]]
 [.topic.recap]
 == Demo time 2/3
 
@@ -696,27 +677,27 @@ image::collaborative-editor.gif[Collaborative-editor, 600, link="{demo-url}colla
 [NOTE.speaker]
 ====
 ----
-SLIDE 31 : Demo/Code
+SLIDE 30 : Demo/Code
 ----
 
 ====
 
 
-[[slide32]]
+[[slide31]]
 [.topic]
 == How does ad-editor work ?
 
 [NOTE.speaker]
 ====
 ----
-SLIDE 32 : Archi
+SLIDE 31 : Archi
 ----
 * TODO : Add an architecture schema
 ====
 
 
 
-[[slide33]]
+[[slide32]]
 [.topic.source]
 == ad-editor : *API Javascript send Message -> Java API*
 
@@ -741,13 +722,13 @@ app.factory('WebSocketService', function($window) {
 [NOTE.speaker]
 ====
 ----
-SLIDE 33 : Javascript API
+SLIDE 32 : Javascript API
 ----
 * Here we are into an Angular service and we are using the Javascript WebSocket API in order to send the AsciiDoc to 
 the server endpoint.
 ====
 
-[[slide34]]
+[[slide33]]
 [.topic.source]
 == ad-editor : *Java API  @ServerEndpoint*
 
@@ -777,7 +758,7 @@ public class WWSMADEndpoint {
 [NOTE.speaker]
 ====
 ----
-SLIDE 34 : Java API Endpoint
+SLIDE 33 : Java API Endpoint
 ----
 * <1> : ok so first I have the @ServerEndpoint annootation with the path URI and the adoc dash id parameter
 * <2> : we define a decoder which give us the possibility to work with an POJO which will be processing into 
@@ -788,7 +769,7 @@ JSON format with JSON-P API
 ====
 
 
-[[slide35]]
+[[slide34]]
 [.topic.source]
 == ad-editor : *CDI and AsciidoctorJ*
 
@@ -816,12 +797,12 @@ public class AsciidocMessageConsumer {
 [NOTE.speaker]
 ====
 ----
-SLIDE 35 : CDI Consumer and AsciidoctorJ processor
+SLIDE 34 : CDI Consumer and AsciidoctorJ processor
 ----
 * <1> We inject the AsciidoctorProcessor instance
 ====
 
-[[slide36]]
+[[slide35]]
 [.topic.source]
 == ad-editor : *API Java send -> API Javascript Consume*
 
@@ -857,26 +838,26 @@ service.sendAdocSource = function(idAdoc, source, writer, backend) {
 [NOTE.speaker]
 ====
 ----
-SLIDE 36 : ad Endpoint
+SLIDE 35 : ad Endpoint
 ----
 * Here we are into an Angular service and we are using the Javascript WebSocket API in order to send the AsciiDoc to 
 the server endpoint.
 ====
 
-[[slide37]]
+[[slide36]]
 [.intro.topic]
 == What about a *Killer feature* ?
 
 [NOTE.speaker]
 ====
 ----
-SLIDE 37 : Killer feature
+SLIDE 36 : Killer feature
 ----
 * Ok so I'm pretty sure that you already love Asciidoctor, WebSocket and so ad-editor, am I right ?
 So do you want a killer feature ? yes, OK let's go...
 ====
 
-[[slide38]]
+[[slide37]]
 [.topic]
 == Asciidoctor *AST* Transformation
 
@@ -888,14 +869,14 @@ So do you want a killer feature ? yes, OK let's go...
 [NOTE.speaker]
 ====
 ----
-SLIDE 38 : AST
+SLIDE 37 : AST
 ----
 * Remember that I said that Asciidoctor provide an AST (Abstract syntax tree) feature. So that means that you can do a lot of things with the document
 like render only a selected part of it. Plus Asciidoctor can render slides, Plus WebSocket which provide a full-duplex bi-directional protocol...
 ====
 
 
-[[slide39]]
+[[slide38]]
 [.topic.recap]
 == Demo-time 3/3
 
@@ -909,7 +890,7 @@ SpaceID : 85
 [NOTE.speaker]
 ====
 ----
-SLIDE 39 : DEMO
+SLIDE 38 : DEMO
 ----
 * So prepare your smartphone : iphone, android, whatever
 * prepare your laptotp, your ipad
@@ -918,7 +899,7 @@ SLIDE 39 : DEMO
 video::-SfXIRHbHKU[youtube, 640, 360, start=60, options=autoplay]
 ====
 
-[[slide40]]
+[[slide39]]
 [.topic]
 == What's next for ad-editor ?
 
@@ -931,14 +912,14 @@ video::-SfXIRHbHKU[youtube, 640, 360, start=60, options=autoplay]
 [NOTE.speaker]
 ====
 ----
-SLIDE 40 : What's next
+SLIDE 39 : What's next
 ----
 * What's next for this project ?
  a lot of new features will happen, feedbacks are welcome
 ====
 
 
-[[slide41]]
+[[slide40]]
 [.topic]
 == Thanks to...
 
@@ -950,12 +931,12 @@ SLIDE 40 : What's next
 [NOTE.speaker]
 ====
 ----
-SLIDE 41 : Thanks to
+SLIDE 40 : Thanks to
 ----
 * Thanks to the guys who help me for this session : alex, dan and the asciidoctor community and to arun and tug
 ====
 
-[[slide42]]
+[[slide41]]
 [.ending]
 == Thank you
 
@@ -967,7 +948,7 @@ Maxime Gréau - Thanks
 [NOTE.speaker]
 ====
 ----
-SLIDE 42 : Thank YOU
+SLIDE 41 : Thank YOU
 ----
 * Thank you. I hope that this session 
 * We have a couple of minutes, is there any questions ?

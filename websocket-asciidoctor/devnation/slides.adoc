@@ -470,14 +470,12 @@ Java Platform, Entreprise Edition 7 (JSR 342) can be summmed up around :
 ====
 ----
 SLIDE 20 : HTTP
-
+----
 {link-rfc2616}[HTTP] is the standard protocol for the Web, it's very effective for a lot of use cases but, nevertheless, has *some drawbacks* in the case of *interactive Web applications* :
 
 * *half-duplex* : based on the request/response pattern, the client sends a request and the server performs processing before sending a response, the client is forced to wait for a server response
 * *verbose* : a lot of information are send in HTTP headers associated with the message, both in the HTTP request and in the HTTP response
 * in order to add a *server push* mode, you need to use workaround (polling, long polling, Comet/Ajax) since there is no standard
-----
-
 ====
 
 
@@ -491,9 +489,15 @@ SLIDE 20 : HTTP
 [NOTE.speaker]
 ====
 ----
-SLIDE 21 : Second part
+SLIDE 21 : Definition
 ----
+This is why the *new WebSocket protocol* offers more advanced features than HTTP because it is:
 
+* based on *+1 unique TCP connection between 2 peers+* (whereas each HTTP request/response needs a new TCP connection)
+* *+bidirectionnal+* : client can send message to server and server can also send message to client
+* *+full-duplex+* : client can send multiple messages to server, as well as server to client without waiting for a response from each other
+
+'The term *client* is used only to define the one that initiate the connection. Once the connection is established, client and server become both *peers*, with the same capacity.'
 ====
 
 [[slide22]]
@@ -509,6 +513,7 @@ SLIDE 21 : Second part
 ----
 SLIDE 22 : 3 things
 ----
+The WebSocket protocol was originally intended to be part of the HTML5 specification but as HTML5 will be officially released in 2014, the WebSocket protocol is finally set, as well as HTTP protocol, by an IETF specification, {link-rfc6455}[with RFC 6455].
 
 ====
 
@@ -523,7 +528,10 @@ image::devnation_websocket_protocol.png[lifecycle, 450]
 ----
 SLIDE 23 : Lifecycle
 ----
+As shown in the diagram below, the *WebSocket protocol works in two phases* named :
 
+. *+handshake+ (open and close)*
+. *+data transfer+*
 ====
 
 [[slide24]]
@@ -902,7 +910,6 @@ like render only a selected part of it. Plus Asciidoctor can render slides, Plus
 *Start your engine*
 
 http://tinyurl.com/webinar85
-
 SpaceID : 85
 
 [NOTE.speaker]

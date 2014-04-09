@@ -33,27 +33,24 @@ v1.0, March 24, 2014
 ----
 SLIDE 1 : Introduction
 ----
+Hello thank you for coming.
+It's an honor to be hear. Thank you to the devnation team.
+My name is Maxime Gréau.
+I'm French and I will try to do my best so you can understand me.
 
-Hi, Thanks for coming, it's a honor for me to be here. So thanks to the DevNation team.
-My name is Maxime Gréau. As you can hear, I'm a French guy and I will do my best to be well understood despite my accent.
-
-So I'm here to speak mainly about Java EE 7, WebSocket and Asciidoctor and others technologies.
-And I will show you how all those technologies can fit together in order to do a Real-time Collaborative Editor for AsciiDoc
+I'm here to speak about Java EE 7, WebSocket, Asciidoctor, and others technologies.
+I will show you, how all those technologies can fit together in order to do a Real-time Collaborative Editor for AsciiDoc.
 
 ----
 SLIDE 2 : Overview
 ----
-Just a quick overview about me.
-So I work for the French Ministry for the Economy and Finance in France.
-More precisely in the department which is in charge of calculate the retirement pension for the state officials
-http://www.economie.gouv.fr/welcome-to-the-french-ministry-for-the-economy-and-finance
+So what about me.
+I work for the French Ministry for the Economy and Finance in France.
 
-* I'm also a Book Author since I wrote a French book about Apache Maven 3 years ago.
+* I'm a Book Author, I wrote a book about Apache Maven 3
 * I'm currently reviewing a book about WidFly and Java EE 7
-* If you want to know more about me, you can check my website or follow me on twitter.
-* Near my twitter account, you can see the hastag #adeditor which is the hashtag that I used just before this session
-in order to post 2 URLs for demonstration. 
-So you can search for this hastag on twitter and you will be ready for the the demo.
+* Follow this conference live via twitter : use the hastag #adeditor.
+* I have already posted via Twitter 2 URLs for the demonstration
 
 ====
 
@@ -74,15 +71,16 @@ So you can search for this hastag on twitter and you will be ready for the the d
 ----
 SLIDE 3 : Bench of technologies
 ----
-* Here you can see all the technologies that this project is about : AsciiDoc, Asciidoctor, WebSocket Java EE 7,
-but also HTML5, Javascript and Angular. And this application is deployed to the Cloud on WildFly 8 with OpenShift.
+* Here are all the technologies that this project uses : AsciiDoc, Asciidoctor, WebSocket Java EE 7,
+ HTML5, Javascript and Angular. This application is deployed to the Cloud on WildFly 8 with OpenShift.
 ====
 
 [[slide4]]
 [.topic.recap]
-== Quick Polls
+== Quick Poll
 
-[.statement]
+image::email_only.jpg[email, 350]
+
 * Who _sent an email today_?
 
 [NOTE.speaker]
@@ -90,14 +88,17 @@ but also HTML5, Javascript and Angular. And this application is deployed to the 
 ----
 SLIDE 4 : Poll
 ----
-* OK so a quick poll, it's 5pm, who sent an email today ? hands up please. OK
+* OK so a quick poll, it's 5pm, who sent an email today ? 
+* Show of hands please !
+* OK there is a hundred emails.
 ====
 
 [[slide5]]
 [.topic.recap]
-== Quick Polls
+== Quick Poll
 
-[.statement]
+image::buried_in_paperwork.jpg[buried, 400]
+
 * Who _wrote technical documentation_ in the past two days ?
 
 [NOTE.speaker]
@@ -105,8 +106,9 @@ SLIDE 4 : Poll
 ----
 SLIDE 5 : Poll
 ----
-* Next, who wrote technical documentation in the past two days ? you put your hands up too, 
-Yeah, that's what I thougt, there is far fewer people.
+* OK, an other poll.
+* Who wrote technical documentation in the past two days ? you put your hands up too, 
+* There is five out of a hundred (5/100)
 ====
 
 
@@ -122,29 +124,21 @@ SLIDE 6 : Easy
 ----
 * HERE WE ARE !
 * Writing e-mail is easy. We do it all the time. Every day, we respond to dozens of e-mail
-and social media messages with Twitter, facebook.... That involves communication through writing. 
-That’s right, writing!
-* So Writing documentation has to be as easy as writing email !
-* So how can we write documentation on an easy way ?
-
-. References
-http://asciidoctor.org/docs/what-is-asciidoc/
+and social media messages with Twitter, facebook.... 
+* Writing documentation has to be as easy as writing email !
+* How can we write technical documentation in an easy way ?
 ====
 
 [[slide7]]
 [.intro.topic]
-== *AsciiDoc* to the rescue
+== Your solution is *AsciiDoc*
 
 [NOTE.speaker]
 ====
 ----
 SLIDE 7 : AsciiDoc
 ----
-* The idea behind lightweight markup languages such as AsciiDoc is "Forget about the layout and styling and just let the thoughts flow"  
-* AsciiDoc is being around for a while. It was created twelve years ago and based on Python.
-
-. References
-http://asciidoctor.org/docs/what-is-asciidoc/
+* AsciiDoc was created twelve years ago, based on Python.
 ====
 
 [[slide8]]
@@ -164,15 +158,8 @@ SLIDE 8 : AsciiDoc
 * So What is AsciiDoc ?
 AsciiDoc is two things:
 
-** A mature[1], plain-text format for authoring notes, articles, documentation, 
-books, ebooks, web pages, slide decks, blog posts, man pages and more.
-** A text processor and toolchain for translating AsciiDoc documents into various formats (called backends), 
-including HTML, DocBook, PDF and ePub[2].
-
-AsciiDoc provide a plain text syntax designed for humans--easy to edit, read, version and share in raw form.
-
-. References
-http://asciidoctor.org/docs/what-is-asciidoc/
+** plain-text format for notes, articles, documentation, books, ebooks, etc
+** A text processor and toolchain for translating AsciiDoc documents into various formats like PDF, HTML and others
 ====
 
 [[slide9]]
@@ -213,11 +200,9 @@ SLIDE 9 : example
 * the first thing is just the title    
 * then we have a paragraph 
 * then we have an other section 
-* AsciiDoc gets us back to what’s important: writing. 
+* AsciiDoc gets us back to what’s important: WRITING. 
 
-You can drop those angle brackets, but you don’t have to drop the semantics. 
-And it’s a syntax that a human can actually edit, efficiently.
-
+It’s a syntax that a human can actually edit and read.
 ====
 
 
@@ -225,7 +210,7 @@ And it’s a syntax that a human can actually edit, efficiently.
 [.topic]
 == &#160;
 
-"Use _AsciiDoc_ for document markup. It's actually _readable_ by humans, _easier to parse_ way more flexible than XML."
+"Use _AsciiDoc_ for document markup. It's actually _readable_ by humans, _easier to parse_ and more flexible than XML."
 -- Linus Torvald
 
 [NOTE.speaker]
@@ -233,20 +218,20 @@ And it’s a syntax that a human can actually edit, efficiently.
 ----
 SLIDE 10 : Linus Torvald
 ----
-* Why do you need to use AsciiDoc for documentation... because Linus Torvald said it.
-More seriously, AsciiDoc works because:
+* Why do you need to use AsciiDoc for documentation... because (intonation) Linus Torvald said it.
+So seriously, AsciiDoc works because:
 
 ** It’s readable
 ** It’s concise
 ** It’s comprehensive
 ** It’s extensible
-** It produces beautiful output (HTML, DocBook, PDF, ePub and more)
+** It produces beautiful output (HTML, PDF, ePub and more)
 
 * Regarding to the other office tools, AsciiDoc gives you the possibility to
 follow almost the same workflow that you have when writing code :
 ** refactor the documentation
 ** do a simple diff on documentation
-So It looks like code, it hacks like code, it can be check on the source code revising control just like code
+* It looks like code, you can check it on the source code revising control.
 
 ====
 
@@ -259,9 +244,10 @@ So It looks like code, it hacks like code, it can be check on the source code re
 ----
 SLIDE 11 : Asciidoctor
 ----
-* Remember that I said that AsciiDoc is not really that new. 
-It's Python based but there is a bright new tools out there since 2013, which is ruby based.
-There are ways to run this things inside the JVM and this is Asciidoctor.
+* Remember what I said earlyier.
+* AsciiDoc is not really new. 
+* It's Python based but theres is a new tools since 2012, which is ruby based.
+* There are ways to run it inside the JVM. This is Asciidoctor.
 ====
 
 [[slide12]]
@@ -277,7 +263,7 @@ A modern, open source implementation of AsciiDoc in [.ruby]#Ruby#
 ----
 SLIDE 12 : Asciidoctor
 ----
-* Asciidoctor is a modern open-source implementation of AsciiDoc, written in Ruby mainly by Dan Allen and the community
+* Asciidoctor is a modern open-source implementation of AsciiDoc, written in Ruby 
 * The idea is : 
 ** we have a asciidoc document
 ** we have an asciidoc processor
@@ -364,7 +350,7 @@ SLIDE 15 : Who use it
 
 [[slide16]]
 [.topic.recap]
-== Demo time 1/3
+== Demo time
 
 Asciidoctor via asciidoctor.js
 
@@ -375,6 +361,7 @@ image::ad-editor-offline.png[Offline mode feature, 500, link="{imagesdir}ad-edit
 ----
 SLIDE 16 : DEMO asciidoctor.js
 ----
+* Now let's try a demo
 * Local : prepare a server
 * Online : http://tinyurl.com/adeditor
 * DEMO :
@@ -425,9 +412,7 @@ SLIDE 17 : Resources
 ----
 SLIDE 18 : Second part
 ----
-* OK so that was the part about documentation, AsciiDoc and Asciidoctor.
-* We also had a short introduction to the asciidoc editor application on offline mode.
-* Now, let's talk about Java EE 7 and WebSocket.
+* Now we are getting into the second part of this presentation : Java EE 7 and WebSocket.
 ====
 
 [[slide19]]
@@ -692,7 +677,7 @@ SLIDE 29 : Demo/Code
 
 [[slide30]]
 [.topic.recap]
-== Demo time 2/3
+== Demo time
 
 [detail]#Asciidoctor via asciidoctorJ and WebSocket#
 
@@ -903,7 +888,7 @@ like render only a selected part of it. Plus Asciidoctor can render slides, Plus
 
 [[slide38]]
 [.topic.recap]
-== Demo-time 3/3
+== Demo-time
 http://tinyurl.com/webinar85
 
 SpaceID : 85
@@ -916,7 +901,7 @@ SpaceID : 85
 ----
 SLIDE 38 : DEMO
 ----
-* So prepare your smartphone : iphone, android, whatever
+* So prepare your smartphone : iphone, android, whatever you want
 * prepare your laptotp, your ipad
 * open this URL and connect with your name and the ID 85 and just wait
 * code asciidoctor for daft punk

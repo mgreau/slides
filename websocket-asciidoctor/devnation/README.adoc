@@ -1,9 +1,9 @@
-.copy the slides.adoc to the build directory
-.copy the images directory to the build directory
-.update the imagesdir property to ./images
-.copy the asciidoctor-backend from $JBOSS_HOME/standalone/data to the build directory
-.copy the dzslides directory from $wWSmAD_HOME/src/main/webapp/ to the build directory
-.make sure that deck2pdf is installed
+. copy the slides.asciidoc to the build directory
+. copy the images directory to the build directory
+. update the imagesdir property to ./images
+. copy the asciidoctor-backend from $JBOSS_HOME/standalone/data to the build directory
+. copy the dzslides directory from $wWSmAD_HOME/src/main/webapp/ to the build directory
+. make sure that deck2pdf is installed
 . execute the command below
 .. adoc to html
 

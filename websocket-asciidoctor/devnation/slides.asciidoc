@@ -487,7 +487,7 @@ This is why the *new WebSocket protocol* offers more advanced features than HTTP
 [.topic]
 == WebSocket
 
-* WebSocket Protocol [detail]#IETF - RF6455#
+* WebSocket Protocol [detail]#IETF - RFC6455#
 * Java API for WebSocket [detail]#JSR 356#
 * Javascript API [detail]#W3C#
 
@@ -596,7 +596,7 @@ SLIDE 25 : Javascript API
 * Send and consume messages
 ** 'all types' [detail]#`text, binary or control msg`#
 ** 'as Java Objects' [detail]#`Encoders Decoders`#
-** send 'synchronously'  'asynchronously' 
+** send 'synchronously' / 'asynchronously' 
 
 [NOTE.speaker]
 ====
@@ -639,20 +639,20 @@ SLIDE 27 : Java API sample
 [.topic]
 == Java API - JSR356 - Annotations
 
-[cols="3"] 
+[cols="2", options="autowidth"] 
 |===
-|@ServerEndpoint
-|POJO to Server Endpoint
-|
-|@ClientEndpoint
-|POJO to Client Endpoint
-|
-|@OnOpen
-|Open connection
-|
-|@OnMessage
-|Close connection
-|
+|'@ServerEndpoint' &#160;
+| POJO -> Server Endpoint
+|'@ClientEndpoint'
+| POJO -> Client Endpoint
+|'@OnOpen'
+|Intercepts open events
+|'@OnMessage'
+|Intercepts message events
+|'@OnClose'
+|Intercepts close events
+|'@OnError'
+|Intercepts error events
 |===
 
 [NOTE.speaker]
@@ -758,7 +758,7 @@ public class WWSMADEndpoint {
     Event<AsciidocMessageEvent> html5Event;             <5>
     
     @OnMessage                                                         
-    public void message(Session session, AsciidocMessage msg,            <6>
+    public void message(AsciidocMessage msg, Session session,             <6>
                                     @PathParam("adoc-id") String adocId) {
         AsciidocMessageEvent event = 
                         new AsciidocMessageEvent(session, adocId, msg);
@@ -912,7 +912,7 @@ video::-SfXIRHbHKU[youtube, 640, 360, start=60, options=autoplay]
 [.topic]
 == What's next for ad-editor ?
 
-* Github worflow
+* Github workflow
 * PDF renderer
 * OAuth
 * Chat (audio, text)

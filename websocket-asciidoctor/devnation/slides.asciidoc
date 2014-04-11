@@ -33,20 +33,20 @@ v1.0, March 24, 2014
 ----
 SLIDE 1 : Introduction
 ----
-Hello thank you for coming.
-It's an honor to be hear. Thank you to the devnation team.
-My name is Maxime Gréau.
-I'm French and I will try to do my best so you can understand me.
+* Hi, thanks for coming.
+* It's an honor to be hear. Thank you to DevNation team.
+* My name is Maxime Gréau.
+* I'm French and I will do my best so you can understand me.
 
-I'm here to speak about Java EE 7, WebSocket, Asciidoctor, and others technologies.
-I will show you, how all those technologies can fit together in order to do a Real-time Collaborative Editor for AsciiDoc.
+* I'm here to speak about Java EE 7, WebSocket, Asciidoctor, and others technologies.
+* I will show you, how all those technologies can fit together in order to do a Real-time Collaborative Editor for AsciiDoc.
 
 ----
 SLIDE 2 : Overview
 ----
-So what about me.
-I work for the French Ministry for the Economy and Finance in France.
+* So what about me.
 
+* I work for the French Ministry for the Economy and Finance in France.
 * I'm a Book Author, I wrote a book about Apache Maven 3
 * I'm currently reviewing a book about WidFly and Java EE 7
 * Follow this conference live via twitter : use the hastag #adeditor.
@@ -71,8 +71,9 @@ I work for the French Ministry for the Economy and Finance in France.
 ----
 SLIDE 3 : Bench of technologies
 ----
-* Here are all the technologies that this project uses : AsciiDoc, Asciidoctor, WebSocket Java EE 7,
- HTML5, Javascript and Angular. This application is deployed to the Cloud on WildFly 8 with OpenShift.
+* Here are all the technologies that this project uses : 
+** AsciiDoc, Asciidoctor, WebSocket Java EE 7, HTML5, Javascript and Angular. 
+* This application is deployed to the Cloud on WildFly 8 with OpenShift.
 ====
 
 [[slide4]]
@@ -156,8 +157,8 @@ lightweight *markup* +
 SLIDE 8 : AsciiDoc
 ----
 * So What is AsciiDoc ?
-AsciiDoc is two things:
 
+* AsciiDoc is two things:
 ** plain-text format for notes, articles, documentation, books, ebooks, etc
 ** A text processor and toolchain for translating AsciiDoc documents into various formats like PDF, HTML and others
 ====
@@ -200,9 +201,9 @@ SLIDE 9 : example
 * the first thing is just the title    
 * then we have a paragraph 
 * then we have an other section 
-* AsciiDoc gets us back to what’s important: WRITING. 
+* AsciiDoc gets us back to what’s important: *WRITING.*
 
-It’s a syntax that a human can actually edit and read.
+* It’s a syntax that a human can actually edit and read.
 ====
 
 
@@ -218,9 +219,9 @@ It’s a syntax that a human can actually edit and read.
 ----
 SLIDE 10 : Linus Torvald
 ----
-* Why do you need to use AsciiDoc for documentation... because (intonation) Linus Torvald said it.
-So seriously, AsciiDoc works because:
+* Why do you need to use AsciiDoc for documentation... BECAUSE Linus Torvald said it.
 
+* So seriously, AsciiDoc works because:
 ** It’s readable
 ** It’s concise
 ** It’s comprehensive
@@ -231,6 +232,7 @@ So seriously, AsciiDoc works because:
 follow almost the same workflow that you have when writing code :
 ** refactor the documentation
 ** do a simple diff on documentation
+
 * It looks like code, you can check it on the source code revising control.
 
 ====
@@ -294,8 +296,8 @@ SLIDE 13 : Output
 * Asciidoctor can do HTML5, DocBook, PDF, ePub, mobi
 * Asciidoctor can do slides like this deck, can do man pages
 * and most important "anything you want"
-** you have the ability to plug in your own backend so the HTML that you get, is not the HTML that you have to have 
-**  Asciidocotor built a document Abstract Syntax Tree (AST), not to different to our source code (when we have classes and methods) 
+** you can plug in your own backend so the HTML that you get, is not the HTML that you have to have 
+**  Asciidocotor built a document Abstract Syntax Tree (AST), not too different to our source code (when we have classes and methods) 
 so you have the ability to manipulate the document and you can create whatever you want
 ====
 
@@ -314,7 +316,8 @@ so you have the ability to manipulate the document and you can create whatever y
 ----
 SLIDE 14 : Polyglot
 ----
-* The main project is asciidoctor, implemented in Ruby. asciidoctor-pdf is a native PDF renderer for AsciiDoc built with asciidoctor and prawn. AsciiDoc direct to PDF.
+* The main project is asciidoctor, implemented in Ruby. 
+** asciidoctor-pdf is a native PDF renderer for AsciiDoc built with asciidoctor and prawn. AsciiDoc direct to PDF.
 * So, ok it's Ruby,  but Ruby runs on the JVM thanks to JRuby !!
 ** There is an other project called AsciidoctorJ which is a wrapper on top of plain asciidoctor using JRUby
 so you do not need Ruby to run Asciidoctor, you just need Java
@@ -342,7 +345,7 @@ SLIDE 15 : Who use it
 ----
 * So Asciidoctor is a really new project but it's already much used, in fact we have
 ** some frameworks which generates their technical documentation with Asciidoctor like Spring, Infinispan and others
-** There are already 1 JSR which used Asciidoctor : CDI specification
+** There is already 1 JSR which used Asciidoctor : CDI specification
 ** there are also some publisher like O'Reilly (enterprise Web Book)
 ** some repositories like Github, in fact you can write your doc file like README with AsciiDoc and you will see the rendered HTML
 ====

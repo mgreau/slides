@@ -147,9 +147,12 @@ SLIDE 7 : AsciiDoc
 == &#160;
 
 [.statement]
-AsciiDoc is... +
+_AsciiDoc_ is... +
 lightweight *markup* +
 [.push2]#publishing *toolchain*#
+
+image::balloons.jpg[balloons, 170,role="pull-right"]
+
 
 [NOTE.speaker]
 ====
@@ -512,7 +515,7 @@ officially released in 2014, the WebSocket protocol is finally set, as well as H
 [.topic]
 == WebSocket Protocol lifecycle
 
-image::devnation_websocket_protocol.png[lifecycle, 450]
+image::devnation_websocket_protocol.png[lifecycle, 460, role="middle"]
 
 [NOTE.speaker]
 ====
@@ -705,7 +708,7 @@ SLIDE 30 : Demo/Code
 [.topic]
 == How does ad-editor work ?
 
-image::ad-editor-archi.png[ad-editor archi, 490, link="{demo-url}ad-editor-archi.png"]
+image::ad-editor-archi.png[ad-editor archi, 550, link="{demo-url}ad-editor-archi.png"]
 
 [NOTE.speaker]
 ====

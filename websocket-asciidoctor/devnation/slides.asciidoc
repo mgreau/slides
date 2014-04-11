@@ -400,7 +400,7 @@ CONCLUDE:
 ----
 SLIDE 17 : Resources
 ----
-* I will conclude this section with the list of resources if you want to know more about asciidoctor.
+* I conclude this section with list of resources if you want to know more about asciidoctor.
 ** so there is the website asciidoctor.org where you can find all the documentation for asciidoctor with a very complete user-manual.
 ** You will find all sources on github for asciidoctor, asciidoctor.js, asciidoctorJ and so on
 ** there is a forum and you can follow, on twitter, the guys of the asciidoctor community project if you want to know more about it.
@@ -429,17 +429,14 @@ image::javaee_overview.png[JavaEE7, 610]
 ----
 SLIDE 19 : JavaEE7
 ----
-The *Java Platform Enterprise Edition* was released in Version 7 (Java EE 7) in *June 2013*.
-In line with the two previous versions (Java EE 5 and Java EE 6) *Java EE 7* always proposes to simplify the work of the developer.
-This version decorates previous versions with 3 main objectives :
-
+* The *Java Platform Enterprise Edition* was released in Version 7 (Java EE 7) in *June 2013*.
+* *Java EE 7* always proposes to simplify the work of the developer.
 * embraces *HTML5* (WebSocket API, JSON-P API, JAX-RS)
 * provide an *even better productivity* to developer (JMS)
 * meeting *enterprise demands* (Batch API, Concurrency Utilities)
 
-Java Platform, Entreprise Edition 7 (JSR 342) can be summmed up around :
-
-* 4 newest specifications : *+Java API for WebSocket 1.0+*, *+Java API for JSON Processing 1.0+* , *+Batch Applications 1.0+* and *+Concurrency Utilities for Java EE 1.0+*
+* Java EE 7 is :
+**  4 newest specifications : *+Java API for WebSocket 1.0+*, *+Java API for JSON Processing 1.0+* , *+Batch Applications 1.0+* and *+Concurrency Utilities for Java EE 1.0+*
 * 3 specifications with major updates : *+JMS 2.0+*, *+JAX-RS 2.0+* and *+EL 3.0+*	
 * and 6 specifications with minor updates : *+JPA 2.1+*, *+Servlet 3.1+*, *+EJB 3.2+*, *+CDI 1.1+*, *+JSF 2.2+* and *+Bean Validation 1.1+*
 ====
@@ -884,8 +881,11 @@ So do you want a killer feature ? yes, OK let's go...
 ----
 SLIDE 37 : AST
 ----
-* Remember that I said that Asciidoctor provide an AST (Abstract syntax tree) feature. So that means that you can do a lot of things with the document
-like render only a selected part of it. Plus Asciidoctor can render slides, Plus WebSocket which provide a full-duplex bi-directional protocol...
+* Remember that I said that Asciidoctor provide an AST (Abstract syntax tree) feature. 
+* So that means that you can do a lot of things with the document
+like render only a selected part of it. 
+* Plus Asciidoctor can render slides, 
+* Plus; we have WebSocket which provide a full-duplex bi-directional protocol...
 ====
 
 
@@ -904,10 +904,10 @@ SpaceID : 85
 ----
 SLIDE 38 : DEMO
 ----
-* So prepare your smartphone : iphone, android, whatever you want
-* prepare your laptotp, your ipad
-* open this URL and connect with your name and the ID 85 and just wait
-* code asciidoctor for daft punk
+* Prepare your smartphone : iphone, android, whatever you have
+* Prepare your laptotp, your ipad
+* Access to this URL and connect with your name and the ID 85 and just wait
+** code asciidoctor for daft punk
 video::-SfXIRHbHKU[youtube, 640, 360, start=60, options=autoplay]
 ====
 
@@ -927,7 +927,7 @@ video::-SfXIRHbHKU[youtube, 640, 360, start=60, options=autoplay]
 SLIDE 39 : What's next
 ----
 * What's next for this project ?
- a lot of new features will happen, feedbacks are welcome
+* a lot of new features will happen like github workflow, feedbacks are welcome and pull request too
 ====
 
 
@@ -945,7 +945,7 @@ SLIDE 39 : What's next
 ----
 SLIDE 40 : Thanks to
 ----
-* Thanks to the guys who help me for this session : alex, dan and the asciidoctor community and to arun and tug
+* Thanks to some guys who help me for this presentation : alex, dan, arun and tug
 ====
 
 [[slide41]]
@@ -966,8 +966,12 @@ SLIDE 41 : Thank YOU
 * We have a couple of minutes, is there any questions ?
 
 * Questions :
-** security => like servlet protocol + wss
-** scalability => based on TCP connection so on open file limit on linux (1 Million)
+** WebSocket
+*** security => like servlet protocol + wss
+*** scalability => based on TCP connection so on open file limit on linux (1 Million)
+
+** adeditor
+*** why don't let the browser processing the asciidoc
 ====
 
 

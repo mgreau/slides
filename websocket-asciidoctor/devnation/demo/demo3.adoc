@@ -28,24 +28,24 @@ v1.0, March 24, 2014
 == HTML5 is powerful !
 
 [.middle]
-* &#160; Slides [detail]#DzSlides, deck.js#
+* &#160; HTML5 can do Slides [detail]#DzSlides, deck.js#
 
 [[slide4]]
 [.topic]
 == HTML5 is powerful !
 
 [.middle]
-* &#160; Slides [detail]#DzSlides, deck.js#
-* &#160; Audio [detail]#RFC#
+* &#160; HTML5 can do Slides [detail]#DzSlides, deck.js#
+* &#160; HTML5 can do Audio [detail]#Web Audio API / MediaStream Processing API#
 
 [[slide5]]
 [.topic]
 == HTML5 is powerful !
 
 [.middle]
-* &#160; Slides [detail]#DzSlides, deck.js#
-* &#160; Audio [detail]#RFC#
-* &#160; Video [detail]#RFC#
+* &#160; HTML5 can do Slides [detail]#DzSlides, deck.js#
+* &#160; HTML5 cand do Audio [detail]#Web Audio API / MediaStream Processing API#
+* &#160; HTML5 can do Video [detail]#RFC#
 
 
 [[slide6]]

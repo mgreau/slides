@@ -25,8 +25,8 @@ v1.0, March 24, 2014
 * IT Architect [detail]#Ministry for the Economy and Finance#
 * Author [detail]#Apache Maven (French Book)#
 * Technical Reviewer [detail]#WildFly - EE7#
-* Blog [detail]#http://mgreau.com#
-* Twitter [detail]#@mgreau# #adeditor
+* Blog [detail]#http://mgreau.com[mgreau.com]#
+* Twitter [detail]#https://twitter.com/mgreau[@mgreau] &#35;adeditor#
 
 [NOTE.speaker]
 ====
@@ -34,12 +34,12 @@ v1.0, March 24, 2014
 SLIDE 1 : Introduction
 ----
 * Hi, thanks for coming.
-* It's an honor to be hear. Thank you to DevNation team.
+* It's an honor to be here. Thank you to the DevNation team.
 * My name is Maxime Gréau.
-* I'm French and I will do my best so you can understand me.
+* I'm French, and I will do my best so you can understand me.
 
-* I'm here to speak about Java EE 7, WebSocket, Asciidoctor, and others technologies.
-* I will show you, how all those technologies can fit together in order to do a Real-time Collaborative Editor for AsciiDoc.
+* I'm here to speak about Java EE 7, WebSocket, Asciidoctor, and other technologies.
+* I will show you how all those technologies can fit together in order to do a Real-time Collaborative Editor for AsciiDoc.
 
 ----
 SLIDE 2 : Overview
@@ -47,10 +47,10 @@ SLIDE 2 : Overview
 * So what about me.
 
 * I work for the French Ministry for the Economy and Finance in France.
-* I'm a Book Author, I wrote a book about Apache Maven 3
-* I'm currently reviewing a book about WidFly and Java EE 7
-* Follow this conference live via twitter : use the hastag #adeditor.
-* I have already posted via Twitter 2 URLs for the demonstration
+* I'm a Book Author, I wrote a book about Apache Maven 3.
+* I'm currently reviewing a book about WildFly and Java EE 7.
+* Follow this conference live via twitter: use the hashtag #adeditor.
+* I have already posted via Twitter 2 URLs for the demonstration.
 
 ====
 
@@ -72,7 +72,7 @@ SLIDE 2 : Overview
 SLIDE 3 : Bench of technologies
 ----
 * Here are all the technologies that this project uses : 
-** AsciiDoc, Asciidoctor, WebSocket Java EE 7, HTML5, Javascript and Angular. 
+** AsciiDoc, Asciidoctor, WebSocket Java EE 7, HTML5, JavaScript and Angular. 
 * This application is deployed to the Cloud on WildFly 8 with OpenShift.
 ====
 
@@ -89,8 +89,8 @@ image::email_only.jpg[email, 350]
 ----
 SLIDE 4 : Poll
 ----
-* OK so a quick poll, it's 5pm, who sent an email today ? 
-* Show of hands please !
+* OK, so a quick poll. It's 5pm. Who sent an email today? 
+* Show of hands please!
 * OK there is a hundred emails.
 ====
 
@@ -100,22 +100,22 @@ SLIDE 4 : Poll
 
 image::buried_in_paperwork.jpg[buried, 400]
 
-* Who _wrote technical documentation_ in the past two days ?
+* Who _wrote technical documentation_ in the past two days?
 
 [NOTE.speaker]
 ====
 ----
 SLIDE 5 : Poll
 ----
-* OK, an other poll.
-* Who wrote technical documentation in the past two days ? you put your hands up too, 
-* There is five out of a hundred (5/100)
+* OK, another poll.
+* Who wrote technical documentation in the past two days? You put your hands up too. 
+* There is five out of a hundred (5/100).
 ====
 
 
 [[slide6]]
 [.topic.intro]
-== ``Writing documentation has to be _as easy as_ writing email !''
+== ``Writing documentation has to be _as easy as_ writing email!''
 
 
 [NOTE.speaker]
@@ -123,11 +123,11 @@ SLIDE 5 : Poll
 ----
 SLIDE 6 : Easy
 ----
-* HERE WE ARE !
+* HERE WE ARE!
 * Writing e-mail is easy. We do it all the time. Every day, we respond to dozens of e-mail
-and social media messages with Twitter, facebook.... 
-* Writing documentation has to be as easy as writing email !
-* How can we write technical documentation in an easy way ?
+and social media messages with Twitter, Facebook.... 
+* Writing documentation has to be as easy as writing email!
+* How can we write technical documentation in an easy way?
 ====
 
 [[slide7]]
@@ -139,7 +139,8 @@ and social media messages with Twitter, facebook....
 ----
 SLIDE 7 : AsciiDoc
 ----
-* AsciiDoc was created twelve years ago, based on Python.
+* AsciiDoc was created twelve years ago.
+* It was written in Python 2.
 ====
 
 [[slide8]]
@@ -159,16 +160,16 @@ image::balloons.jpg[balloons, 170,role="pull-right"]
 ----
 SLIDE 8 : AsciiDoc
 ----
-* So What is AsciiDoc ?
+* So What is AsciiDoc?
 
 * AsciiDoc is two things:
-** plain-text format for notes, articles, documentation, books, ebooks, etc
-** A text processor and toolchain for translating AsciiDoc documents into various formats like PDF, HTML and others
+** Plain-text format for notes, articles, documentation, books, e-books, etc.
+** Text processor and toolchain for translating AsciiDoc documents into various formats like PDF, HTML and others.
 ====
 
 [[slide9]]
 [.topic.source]
-== AsciiDoc : *Lightweight markup*
+== AsciiDoc: *Lightweight markup*
 
 [source, asciidoc]
 ----
@@ -215,24 +216,24 @@ SLIDE 9 : example
 == &#160;
 
 "Use _AsciiDoc_ for document markup. It's actually _readable_ by humans, _easier to parse_ and more flexible than XML."
--- Linus Torvald
+-- Linus Torvalds
 
 [NOTE.speaker]
 ====
 ----
-SLIDE 10 : Linus Torvald
+SLIDE 10 : Linus Torvalds
 ----
-* Why do you need to use AsciiDoc for documentation... BECAUSE Linus Torvald said it.
+* Why do you need to use AsciiDoc for documentation... BECAUSE Linus Torvalds said it.
 
 * So seriously, AsciiDoc works because:
 ** It’s readable
 ** It’s concise
 ** It’s comprehensive
 ** It’s extensible
-** It produces beautiful output (HTML, PDF, ePub and more)
+** It produces beautiful output (HTML, PDF, EPUB and more)
 
-* Regarding to the other office tools, AsciiDoc gives you the possibility to
-follow almost the same workflow that you have when writing code :
+* Regarding the other office tools, AsciiDoc gives you the ability to
+follow almost the same workflow that you have when writing code:
 ** refactor the documentation
 ** do a simple diff on documentation
 
@@ -242,16 +243,16 @@ follow almost the same workflow that you have when writing code :
 
 [[slide11]]
 [.intro.topic]
-== What's *Asciidoctor* ?
+== What's *Asciidoctor*?
 
 [NOTE.speaker]
 ====
 ----
 SLIDE 11 : Asciidoctor
 ----
-* Remember what I said earlyier.
+* Remember what I said earlier.
 * AsciiDoc is not really new. 
-* It's Python based but theres is a new tools since 2012, which is ruby based.
+* It's Python based but there is a new tools since 2012, which is ruby based.
 * There are ways to run it inside the JVM. This is Asciidoctor.
 ====
 
@@ -268,49 +269,49 @@ A modern, open source implementation of AsciiDoc in [.ruby]#Ruby#
 ----
 SLIDE 12 : Asciidoctor
 ----
-* Asciidoctor is a modern open-source implementation of AsciiDoc, written in Ruby 
+* Asciidoctor is a modern open-source implementation of AsciiDoc, written in Ruby.
 * The idea is : 
-** we have a asciidoc document
-** we have an asciidoc processor
+** we have a AsciiDoc document
+** we have an AsciiDoc processor
 ** we put the document to the processor
-** and VOILA => it comes to HTML
+** and VOILA => it comes out as HTML
 ====
 
 
 [[slide13]]
 [.topic]
-== Output *formats* (i.e., backends)
+== Output *formats*
 
 [.incremental]
-* HTML 5
+* HTML5
 * DocBook 4.5 & 5.0
-* PDF [detail]#fop, dblatex#
-* eBook [detail]#ePub 2, mobi#
-* slides [detail]#deck.js, dzslides, reveal.js#
-* man pages
-* *custom*
+* PDF [detail]#fopub, prawn#
+* E-book [detail]#EPUB 3, KF8/MOBI#
+* Slides [detail]#deck.js, dzslides, reveal.js#
+* Man pages
+* *Custom*
 
 [NOTE.speaker]
 ====
 ----
 SLIDE 13 : Output
 ----
-* So what can Asciidoctor make ?
-* Asciidoctor can do HTML5, DocBook, PDF, ePub, mobi
-* Asciidoctor can do slides like this deck, can do man pages
+* So what can Asciidoctor make?
+* Asciidoctor can do HTML5, DocBook, PDF, EPUB, and MOBI
+* Asciidoctor can do slides like this deck, as well as man pages
 * and most important "anything you want"
 ** you can plug in your own backend so the HTML that you get, is not the HTML that you have to have 
-**  Asciidocotor built a document Abstract Syntax Tree (AST), not too different to our source code (when we have classes and methods) 
-so you have the ability to manipulate the document and you can create whatever you want
+**  Asciidoctor built a document Abstract Syntax Tree (AST), not too different to our source code (when we have classes and methods) 
+** so you have the ability to manipulate the document and you can create whatever you want
 ====
 
 [[slide14]]
 [.topic]
-== How do I *use* Asciidoctor ?
+== How do I *use* Asciidoctor?
 
 [.incremental]
-* Ruby [detail]#asciidoctor asciidoctor-pdf#
-* Java [detail]#asciidoctorJ, asciidoctor-maven-plugin#
+* Ruby [detail]#asciidoctor, asciidoctor-pdf#
+* Java [detail]#asciidoctorj, asciidoctor-maven-plugin#
 * Groovy [detail]#asciidoctor-gradle-plugin#
 * Javascript [detail]#asciidoctor.js, Chrome/Firefox extension#
 
@@ -319,38 +320,38 @@ so you have the ability to manipulate the document and you can create whatever y
 ----
 SLIDE 14 : Polyglot
 ----
-* The main project is asciidoctor, implemented in Ruby. 
-** asciidoctor-pdf is a native PDF renderer for AsciiDoc built with asciidoctor and prawn. AsciiDoc direct to PDF.
-* So, ok it's Ruby,  but Ruby runs on the JVM thanks to JRuby !!
-** There is an other project called AsciidoctorJ which is a wrapper on top of plain asciidoctor using JRUby
+* The main project is Asciidoctor, implemented in Ruby. 
+** asciidoctor-pdf is a native PDF renderer for AsciiDoc built with Asciidoctor and prawn. AsciiDoc direct to PDF.
+* So, OK, it's Ruby, but Ruby runs on the JVM thanks to JRuby!!
+** There is another project called AsciidoctorJ which is a wrapper on top of plain Asciidoctor using JRuby
 so you do not need Ruby to run Asciidoctor, you just need Java
-** And from there we can construct any other tools based on the JVM that consumes asciidoctorJ and in this case we have a maven plugin and a gradle plugin
-* You can also run Asciidoctor throught Javascript, Ruby has a transpiler call Opal. Opal transforms Ruby code into Javascript code so you can run Asciidoctor on the browser or anywhere that Javascript can be run.
-** There are also a Chrome extension and a Firefox addon
+** And from there we can construct any other tools based on the JVM that consumes AsciidoctorJ and in this case we have a maven plugin and a gradle plugin
+* You can also run Asciidoctor through JavaScript, Ruby has a transpiler call Opal. Opal transforms Ruby code into Javascript code so you can run Asciidoctor on the browser or anywhere that Javascript can be run.
+** There is also a Chrome extension and a Firefox addon
 * So we have a POLYGLOT environment here
 ====
 
 
 [[slide15]]
 [.topic]
-== *Who* is using Asciidoctor ?
+== *Who* is using Asciidoctor?
 
-* Frameworks [detail]#Spring, Infinispan#
-* JSR [detail]#CDI Specifications#
-* Publishers [detail]#O'Reilly#
-* Repositories [detail]#Github, Bintray#
+* Frameworks [detail]#Spring, Infinispan, Neo4j#
+* Standards [detail]#CDI, Java EE Labs#
+* Publishers [detail]#O'Reilly, NFJS#
+* Repositories [detail]#GitHub, Bintray#
 * and more...
 
 [NOTE.speaker]
 ====
 ----
-SLIDE 15 : Who use it
+SLIDE 15 : Who uses it
 ----
 * So Asciidoctor is a really new project but it's already much used, in fact we have
 ** some frameworks which generates their technical documentation with Asciidoctor like Spring, Infinispan and others
 ** There is already 1 JSR which used Asciidoctor : CDI specification
 ** there are also some publisher like O'Reilly (enterprise Web Book)
-** some repositories like Github, in fact you can write your doc file like README with AsciiDoc and you will see the rendered HTML
+** some repositories like GitHub, in fact you can write your doc file like README with AsciiDoc and you will see the rendered HTML
 ====
 
 
@@ -376,16 +377,17 @@ SLIDE 16 : DEMO asciidoctor.js
 .. on the top of the screen, you have the navbar which tells you if you are working online or offline
 .. in this case we are on offline mode since we just want to use Asciidoctor through asciidoctor.js, so we don't need the server to be started.
 .. on the right side, we have the HTML5 rendered view, so here is the HTML5 generated by Opal.js and asciidoctor.js
-. so let's goto the demo
+. so let's go to the demo
 .. do a drag and drop (HTML5) with the demo1.adoc
 .. render it with Alt+R
 .. change mode to "on change"
 .. add a title before the first section
-.. copy/paste source code to show higlight
+.. copy/paste source code to show highlight
 .. talk about HTML5 features like storage with indexedDB, drag and drop
 
 CONCLUDE:
-* Ok that was the demo in order to show how Asciidoctor works with asciidoctor.js and some HTML5 features like drag and drop and storage with IndexedDB.
+
+* OK that was the demo in order to show how Asciidoctor works with asciidoctor.js and some HTML5 features like drag and drop and storage with IndexedDB.
 
 ====
 
@@ -393,9 +395,9 @@ CONCLUDE:
 [.topic]
 == Asciidoctor *resources*
 
-* Website [detail]#http://asciidoctor.org (blog, user manual, writing guide...)#
-* Github [detail]#http://github.com/asciidoctor#
-* Forum [detail]#http://discuss.asciidoctor.org#
+* Website [detail]#http://asciidoctor.org[asciidoctor.org] (blog, user manual, writing guide...)#
+* Github [detail]#http://github.com/asciidoctor[github.com/asciidoctor]#
+* Forum [detail]#http://discuss.asciidoctor.org[discuss.asciidoctor.org]#
 * Twitter [detail]#@asciidoctor @mojavelinux @alexsotob @lightguardjp#
 
 [NOTE.speaker]
@@ -403,15 +405,15 @@ CONCLUDE:
 ----
 SLIDE 17 : Resources
 ----
-* I conclude this section with list of resources if you want to know more about asciidoctor.
-** so there is the website asciidoctor.org where you can find all the documentation for asciidoctor with a very complete user-manual.
-** You will find all sources on github for asciidoctor, asciidoctor.js, asciidoctorJ and so on
-** there is a forum and you can follow, on twitter, the guys of the asciidoctor community project if you want to know more about it.
+* I conclude this section with list of resources if you want to know more about Asciidoctor.
+** so there is the website asciidoctor.org where you can find all the documentation for Asciidoctor with a very complete user-manual.
+** You will find all sources on GitHub for Asciidoctor, asciidoctor.js, AsciidoctorJ and so on
+** there is a forum and you can follow, on twitter, the guys of the Asciidoctor community project if you want to know more about it.
 ====
 
 [[slide18]]
 [.intro.topic]
-== Java EE 7  *WebSocket*
+== Java EE 7 *WebSocket*
 
 [NOTE.speaker]
 ====
@@ -429,7 +431,7 @@ SLIDE 18 : Second part
 
 [[slide19]]
 [.topic]
-== Java EE 7 - *Overview*
+== Java EE 7: *Overview*
 
 image::javaee_overview.png[JavaEE7, 610]
 
@@ -464,8 +466,8 @@ SLIDE 20 : HTTP
 ** there is no way for the server to say : "hey I have some information that I want to send to you"
 * HTTP is a verbose protocol:
 ** even if you want to send a simple hello world message ; 
-** the problem is that thoses request/response are typically generated by browser and app server, and they want to send a whole bunch of information 
-* server push : server has no way to tell to client  "I have some datas and I want to push it to you"
+** the problem is that those request/response are typically generated by browser and app server, and they want to send a whole bunch of information 
+* server push : server has no way to tell to client  "I have some data and I want to push it to you"
 
 * HTTP is well but there is some limitations.
 * So for interactive Web Site, HTTP is  inefficient, wasteful and complex
@@ -477,7 +479,7 @@ SLIDE 20 : HTTP
 == &#160;
 
 "WebSocket is a _full-duplex_ _bi-directional_ protocol, over a _Single TCP Connection_."
--- Arun Gupta (RedHat)
+-- Arun Gupta, Red Hat
 
 [NOTE.speaker]
 ====
@@ -719,7 +721,7 @@ SLIDE 29 : Demo/Code
 [.topic.recap]
 == Demo time
 
-[detail]#Asciidoctor via asciidoctorJ and WebSocket#
+[detail]#Asciidoctor via AsciidoctorJ and WebSocket#
 
 http://tinyurl.com/adeditor [detail]##adeditor#
 
@@ -813,7 +815,7 @@ public class WWSMADEndpoint {
 ----
 SLIDE 33 : Java API Endpoint
 ----
-* <1> : ok so first I have the @ServerEndpoint annootation with the path URI and the adoc dash id parameter
+* <1> : OK so first I have the @ServerEndpoint annotation with the path URI and the adoc dash id parameter
 * <2> : we define a decoder which give us the possibility to work with an POJO which will be processing into 
 JSON format with JSON-P API
 * <3> : we define an encoder in order to transform the JSON that you saw in the previous slide
@@ -902,7 +904,7 @@ the server endpoint.
 ----
 SLIDE 36 : Killer feature
 ----
-* Ok so I'm pretty sure that you already love Asciidoctor, WebSocket and so ad-editor, am I right ?
+* OK so I'm pretty sure that you already love Asciidoctor, WebSocket and so ad-editor, am I right ?
 So do you want a killer feature ? yes, OK let's go...
 ====
 
@@ -944,8 +946,8 @@ SpaceID : 85
 ----
 SLIDE 38 : DEMO
 ----
-* Prepare your smartphone : iphone, android, whatever you have
-* Prepare your laptotp, your ipad
+* Prepare your smart phone : iPhone, Android, whatever you have
+* Prepare your laptop, your iPad
 * Access to this URL and connect with your name and the ID 85 and just wait
 ** code asciidoctor for daft punk
 video::-SfXIRHbHKU[youtube, 640, 360, start=60, options=autoplay]
@@ -955,7 +957,7 @@ video::-SfXIRHbHKU[youtube, 640, 360, start=60, options=autoplay]
 [.topic]
 == What's next for ad-editor ?
 
-* Github workflow
+* GitHub workflow
 * PDF renderer
 * OAuth
 * Chat (audio, text)
@@ -967,7 +969,7 @@ video::-SfXIRHbHKU[youtube, 640, 360, start=60, options=autoplay]
 SLIDE 39 : What's next
 ----
 * What's next for this project ?
-* a lot of new features will happen like github workflow, feedbacks are welcome and pull request too
+* a lot of new features will happen like GitHub workflow, feedback are welcome and pull request too
 ====
 
 
@@ -1003,7 +1005,8 @@ Maxime Gréau - @mgreau
 SLIDE 41 : Thank YOU
 ----
 * Thank you. I hope that this presentation was great.
-* We have a couple of minutes, is there any questions ?
+* We have a couple of minutes, are there any questions ?
+=======
 
 * Questions :
 ** WebSocket
@@ -1011,7 +1014,7 @@ SLIDE 41 : Thank YOU
 *** scalability => based on TCP connection so on open file limit on linux (1 Million)
 
 ** adeditor
-*** why don't let the browser processing the asciidoc
+*** why don't let the browser processing the AsciiDoc
 ====
 
 

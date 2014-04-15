@@ -419,6 +419,12 @@ SLIDE 17 : Resources
 SLIDE 18 : Second part
 ----
 * Now we are getting into the second part of this presentation : Java EE 7 and WebSocket.
+
+* The *Java Platform Enterprise Edition* was released in Version 7 (Java EE 7) in *June 2013*.
+* *Java EE 7* always proposes to simplify the work of the developer.
+* embraces *HTML5* (WebSocket API, JSON-P API, JAX-RS)
+* provide an *even better productivity* to developer (JMS)
+* meeting *enterprise demands* (Batch API, Concurrency Utilities)
 ====
 
 [[slide19]]
@@ -432,12 +438,6 @@ image::javaee_overview.png[JavaEE7, 610]
 ----
 SLIDE 19 : JavaEE7
 ----
-* The *Java Platform Enterprise Edition* was released in Version 7 (Java EE 7) in *June 2013*.
-* *Java EE 7* always proposes to simplify the work of the developer.
-* embraces *HTML5* (WebSocket API, JSON-P API, JAX-RS)
-* provide an *even better productivity* to developer (JMS)
-* meeting *enterprise demands* (Batch API, Concurrency Utilities)
-
 * Java EE 7 is :
 **  4 newest specifications : *+Java API for WebSocket 1.0+*, *+Java API for JSON Processing 1.0+* , *+Batch Applications 1.0+* and *+Concurrency Utilities for Java EE 1.0+*
 * 3 specifications with major updates : *+JMS 2.0+*, *+JAX-RS 2.0+* and *+EL 3.0+*	
@@ -484,13 +484,17 @@ SLIDE 20 : HTTP
 ----
 SLIDE 21 : Definition
 ----
-This is why the *new WebSocket protocol* offers more advanced features than HTTP because it is:
+* A very simple one line definition for WebSocket is : "...."
+* it's full duplex : because client can send to server and server to client independent of each other
+* it's bi-directional : that means a client can send a message to server and a server can send a message to client, so both ways, that's bidirectionnal protocol
+* the best part is : it is over a single TCP connection 
+** for every HTTP connection, there is a new TCP connection that is being initiated , yes there is HTTP keep alive and things like that but application can not rely on keep-alive..
 
-* based on *+1 unique TCP connection between 2 peers+* (whereas each HTTP request/response needs a new TCP connection)
-* *+bidirectionnal+* : client can send message to server and server can also send message to client
-* *+full-duplex+* : client can send multiple messages to server, as well as server to client without waiting for a response from each other
+* HTTP specification by itself define how you can upgrade a protocol.
+* it says you have a HTTP protocol, you send me a couple of headers as part of the request then I will upgraded to other HTTP protocol or other protocol
 
-'The term *client* is used only to define the one that initiate the connection. Once the connection is established, client and server become both *peers*, with the same capacity.'
+* We will use this HTTP upgrade mechanism and upgrade from HTTP to WebSocket.
+but once the HTTP connection and underline TCP connection are upgraded to a websocket is like opening a socket over the Internet. We can exchange infinite amount of messages until one of them say "I'm done, I don't want to talk anymore"
 ====
 
 [[slide22]]
@@ -506,8 +510,17 @@ This is why the *new WebSocket protocol* offers more advanced features than HTTP
 ----
 SLIDE 22 : 3 things
 ----
-The WebSocket protocol was originally intended to be part of the HTML5 specification but as HTML5 will be 
-officially released in 2014, the WebSocket protocol is finally set, as well as HTTP protocol, by an IETF specification, {link-rfc6455}[with RFC 6455].
+When we talk about WebSocket, there are 2 concepts we talk about
+- one is a protocol, the protocol by itself means how does under wire format look like.
+In WebSocket you have a protocol that is define by RFC 6455, this is about a three years old protocol now, you can search for the document and that will tell you exactly how the protocol looks like. 
+
+it define exactly how the frames look like.
+
+It's a very lean protocol, there is only a 2 byte of overhead basically says : it's text data or binary data AND then it says its a control frame or a data frame. so it's not a lot of overhead.
+
+then It also defines how the upgrade mechanism is gonna look like.
+
+- when you are building a WebSocket application, you are most likely building a web application, so W3C has define a Javascript API
 
 ====
 
@@ -613,7 +626,10 @@ SLIDE 25 : Javascript API
 ----
 SLIDE 26 : Java API
 ----
-
+*
+** take a POJO, put an annotation @ServerEndpoint
+** With programmatic endpoint, you can do Handshake negotiation
+* 
 ====
 
 [[slide27]]
@@ -642,6 +658,15 @@ public class EchoServer {
 ----
 SLIDE 27 : Java API sample
 ----
+* So let's take a look how does a very trivial example looks like.
+* I have my public class EchoServer over here and here I have a simple method which takes a parameter message, concatenate it and return a String paramter.
+* So How do I make it a WebSocket Server Endpoint ?
+** You just need to add that simple @ServerEndpoint annotation, you don't need deployment descriptor at all. Of course you nedd to specify the URI on where the endpoint is gonna be to listen, so here is the URI
+** Then when you have your server endpoint, you want to receive messages and then you want to call some of your business method and that method is being identify by adding @OnMessage annotation.
+
+* So here whenever a client calls this WebSocket Endpoint at the URI /echo, we call this businness method and it is a text payload that is being received, it is mapped to String, concatenate it and then return the response back.
+
+* We talk about that WebSocket is only one way messages, so effectively this API is allowing you to program standard Java application and under the wire, the server receive the request from client, it processes the response, generate a new message and send it from server to  client.
 
 ====
 
@@ -670,7 +695,12 @@ SLIDE 27 : Java API sample
 ----
 SLIDE 28 : JSR356 Annotations
 ----
-
+* So let's take a look at the others Annotations that are available as part of the API itself
+* of course @ServerEndpoint
+** now if you want to convert your POJO to a client Endpoint, just put the @ClientEndpoint annotation
+** the differences between thoses 2 annotations is that Server Endpoint is listening to a URL so you have to specify the URI but as a Client Endpoint doesn't listen for a request, so there is no URI parameter for @ClientEndpoint annotation 
+* We already talk about @OnMessage
+* and just like my Javascript API, I have callback handlers @OnOpen, @OnError, @OnClose.
 ====
 
 [[slide29]]
@@ -972,7 +1002,7 @@ Maxime Gréau - @mgreau
 ----
 SLIDE 41 : Thank YOU
 ----
-* Thank you. I hope that this session 
+* Thank you. I hope that this presentation was great.
 * We have a couple of minutes, is there any questions ?
 
 * Questions :

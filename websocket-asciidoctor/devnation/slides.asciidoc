@@ -398,7 +398,7 @@ CONCLUDE:
 * Website [detail]#http://asciidoctor.org[asciidoctor.org] (blog, user manual, writing guide...)#
 * Github [detail]#http://github.com/asciidoctor[github.com/asciidoctor]#
 * Forum [detail]#http://discuss.asciidoctor.org[discuss.asciidoctor.org]#
-* Twitter [detail]#@asciidoctor @mojavelinux @alexsotob @lightguardjp#
+* Twitter [detail]#@asciidoctor @mojavelinux @alexsotob @lightguardjp @carbonfray#
 
 [NOTE.speaker]
 ====
@@ -977,10 +977,11 @@ SLIDE 39 : What's next
 [.topic]
 == Thanks to...
 
-* &#160; [detail]#@alexsotob#
-* &#160; &#160; [detail]#@tgrall#
-* &#160; [detail]#@arungupta#
-* &#160; &#160; [detail]#@mojavelinux#
+* &#160; Alex Soto [detail]#@alexsotob#
+* &#160; &#160; &#160; &#160; Tugdual Grall [detail]#@tgrall#
+* &#160; Arun Gupta [detail]#@arungupta#
+* &#160; &#160; &#160; &#160; Dan Allen [detail]#@mojavelinux#
+* &#160; &#160; &#160; &#160; Sarah White [detail]#@carbonfray#
 
 [NOTE.speaker]
 ====

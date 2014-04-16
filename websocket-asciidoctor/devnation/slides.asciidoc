@@ -340,6 +340,7 @@ so you do not need Ruby to run Asciidoctor, you just need Java
 * Standards [detail]#CDI, Java EE Labs#
 * Publishers [detail]#O'Reilly, NFJS#
 * Repositories [detail]#GitHub, Bintray#
+* Languages [detail]#Groovy#
 * and more...
 
 [NOTE.speaker]
@@ -370,7 +371,6 @@ SLIDE 16 : DEMO asciidoctor.js
 ----
 * Now let's try a demo
 * Local : prepare a server
-* Online : http://tinyurl.com/adeditor
 * DEMO :
 . Present the ad-editor
 .. on the left side, you have the AsciiDoc editor based on angular-ui-ace-editor
@@ -723,7 +723,7 @@ SLIDE 29 : Demo/Code
 
 [detail]#Asciidoctor via AsciidoctorJ and WebSocket#
 
-http://tinyurl.com/adeditor [detail]##adeditor#
+http://tinyurl.com/devnation2 [detail]##adeditor#
 
 image::collaborative-editor.gif[Collaborative-editor, 500, link="{demo-url}collaborative-editor.gif"]
 
@@ -934,7 +934,7 @@ like render only a selected part of it.
 [[slide38]]
 [.topic.recap]
 == Demo-time
-http://tinyurl.com/webinar85
+http://tinyurl.com/devnation3
 
 SpaceID : 85
 

@@ -1,0 +1,71 @@
+[[when-websocket-met-asciidoctor]]
+[.topic]
+= Real-time *collaborative* *editor* for *AsciiDoc* &#160;&#160;&#160; _When WebSocket met Asciidoctor_
+Maxime GREAU <http://mgreau.com[@mgreau]>
+v1.0, March 24, 2014
+:hashtag:  #Asciidoctor #WebSocket #JavaEE7
+:copyright: CC BY-SA 2.0
+:website: http://asciidoctor.org
+:dzslides-aspect: 16-9
+:icons: font
+:dzslides-style: devnation
+:dzslides-fonts: family=Open+Sans:400,700,200,300
+:dzslides-transition: fade
+:dzslides-highlight: asciidoctor
+:language: highlight
+:source-highlighter: highlightjs
+:snippets: https://raw.github.com/mgreau/slides/master/websocket-asciidoctor/devnation/snippets
+:images_dir: https://raw.github.com/mgreau/slides/master/websocket-asciidoctor/devnation/images
+
+
+[[slide2]]
+[.intro.topic]
+== Webinar doesn't need material ?
+
+
+[[slide3]]
+[.topic]
+== HTML5 is powerful !
+
+* HTML5 can do Slides [detail]#DzSlides...#
+
+[[slide4]]
+[.topic]
+== HTML5 is powerful !
+
+* HTML5 can do Slides [detail]#DzSlides...#
+* HTML5 can do Audio [detail]#Audio API#
+
+[[slide5]]
+[.topic]
+== HTML5 is powerful !
+
+* HTML5 can do Slides [detail]#DzSlides...#
+* HTML5 can do Audio [detail]#Audio API#
+* HTML5 can do Video 
+
+
+[[slide6]]
+[.intro.topic]
+== Thanks for coming
+
+[NOTE.speaker]
+====
+* Thanks for coming
+====
+
+[[slide7]]
+[.ending]
+== Hope
+
+[NOTE.speaker]
+====
+* Hope that it was great :)
+====
+
+[[slide8]]
+[.topic]
+== Ends with video/music ?
+
+video::-SfXIRHbHKU[youtube, 640, 360, start=60, options=autoplay]
+

@@ -1,6 +1,6 @@
 [[when-websocket-met-asciidoctor]]
 = Real-time _collaborative_ editor for _AsciiDoc_
-Maxime Gréau @mgreau
+Maxime Gréau
 v1.0, Apr 16, 2014
 :hashtag: #DevNation #asciidoctor #JavaEE7
 :copyright: CC BY-SA 2.0

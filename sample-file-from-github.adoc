@@ -8,5 +8,4 @@ An introduction to http://asciidoc.org[AsciiDoc].
 * item 1
 * item 2
 
-[source,ruby]
-puts "Hello, World!"
+Let's work on it and push to GitHub.

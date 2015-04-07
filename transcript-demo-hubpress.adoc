@@ -39,7 +39,7 @@ The main goal is to show how you can quickly publish a blog post online written 
 [NOTE]
 ====
 .Prerequisite
-Take a shot with my phone before the beginning and publish it on Instagram (or take a picture a day before)
+Take a shot with my phone before the beginning and publish on Instagram (or take a picture a day before)
 ====
 
 . Go to the admin at http://mgreau.com/

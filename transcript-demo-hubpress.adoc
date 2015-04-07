@@ -1,30 +1,48 @@
 = Demo : HubPress
 
 
-* Estimated time : 7 minutes
+* Estimated time : 8 minutes
 
 == From zéro to Online AsciiDoc Blog in 3 minutes
 
 The main goal is to show how you can quickly publish a blog post online written in AsciiDoc with only a GitHub account.
 
+[IMPORTANT]
+====
+.Prerequisite
+* Be sure to have a clean github account (no my-blog repository)
+====
+
 . Show the address http://mgreau.com/my-blog with HTTP 404
 . Go to http://hubpress.io
 .. Show the website
-.. Click on the *Fork* button
+.. +Click on+ the *Fork* button
 .. Click on the Github *Fork* button
 . There is a new GitHub project in mgreau/hupress.io
 .. Click to settings
 .. Rename the project to my-blog & click on rename button
 .. Select gh-pages for the default branch
 .. Edit the file hubpress/config.json
-... add mgreau as the username
-... add my-blog as the repository name
+... enter mgreau as the username
+... enter my-blog as the repository name
 . Go to http://mgreau.com/my-blog to show the HomePage
 . Go to the admin at http://mgreau.com/my-blog/hubpress
 .. enter mgreau / pwd GitHub
 .. Create a new blog post
 .. Show the preview panel
+.. Publish the blog post
+. Go to http://mgreau.com/my-blog et VOILA :)
 
 
 == Instagram Feature
 
+[NOTE]
+====
+.Prerequisite
+Take a shot with my phone before the beginning and publish it on Instagram (or take a picture a day before)
+====
+
+. Go to the admin at http://mgreau.com/
+
+
+== Add image from GitHub issue

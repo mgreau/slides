@@ -23,7 +23,7 @@ The main goal is to show how you can quickly publish a blog post online written 
 . Go to the admin at http://mgreau.com/my-blog/hubpress
 .. enter mgreau / pwd GitHub
 .. Create a new blog post
-.. 
+.. Show the preview panel
 
 
 == Instagram Feature

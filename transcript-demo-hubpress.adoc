@@ -1,6 +1,7 @@
 = Demo : HubPress
 
 
+
 * Estimated time : 8 minutes
 
 == From zéro to Online AsciiDoc Blog in 3 minutes
@@ -20,18 +21,22 @@ The main goal is to show how you can quickly publish a blog post online written 
 .. Click on the Github *Fork* button
 . There is a new GitHub project in mgreau/hupress.io
 .. Click to settings
-.. Rename the project to my-blog & click on rename button
-.. Select gh-pages for the default branch
+.. Rename the project to my-blog-1 & click on btn:[Rename]
+.. Select gh-pages as the default branch
 .. Edit the file hubpress/config.json
 ... enter mgreau as the username
-... enter my-blog as the repository name
-. Go to http://mgreau.com/my-blog to show the HomePage
+... enter my-blog-1 as the repository name
+. Go to http://mgreau.com/my-blog-1 to show the HomePage
 . Go to the admin at http://mgreau.com/my-blog/hubpress
-.. enter mgreau / pwd GitHub
-.. Create a new blog post
+.. Login using mgreau / pwd GitHub
+.. Set the blog title to Bonjour Devoxx France and logo as http://hubpress.io/img/freeze/logo.png
+.. Create a new blog post with Jared blog post
+.. Add the 
 .. Show the preview panel
+.. Save the adoc source and view in GitHub repository
 .. Publish the blog post
 . Go to http://mgreau.com/my-blog et VOILA :)
+.. Show the published file in GitHub repository
 
 
 == Instagram Feature
@@ -46,3 +51,11 @@ Take a shot with my phone before the beginning and publish on Instagram (or take
 
 
 == Add image from GitHub issue
+Using GitHub Issues as an Image Hosting Container
+
+You can use a single issue as an image container for a blog post containing many issues by uploading multiple images as comments. Alternatively, you can use multiple issues to store individual images. Whatever works best for you, and your organization style. Watch this five minute video for a demonstration about how to use GitHub Issues and Cloud Hosting services as embed targets, and some bonus tips on using the image AsciiDoc syntax. 
+https://www.youtube.com/embed/KoaGU91qJv8 la video
+
+== Save
+
+Each you write in the editor, the post is saved in a local database with IndexedDb

@@ -1,7 +1,5 @@
 = Demo : HubPress
 
-
-
 * Estimated time : 8 minutes
 
 == From zéro to Online AsciiDoc Blog in 3 minutes
@@ -11,32 +9,35 @@ The main goal is to show how you can quickly publish a blog post online written 
 [IMPORTANT]
 ====
 .Prerequisite
-* Be sure to have a clean github account (no my-blog repository)
+* Be sure to have a clean github account (no my-blog{X} repository)
+* X is a number
 ====
 
-. Show the address http://mgreau.com/my-blog with HTTP 404
+. Show the address http://mgreau.com/my-blog{X} with HTTP 404
 . Go to http://hubpress.io
 .. Show the website
-.. +Click on+ the *Fork* button
+.. +Click on+ btn:[Fork]
 .. Click on the Github *Fork* button
 . There is a new GitHub project in mgreau/hupress.io
-.. Click to settings
-.. Rename the project to my-blog-1 & click on btn:[Rename]
-.. Select gh-pages as the default branch
+.. Click on btn:settings
+.. Rename the project to my-blog-{X} & Select *gh-pages* as the default branch
+.. click on btn:[Rename]
 .. Edit the file hubpress/config.json
 ... enter mgreau as the username
-... enter my-blog-1 as the repository name
-. Go to http://mgreau.com/my-blog-1 to show the HomePage
-. Go to the admin at http://mgreau.com/my-blog/hubpress
-.. Login using mgreau / pwd GitHub
-.. Set the blog title to Bonjour Devoxx France and logo as http://hubpress.io/img/freeze/logo.png
-.. Create a new blog post with Jared blog post
-.. Add the 
-.. Show the preview panel
+... enter my-blog-{X} as the repository name
+. Go to http://mgreau.com/my-blog-{X} to show the HomePage
+. Go to the admin at http://mgreau.com/my-blog-{X}/hubpress
+.. enter mgreau / pwd GitHub
+.. click on settings menu 
+... Set the blog title to *Bonjour Devoxx France* and logo as http://hubpress.io/img/freeze/logo.png
+.. Create a new blog post from file://hubpress-demo-post.adoc
 .. Save the adoc source and view in GitHub repository
+.. Show the preview panel
 .. Publish the blog post
-. Go to http://mgreau.com/my-blog et VOILA :)
 .. Show the published file in GitHub repository
+.. Add the video tag from file://hubpress-demo-tag-video.adoc
+. Go to http://mgreau.com/my-blog et VOILA :)
+
 
 
 == Instagram Feature

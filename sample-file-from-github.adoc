@@ -1,4 +1,4 @@
-= Hello Devoxx France
+= Hello DevNation 2015
 Doc Writer <doc@example.com>
 
 A simple http://asciidoc.org[AsciiDoc] document.

@@ -156,23 +156,23 @@ section[class=topic] h2 {
 }
 
 section.title {
-   background: url('assets/images/devnation2015-home.jpg');
+   background: url('../images/devnation2015-home.jpg');
     background-size: 100%;
 }
 
 section.topic {
-	background: url('assets/images/devnation2015-bkgd-white.jpg');
+	background: url('../images/devnation2015-bkgd-white.jpg');
 	background-size: 100%;
 }
 
 
 section.intro, section.ending {
-	background: url('assets/images/devnation2015-bkgd-blue.jpg');
+	background: url('../images/devnation2015-bkgd-blue.jpg');
   background-size: 100%;
 }
 
 section.intro2 {
-	background: url('assets/images/devnation2015-bkgd-orange.jpg');
+	background: url('../images/devnation2015-bkgd-orange.jpg');
   background-size: 100%;
 }
 
@@ -278,7 +278,7 @@ section.question p strong {
 }
 
 section.ending {
-  background: url('assets/images/devnation2015-bkgd-blue.jpg');
+  background: url('../images/devnation2015-bkgd-blue.jpg');
   background-size: 100%;
   color: #fff;
 }

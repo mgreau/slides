@@ -1,11 +1,16 @@
 = Hello DevNation 2015
 Doc Writer <doc@example.com>
+:toc:
+:toc-placement: preamble
 
 A simple http://asciidoc.org[AsciiDoc] document.
 
 == Introduction
 
+[NOTE]
 A paragraph followed by a code example from *AsciidoctorJ*.
+
+Cool
 
 .Converting an AsciiDoc String
 [source, java]

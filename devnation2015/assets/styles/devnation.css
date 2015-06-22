@@ -161,18 +161,23 @@ section.title {
 }
 
 section.topic {
+	background: url('../images/devnation2015-bkgd-white-wo-date.jpg');
+	background-size: 100%;
+}
+
+section.topic-date {
 	background: url('../images/devnation2015-bkgd-white.jpg');
 	background-size: 100%;
 }
 
 
 section.intro, section.ending {
-	background: url('../images/devnation2015-bkgd-blue.jpg');
+	background: url('../images/devnation2015-bkgd-blue-wo-date.jpg');
   background-size: 100%;
 }
 
 section.intro2 {
-	background: url('../images/devnation2015-bkgd-orange.jpg');
+	background: url('../images/devnation2015-bkgd-orange-wo-date.jpg');
   background-size: 100%;
 }
 

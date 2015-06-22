@@ -7,7 +7,8 @@ A simple http://asciidoc.org[AsciiDoc] document.
 
 A paragraph followed by a code example from *AsciidoctorJ*.
 
-Ok let's push to GitHub
+[NOTE]
+Ok let's push to GitHub, YEAH
 
 .Converting an AsciiDoc String
 [source, java]
